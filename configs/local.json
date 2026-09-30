@@ -1,0 +1,22 @@
+{
+  "database_dsn": "host=/var/run/postgresql user=admin dbname=topk_demo sslmode=disable",
+  "shards": [
+    {"id": "shard-a", "shard_id": "shard-a", "listen": "127.0.0.1:18081"},
+    {"id": "shard-b", "shard_id": "shard-b", "listen": "127.0.0.1:18082"},
+    {"id": "shard-c", "shard_id": "shard-c", "listen": "127.0.0.1:18083"},
+    {"id": "shard-d", "shard_id": "shard-d", "listen": "127.0.0.1:18084"}
+  ],
+  "coordinator": {
+    "listen": "127.0.0.1:18080",
+    "generation": "gen-fixture-001",
+    "default_k": 5,
+    "default_page_size": 4,
+    "shard_timeout_ms": 750,
+    "shards": [
+      {"id": "shard-a", "url": "http://127.0.0.1:18081"},
+      {"id": "shard-b", "url": "http://127.0.0.1:18082"},
+      {"id": "shard-c", "url": "http://127.0.0.1:18083"},
+      {"id": "shard-d", "url": "http://127.0.0.1:18084"}
+    ]
+  }
+}
