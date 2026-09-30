@@ -1,0 +1,16 @@
+{
+  "role": "combined",
+  "listen_address": "127.0.0.1:18097",
+  "database_url": "postgres://admin@/opp297_topk?host=/var/run/postgresql&sslmode=disable",
+  "bound_secret": "local-development-secret-32b",
+  "generation": "gen-fixture-v1",
+  "page_size": 3,
+  "shard_timeout": "750ms",
+  "allow_test_faults": true,
+  "shards": [
+    {"id": 0, "listen_address": "127.0.0.1:18100", "url": "http://127.0.0.1:18100/v1/shards/page"},
+    {"id": 1, "listen_address": "127.0.0.1:18101", "url": "http://127.0.0.1:18101/v1/shards/page"},
+    {"id": 2, "listen_address": "127.0.0.1:18102", "url": "http://127.0.0.1:18102/v1/shards/page"},
+    {"id": 3, "listen_address": "127.0.0.1:18103", "url": "http://127.0.0.1:18103/v1/shards/page"}
+  ]
+}
