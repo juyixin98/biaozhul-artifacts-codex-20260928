@@ -1,0 +1,46 @@
+{
+  "fixture": "/home/admin/Downloads/xinbiaozhu/opp314/b/tests/fixtures/robust_stl.json",
+  "reference_implementation": "statsmodels.tsa.seasonal.STL 0.15.0",
+  "kernel_version": "constrained-stl-numpy-1.0.0",
+  "observations": 140,
+  "checks": {
+    "fixed_period": true,
+    "fixed_seasonal_window": true,
+    "fixed_trend_window": true,
+    "fixed_low_pass_window": true,
+    "seasonal_centered": true,
+    "additive_reconstruction": true,
+    "known_outliers_zero_weighted": true,
+    "matches_reference_within_5e_10": true,
+    "finite_components": true
+  },
+  "all_passed": true,
+  "comparisons": {
+    "trend": {
+      "max_abs_difference": 1.2967404927621828e-13,
+      "mean_abs_difference": 6.4741862664569846e-15
+    },
+    "seasonal": {
+      "max_abs_difference": 6.350475700855895e-14,
+      "mean_abs_difference": 5.530804531499575e-15
+    },
+    "residual": {
+      "max_abs_difference": 6.616929226765933e-14,
+      "mean_abs_difference": 6.4007145318083806e-15
+    },
+    "robust_weights": {
+      "max_abs_difference": 2.7171320748919925e-13,
+      "mean_abs_difference": 3.5514745906033744e-14
+    }
+  },
+  "diagnostics": {
+    "seasonal_mean": 2.4583509830985608e-17,
+    "reconstruction_max_abs_error": 8.881784197001252e-16,
+    "zero_weight_count": 16,
+    "outlier_positions": [
+      24,
+      71,
+      117
+    ]
+  }
+}
