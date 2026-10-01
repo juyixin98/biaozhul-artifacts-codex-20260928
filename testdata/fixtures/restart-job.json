@@ -1,0 +1,14 @@
+{
+  "idempotency_key": "fixture-coordinator-restart",
+  "input_run_id": "fixture-restart-run-001",
+  "version": "local-1.0.0",
+  "expected_output": "RESTART DOES NOT DUPLICATE\n",
+  "shard": {
+    "ordinal": 0,
+    "key": "restart-once",
+    "input": "restart does not duplicate",
+    "behavior": {
+      "original_delay_ms": 400
+    }
+  }
+}

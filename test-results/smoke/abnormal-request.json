@@ -1,0 +1,24 @@
+{
+  "idempotency_key": "smoke-abnormal-1790691347154231955",
+  "shards": [
+    {
+      "ordinal": 0,
+      "key": "late-original",
+      "input": "late original wins",
+      "behavior": {
+        "original_delay_ms": 900,
+        "speculative_delay_ms": 20,
+        "fail_speculative": true,
+        "failure_category": "COMPUTE",
+        "failure_message": "deterministic speculative failure"
+      }
+    }
+  ],
+  "policy": {
+    "max_attempts_per_shard": 2,
+    "max_active_attempts": 4,
+    "lease_ms": 10000,
+    "speculate_after_ms": 150,
+    "heartbeat_interval_ms": 50
+  }
+}

@@ -1,0 +1,13 @@
+DROP DATABASE
+CREATE DATABASE
+{
+  "name": "abnormal",
+  "job_id": "job-689776969d198f54aa39a02ba995ae33",
+  "state": "succeeded"
+}
+{
+  "name": "normal",
+  "job_id": "job-e6928c98f103ae8d98f4e9daf3fae59a",
+  "state": "succeeded"
+}
+smoke evidence saved to test-results/smoke

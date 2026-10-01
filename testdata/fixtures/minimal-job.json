@@ -1,0 +1,42 @@
+{
+  "idempotency_key": "fixture-minimal-001",
+  "input_run_id": "fixture-run-001",
+  "version": "local-1.0.0",
+  "shards": [
+    {
+      "ordinal": 0,
+      "key": "alpha",
+      "input": "alpha\none",
+      "behavior": {
+        "delay_ms": 25,
+        "fail": false
+      },
+      "expected_output": "ALPHA\nONE\n",
+      "expected_failure_category": ""
+    },
+    {
+      "ordinal": 1,
+      "key": "beta",
+      "input": "beta\ntwo",
+      "behavior": {
+        "delay_ms": 5,
+        "fail": true,
+        "failure_category": "COMPUTE",
+        "failure_message": "synthetic beta failure"
+      },
+      "expected_output": "",
+      "expected_failure_category": "COMPUTE"
+    },
+    {
+      "ordinal": 2,
+      "key": "gamma",
+      "input": "gamma\nthree",
+      "behavior": {
+        "delay_ms": 40,
+        "fail": false
+      },
+      "expected_output": "GAMMA\nTHREE\n",
+      "expected_failure_category": ""
+    }
+  ]
+}

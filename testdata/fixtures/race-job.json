@@ -1,0 +1,14 @@
+{
+  "idempotency_key": "fixture-concurrent-publish",
+  "input_run_id": "fixture-race-run-001",
+  "version": "local-1.0.0",
+  "expected_output": "RACE PUBLISH ONCE\n",
+  "shard": {
+    "ordinal": 0,
+    "key": "race",
+    "input": "race publish once",
+    "behavior": {
+      "delay_ms": 1000
+    }
+  }
+}

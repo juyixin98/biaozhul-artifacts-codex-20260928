@@ -1,0 +1,19 @@
+{
+  "idempotency_key": "fixture-speculative-late-original",
+  "input_run_id": "fixture-speculative-run-001",
+  "version": "local-1.0.0",
+  "expected_output": "LATE ORIGINAL WINS\n",
+  "expected_failure_category": "COMPUTE",
+  "shard": {
+    "ordinal": 0,
+    "key": "late-original",
+    "input": "late original wins",
+    "behavior": {
+      "original_delay_ms": 500,
+      "speculative_delay_ms": 10,
+      "fail_speculative": true,
+      "failure_category": "COMPUTE",
+      "failure_message": "deterministic speculative failure"
+    }
+  }
+}

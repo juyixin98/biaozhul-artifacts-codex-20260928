@@ -1,0 +1,11 @@
+?   	opp300-speculative-batch/cmd/coordinator	[no test files]
+?   	opp300-speculative-batch/cmd/worker	[no test files]
+?   	opp300-speculative-batch/internal/config	[no test files]
+?   	opp300-speculative-batch/internal/coordinator	[no test files]
+?   	opp300-speculative-batch/internal/idgen	[no test files]
+?   	opp300-speculative-batch/internal/participant	[no test files]
+?   	opp300-speculative-batch/internal/protocol	[no test files]
+?   	opp300-speculative-batch/internal/scheduler	[no test files]
+?   	opp300-speculative-batch/internal/store	[no test files]
+ok  	opp300-speculative-batch/internal/artifacts	(cached)
+ok  	opp300-speculative-batch/internal/worker	(cached)
