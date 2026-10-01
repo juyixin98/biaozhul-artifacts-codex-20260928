@@ -1,0 +1,7 @@
+?   	diststats/cmd/server	[no test files]
+?   	diststats/internal/httpapi	[no test files]
+?   	diststats/internal/postgres	[no test files]
+?   	diststats/internal/protocol	[no test files]
+?   	diststats/internal/service	[no test files]
+ok  	diststats/internal/integration	1.873s
+ok  	diststats/internal/stats	(cached)

@@ -1,0 +1,239 @@
+?   	diststats/cmd/server	[no test files]
+?   	diststats/internal/httpapi	[no test files]
+?   	diststats/internal/postgres	[no test files]
+?   	diststats/internal/protocol	[no test files]
+?   	diststats/internal/service	[no test files]
+=== RUN   TestHTTPPostgresAggregationDedupDimensionAndReplay
+--- PASS: TestHTTPPostgresAggregationDedupDimensionAndReplay (0.03s)
+=== RUN   TestHTTPFailureClassesAreDistinguishable
+--- PASS: TestHTTPFailureClassesAreDistinguishable (0.54s)
+PASS
+ok  	diststats/internal/integration	0.577s
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference
+=== PAUSE TestFromRowsAndMergeAgainstExactRationalReference
+=== RUN   TestEmptyZeroWeightAndSingleObservation
+=== PAUSE TestEmptyZeroWeightAndSingleObservation
+=== RUN   TestRejectsInvalidInputAndIncompatibleDimensions
+=== PAUSE TestRejectsInvalidInputAndIncompatibleDimensions
+=== CONT  TestFromRowsAndMergeAgainstExactRationalReference
+=== CONT  TestRejectsInvalidInputAndIncompatibleDimensions
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate
+=== RUN   TestRejectsInvalidInputAndIncompatibleDimensions/bad_shape
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/sequential
+=== RUN   TestRejectsInvalidInputAndIncompatibleDimensions/weights_shape
+=== RUN   TestRejectsInvalidInputAndIncompatibleDimensions/negative_weight
+=== RUN   TestRejectsInvalidInputAndIncompatibleDimensions/non-finite_weight
+=== NAME  TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/sequential
+    stats_test.go:79: mean[0] got=1000000000001.5 want=1000000000001.5 abs_err=0.000e+00 tol=4.000e+00
+=== RUN   TestRejectsInvalidInputAndIncompatibleDimensions/non-finite_value
+=== CONT  TestEmptyZeroWeightAndSingleObservation
+=== NAME  TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/sequential
+    stats_test.go:79: population variance[0] got=1.25 want=1.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:79: sample variance[0] got=1.6666666666666667 want=1.6666666666666667 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:79: population covariance[0] got=1.25 want=1.25 abs_err=0.000e+00 tol=1.000e-07
+--- PASS: TestRejectsInvalidInputAndIncompatibleDimensions (0.00s)
+    --- PASS: TestRejectsInvalidInputAndIncompatibleDimensions/bad_shape (0.00s)
+    --- PASS: TestRejectsInvalidInputAndIncompatibleDimensions/weights_shape (0.00s)
+    --- PASS: TestRejectsInvalidInputAndIncompatibleDimensions/negative_weight (0.00s)
+    --- PASS: TestRejectsInvalidInputAndIncompatibleDimensions/non-finite_weight (0.00s)
+    --- PASS: TestRejectsInvalidInputAndIncompatibleDimensions/non-finite_value (0.00s)
+--- PASS: TestEmptyZeroWeightAndSingleObservation (0.00s)
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/left_skewed_merge_tree
+    stats_test.go:97: mean[0] got=1000000000001.5 want=1000000000001.5 abs_err=0.000e+00 tol=4.000e+00
+    stats_test.go:97: population variance[0] got=1.25 want=1.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:97: sample variance[0] got=1.6666666666666667 want=1.6666666666666667 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:97: population covariance[0] got=1.25 want=1.25 abs_err=0.000e+00 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/right_skewed_merge_tree
+    stats_test.go:106: mean[0] got=1000000000001.5 want=1000000000001.5 abs_err=0.000e+00 tol=4.000e+00
+    stats_test.go:106: population variance[0] got=1.25 want=1.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:106: sample variance[0] got=1.6666666666666667 want=1.6666666666666667 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:106: population covariance[0] got=1.25 want=1.25 abs_err=0.000e+00 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/many_tiny_shards_balanced_tree
+    stats_test.go:130: mean[0] got=1000000000001.5 want=1000000000001.5 abs_err=0.000e+00 tol=2.000e+01
+    stats_test.go:130: population variance[0] got=1.25 want=1.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: sample variance[0] got=1.6666666666666667 want=1.6666666666666667 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population covariance[0] got=1.25 want=1.25 abs_err=0.000e+00 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset/sequential
+    stats_test.go:79: mean[0] got=1000000000.5 want=1000000000.5 abs_err=0.000e+00 tol=4.000e-03
+    stats_test.go:79: mean[1] got=1000000004.5 want=1000000004.5 abs_err=0.000e+00 tol=4.000e-03
+    stats_test.go:79: population variance[0] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:79: sample variance[0] got=4.3333333995607166 want=4.333333333333333 abs_err=6.623e-08 tol=1.000e-07
+    stats_test.go:79: population variance[1] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:79: sample variance[1] got=4.3333333995607166 want=4.333333333333333 abs_err=6.623e-08 tol=1.000e-07
+    stats_test.go:79: population covariance[0] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:79: population covariance[1] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:79: population covariance[2] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:79: population covariance[3] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset/left_skewed_merge_tree
+    stats_test.go:97: mean[0] got=1000000000.5 want=1000000000.5 abs_err=0.000e+00 tol=4.000e-03
+    stats_test.go:97: mean[1] got=1000000004.5 want=1000000004.5 abs_err=0.000e+00 tol=4.000e-03
+    stats_test.go:97: population variance[0] got=3.2499999900658927 want=3.25 abs_err=9.934e-09 tol=1.000e-07
+    stats_test.go:97: sample variance[0] got=4.3333333200878572 want=4.333333333333333 abs_err=1.325e-08 tol=1.000e-07
+    stats_test.go:97: population variance[1] got=3.2499999900658927 want=3.25 abs_err=9.934e-09 tol=1.000e-07
+    stats_test.go:97: sample variance[1] got=4.3333333200878572 want=4.333333333333333 abs_err=1.325e-08 tol=1.000e-07
+    stats_test.go:97: population covariance[0] got=3.2499999900658927 want=3.25 abs_err=9.934e-09 tol=1.000e-07
+    stats_test.go:97: population covariance[1] got=3.2499999900658927 want=3.25 abs_err=9.934e-09 tol=1.000e-07
+    stats_test.go:97: population covariance[2] got=3.2499999900658927 want=3.25 abs_err=9.934e-09 tol=1.000e-07
+    stats_test.go:97: population covariance[3] got=3.2499999900658927 want=3.25 abs_err=9.934e-09 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset/right_skewed_merge_tree
+    stats_test.go:106: mean[0] got=1000000000.5 want=1000000000.5 abs_err=0.000e+00 tol=4.000e-03
+    stats_test.go:106: mean[1] got=1000000004.5 want=1000000004.5 abs_err=0.000e+00 tol=4.000e-03
+    stats_test.go:106: population variance[0] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:106: sample variance[0] got=4.3333333995607166 want=4.333333333333333 abs_err=6.623e-08 tol=1.000e-07
+    stats_test.go:106: population variance[1] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:106: sample variance[1] got=4.3333333995607166 want=4.333333333333333 abs_err=6.623e-08 tol=1.000e-07
+    stats_test.go:106: population covariance[0] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:106: population covariance[1] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:106: population covariance[2] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+    stats_test.go:106: population covariance[3] got=3.2500000496705375 want=3.25 abs_err=4.967e-08 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset/many_tiny_shards_balanced_tree
+    stats_test.go:130: mean[0] got=1000000000.5 want=1000000000.5 abs_err=0.000e+00 tol=2.000e-02
+    stats_test.go:130: mean[1] got=1000000004.5 want=1000000004.5 abs_err=0.000e+00 tol=2.000e-02
+    stats_test.go:130: population variance[0] got=3.25 want=3.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: sample variance[0] got=4.333333333333333 want=4.333333333333333 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population variance[1] got=3.25 want=3.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: sample variance[1] got=4.333333333333333 want=4.333333333333333 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population covariance[0] got=3.25 want=3.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population covariance[1] got=3.25 want=3.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population covariance[2] got=3.25 want=3.25 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population covariance[3] got=3.25 want=3.25 abs_err=0.000e+00 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions/sequential
+    stats_test.go:79: mean[0] got=3991.7848605577728 want=3991.7848605577688 abs_err=4.093e-12 tol=1.597e-08
+    stats_test.go:79: population variance[0] got=3968133442.5662603 want=3968133442.5662646 abs_err=4.292e-06 tol=1.587e-02
+    stats_test.go:79: sample variance[0] got=3976053868.5993266 want=3976053868.5993309 abs_err=4.292e-06 tol=1.587e-02
+    stats_test.go:79: population covariance[0] got=3968133442.5662603 want=3968133442.5662646 abs_err=4.292e-06 tol=1.587e-02
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions/left_skewed_merge_tree
+    stats_test.go:97: mean[0] got=3991.7848605577601 want=3991.7848605577688 abs_err=8.640e-12 tol=1.597e-08
+    stats_test.go:97: population variance[0] got=3968133442.5662656 want=3968133442.5662646 abs_err=9.537e-07 tol=1.587e-02
+    stats_test.go:97: sample variance[0] got=3976053868.5993323 want=3976053868.5993309 abs_err=1.431e-06 tol=1.587e-02
+    stats_test.go:97: population covariance[0] got=3968133442.5662656 want=3968133442.5662646 abs_err=9.537e-07 tol=1.587e-02
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions/right_skewed_merge_tree
+    stats_test.go:106: mean[0] got=3991.7848605577728 want=3991.7848605577688 abs_err=4.093e-12 tol=1.597e-08
+    stats_test.go:106: population variance[0] got=3968133442.5662603 want=3968133442.5662646 abs_err=4.292e-06 tol=1.587e-02
+    stats_test.go:106: sample variance[0] got=3976053868.5993266 want=3976053868.5993309 abs_err=4.292e-06 tol=1.587e-02
+    stats_test.go:106: population covariance[0] got=3968133442.5662603 want=3968133442.5662646 abs_err=4.292e-06 tol=1.587e-02
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions/many_tiny_shards_balanced_tree
+    stats_test.go:130: mean[0] got=3991.7848605577692 want=3991.7848605577688 abs_err=4.547e-13 tol=7.984e-08
+    stats_test.go:130: population variance[0] got=3968133442.5662646 want=3968133442.5662646 abs_err=0.000e+00 tol=7.936e-02
+    stats_test.go:130: sample variance[0] got=3976053868.5993309 want=3976053868.5993309 abs_err=0.000e+00 tol=7.936e-02
+    stats_test.go:130: population covariance[0] got=3968133442.5662646 want=3968133442.5662646 abs_err=0.000e+00 tol=7.936e-02
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights/sequential
+    stats_test.go:79: mean[0] got=99999993.006003991 want=99999993.006003991 abs_err=0.000e+00 tol=4.000e-04
+    stats_test.go:79: mean[1] got=1.0040039979940043 want=1.0040039979940041 abs_err=2.220e-16 tol=4.016e-12
+    stats_test.go:79: population variance[0] got=0.036027915925525844 want=0.036027915944148052 abs_err=1.862e-11 tol=1.000e-07
+    stats_test.go:79: sample variance[0] got=0.036027915961517727 want=0.036027915980139942 abs_err=1.862e-11 tol=1.000e-07
+    stats_test.go:79: population variance[1] got=0.016031939964080057 want=0.016031939964080061 abs_err=3.469e-18 tol=1.000e-07
+    stats_test.go:79: sample variance[1] got=0.016031939980095965 want=0.016031939980095968 abs_err=3.469e-18 tol=1.000e-07
+    stats_test.go:79: population covariance[0] got=0.036027915925525844 want=0.036027915944148052 abs_err=1.862e-11 tol=1.000e-07
+    stats_test.go:79: population covariance[1] got=0.024031927949902901 want=0.024031927956108059 abs_err=6.205e-12 tol=1.000e-07
+    stats_test.go:79: population covariance[2] got=0.024031927949902901 want=0.024031927956108059 abs_err=6.205e-12 tol=1.000e-07
+    stats_test.go:79: population covariance[3] got=0.016031939964080057 want=0.016031939964080061 abs_err=3.469e-18 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights/left_skewed_merge_tree
+    stats_test.go:97: mean[0] got=99999993.006004006 want=99999993.006003991 abs_err=1.490e-08 tol=4.000e-04
+    stats_test.go:97: mean[1] got=1.0040039979940039 want=1.0040039979940041 abs_err=2.220e-16 tol=4.016e-12
+    stats_test.go:97: population variance[0] got=0.036027915877092143 want=0.036027915944148052 abs_err=6.706e-11 tol=1.000e-07
+    stats_test.go:97: sample variance[0] got=0.036027915913084033 want=0.036027915980139942 abs_err=6.706e-11 tol=1.000e-07
+    stats_test.go:97: population variance[1] got=0.016031939964080061 want=0.016031939964080061 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:97: sample variance[1] got=0.016031939980095968 want=0.016031939980095968 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:97: population covariance[0] got=0.036027915877092143 want=0.036027915944148052 abs_err=6.706e-11 tol=1.000e-07
+    stats_test.go:97: population covariance[1] got=0.024031927933749034 want=0.024031927956108059 abs_err=2.236e-11 tol=1.000e-07
+    stats_test.go:97: population covariance[2] got=0.024031927933749034 want=0.024031927956108059 abs_err=2.236e-11 tol=1.000e-07
+    stats_test.go:97: population covariance[3] got=0.016031939964080061 want=0.016031939964080061 abs_err=0.000e+00 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights/right_skewed_merge_tree
+    stats_test.go:106: mean[0] got=99999993.006003991 want=99999993.006003991 abs_err=0.000e+00 tol=4.000e-04
+    stats_test.go:106: mean[1] got=1.0040039979940043 want=1.0040039979940041 abs_err=2.220e-16 tol=4.016e-12
+    stats_test.go:106: population variance[0] got=0.036027915925525844 want=0.036027915944148052 abs_err=1.862e-11 tol=1.000e-07
+    stats_test.go:106: sample variance[0] got=0.036027915961517727 want=0.036027915980139942 abs_err=1.862e-11 tol=1.000e-07
+    stats_test.go:106: population variance[1] got=0.016031939964080057 want=0.016031939964080061 abs_err=3.469e-18 tol=1.000e-07
+    stats_test.go:106: sample variance[1] got=0.016031939980095965 want=0.016031939980095968 abs_err=3.469e-18 tol=1.000e-07
+    stats_test.go:106: population covariance[0] got=0.036027915925525844 want=0.036027915944148052 abs_err=1.862e-11 tol=1.000e-07
+    stats_test.go:106: population covariance[1] got=0.024031927949902901 want=0.024031927956108059 abs_err=6.205e-12 tol=1.000e-07
+    stats_test.go:106: population covariance[2] got=0.024031927949902901 want=0.024031927956108059 abs_err=6.205e-12 tol=1.000e-07
+    stats_test.go:106: population covariance[3] got=0.016031939964080057 want=0.016031939964080061 abs_err=3.469e-18 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights/many_tiny_shards_balanced_tree
+    stats_test.go:130: mean[0] got=99999993.006003991 want=99999993.006003991 abs_err=0.000e+00 tol=2.000e-03
+    stats_test.go:130: mean[1] got=1.0040039979940043 want=1.0040039979940041 abs_err=2.220e-16 tol=2.008e-11
+    stats_test.go:130: population variance[0] got=0.036027915921015646 want=0.036027915944148052 abs_err=2.313e-11 tol=1.000e-07
+    stats_test.go:130: sample variance[0] got=0.036027915957007536 want=0.036027915980139942 abs_err=2.313e-11 tol=1.000e-07
+    stats_test.go:130: population variance[1] got=0.016031939964080057 want=0.016031939964080061 abs_err=3.469e-18 tol=1.000e-07
+    stats_test.go:130: sample variance[1] got=0.016031939980095968 want=0.016031939980095968 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population covariance[0] got=0.036027915921015646 want=0.036027915944148052 abs_err=2.313e-11 tol=1.000e-07
+    stats_test.go:130: population covariance[1] got=0.024031927948397255 want=0.024031927956108059 abs_err=7.711e-12 tol=1.000e-07
+    stats_test.go:130: population covariance[2] got=0.024031927948397255 want=0.024031927956108059 abs_err=7.711e-12 tol=1.000e-07
+    stats_test.go:130: population covariance[3] got=0.016031939964080057 want=0.016031939964080061 abs_err=3.469e-18 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate/sequential
+    stats_test.go:79: mean[0] got=3.8888888888888888 want=3.8888888888888888 abs_err=0.000e+00 tol=1.556e-11
+    stats_test.go:79: mean[1] got=0.88888888888888906 want=0.88888888888888884 abs_err=2.220e-16 tol=4.000e-12
+    stats_test.go:79: population variance[0] got=1.9506172839506166 want=1.9506172839506173 abs_err=6.661e-16 tol=1.000e-07
+    stats_test.go:79: sample variance[0] got=2.106666666666666 want=2.1066666666666665 abs_err=4.441e-16 tol=1.000e-07
+    stats_test.go:79: population variance[1] got=6.8395061728395072 want=6.8395061728395063 abs_err=8.882e-16 tol=1.000e-07
+    stats_test.go:79: sample variance[1] got=7.3866666666666676 want=7.3866666666666676 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:79: population covariance[0] got=1.9506172839506166 want=1.9506172839506173 abs_err=6.661e-16 tol=1.000e-07
+    stats_test.go:79: population covariance[1] got=-0.71604938271604945 want=-0.71604938271604934 abs_err=1.110e-16 tol=1.000e-07
+    stats_test.go:79: population covariance[2] got=-0.71604938271604945 want=-0.71604938271604934 abs_err=1.110e-16 tol=1.000e-07
+    stats_test.go:79: population covariance[3] got=6.8395061728395072 want=6.8395061728395063 abs_err=8.882e-16 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate/left_skewed_merge_tree
+    stats_test.go:97: mean[0] got=3.8888888888888888 want=3.8888888888888888 abs_err=0.000e+00 tol=1.556e-11
+    stats_test.go:97: mean[1] got=0.88888888888888906 want=0.88888888888888884 abs_err=2.220e-16 tol=4.000e-12
+    stats_test.go:97: population variance[0] got=1.9506172839506173 want=1.9506172839506173 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:97: sample variance[0] got=2.1066666666666665 want=2.1066666666666665 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:97: population variance[1] got=6.8395061728395055 want=6.8395061728395063 abs_err=8.882e-16 tol=1.000e-07
+    stats_test.go:97: sample variance[1] got=7.3866666666666667 want=7.3866666666666676 abs_err=8.882e-16 tol=1.000e-07
+    stats_test.go:97: population covariance[0] got=1.9506172839506173 want=1.9506172839506173 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:97: population covariance[1] got=-0.71604938271604945 want=-0.71604938271604934 abs_err=1.110e-16 tol=1.000e-07
+    stats_test.go:97: population covariance[2] got=-0.71604938271604945 want=-0.71604938271604934 abs_err=1.110e-16 tol=1.000e-07
+    stats_test.go:97: population covariance[3] got=6.8395061728395055 want=6.8395061728395063 abs_err=8.882e-16 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate/right_skewed_merge_tree
+    stats_test.go:106: mean[0] got=3.8888888888888888 want=3.8888888888888888 abs_err=0.000e+00 tol=1.556e-11
+    stats_test.go:106: mean[1] got=0.88888888888888906 want=0.88888888888888884 abs_err=2.220e-16 tol=4.000e-12
+    stats_test.go:106: population variance[0] got=1.9506172839506168 want=1.9506172839506173 abs_err=4.441e-16 tol=1.000e-07
+    stats_test.go:106: sample variance[0] got=2.1066666666666665 want=2.1066666666666665 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:106: population variance[1] got=6.8395061728395072 want=6.8395061728395063 abs_err=8.882e-16 tol=1.000e-07
+    stats_test.go:106: sample variance[1] got=7.3866666666666676 want=7.3866666666666676 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:106: population covariance[0] got=1.9506172839506168 want=1.9506172839506173 abs_err=4.441e-16 tol=1.000e-07
+    stats_test.go:106: population covariance[1] got=-0.71604938271604945 want=-0.71604938271604934 abs_err=1.110e-16 tol=1.000e-07
+    stats_test.go:106: population covariance[2] got=-0.71604938271604945 want=-0.71604938271604934 abs_err=1.110e-16 tol=1.000e-07
+    stats_test.go:106: population covariance[3] got=6.8395061728395072 want=6.8395061728395063 abs_err=8.882e-16 tol=1.000e-07
+=== RUN   TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate/many_tiny_shards_balanced_tree
+    stats_test.go:130: mean[0] got=3.8888888888888884 want=3.8888888888888888 abs_err=4.441e-16 tol=7.778e-11
+    stats_test.go:130: mean[1] got=0.8888888888888884 want=0.88888888888888884 abs_err=4.441e-16 tol=2.000e-11
+    stats_test.go:130: population variance[0] got=1.9506172839506168 want=1.9506172839506173 abs_err=4.441e-16 tol=1.000e-07
+    stats_test.go:130: sample variance[0] got=2.1066666666666665 want=2.1066666666666665 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population variance[1] got=6.8395061728395072 want=6.8395061728395063 abs_err=8.882e-16 tol=1.000e-07
+    stats_test.go:130: sample variance[1] got=7.3866666666666676 want=7.3866666666666676 abs_err=0.000e+00 tol=1.000e-07
+    stats_test.go:130: population covariance[0] got=1.9506172839506168 want=1.9506172839506173 abs_err=4.441e-16 tol=1.000e-07
+    stats_test.go:130: population covariance[1] got=-0.71604938271605001 want=-0.71604938271604934 abs_err=6.661e-16 tol=1.000e-07
+    stats_test.go:130: population covariance[2] got=-0.71604938271605001 want=-0.71604938271604934 abs_err=6.661e-16 tol=1.000e-07
+    stats_test.go:130: population covariance[3] got=6.8395061728395072 want=6.8395061728395063 abs_err=8.882e-16 tol=1.000e-07
+--- PASS: TestFromRowsAndMergeAgainstExactRationalReference (0.01s)
+    --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/sequential (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/left_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/right_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/large_offset_tiny_variance_univariate/many_tiny_shards_balanced_tree (0.00s)
+    --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset/sequential (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset/left_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset/right_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/bivariate_correlated_around_large_offset/many_tiny_shards_balanced_tree (0.00s)
+    --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions/sequential (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions/left_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions/right_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/extremely_uneven_unweighted_partitions/many_tiny_shards_balanced_tree (0.00s)
+    --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights/sequential (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights/left_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights/right_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/uneven_frequency_weights/many_tiny_shards_balanced_tree (0.00s)
+    --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate/sequential (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate/left_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate/right_skewed_merge_tree (0.00s)
+        --- PASS: TestFromRowsAndMergeAgainstExactRationalReference/imperfectly_correlated_weighted_bivariate/many_tiny_shards_balanced_tree (0.00s)
+PASS
+ok  	diststats/internal/stats	(cached)
