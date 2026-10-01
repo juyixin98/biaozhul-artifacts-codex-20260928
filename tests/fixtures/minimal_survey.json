@@ -1,0 +1,20 @@
+{
+  "description": "Hand-authored deterministic fixture. Exact zero ratings are structural non-user observations; null means missing.",
+  "observed_mean": 5.285714285714286,
+  "observed_sample_variance": 13.904761904761905,
+  "mean_filled_mean": 5.285714285714286,
+  "mean_filled_sample_variance": 9.26984126984127,
+  "mean_filled_variance_of_mean": 0.926984126984127,
+  "records": [
+    {"record_id": "nonuser-001", "age_z": -1.0, "member": 0, "used_support": 0, "contact_frequency": 0, "rating": 0},
+    {"record_id": "nonuser-002", "age_z": 0.0, "member": 0, "used_support": 0, "contact_frequency": 0, "rating": 0},
+    {"record_id": "member-003", "age_z": 0.0, "member": 1, "used_support": 1, "contact_frequency": 3, "rating": 7},
+    {"record_id": "member-004", "age_z": 1.0, "member": 1, "used_support": 1, "contact_frequency": 4, "rating": null},
+    {"record_id": "member-005", "age_z": 0.0, "member": 1, "used_support": 1, "contact_frequency": 5, "rating": 8},
+    {"record_id": "guest-006", "age_z": -1.0, "member": 0, "used_support": 1, "contact_frequency": 2, "rating": null},
+    {"record_id": "guest-007", "age_z": 0.0, "member": 0, "used_support": 1, "contact_frequency": 3, "rating": 6},
+    {"record_id": "member-008", "age_z": 1.0, "member": 1, "used_support": 1, "contact_frequency": 6, "rating": 9},
+    {"record_id": "member-009", "age_z": 0.0, "member": 1, "used_support": 1, "contact_frequency": 4, "rating": null},
+    {"record_id": "member-010", "age_z": 0.0, "member": 1, "used_support": 1, "contact_frequency": 3, "rating": 7}
+  ]
+}

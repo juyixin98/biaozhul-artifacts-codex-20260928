@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "survey-imputation-case"
+version = "0.1.0"
+description = "Synthetic survey mean imputation and multiple imputation comparison"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110",
+  "httpx>=0.27",
+  "numpy>=1.26",
+  "pydantic>=2.6",
+  "scipy>=1.11",
+  "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.setuptools.packages.find]
+where = ["src"]
