@@ -1,0 +1,28 @@
+{
+  "prior_alpha": 1.0,
+  "prior_beta": 1.0,
+  "future_n": 3,
+  "all_success_case": {
+    "successes": 10,
+    "failures": 0
+  },
+  "large_case": {
+    "successes": 1000000,
+    "failures": 2000000
+  },
+  "split_case": [
+    {"batch_id": "A", "successes": 3, "failures": 1},
+    {"batch_id": "B", "successes": 2, "failures": 4}
+  ],
+  "combined_case": {
+    "batch_id": "ALL",
+    "successes": 5,
+    "failures": 5
+  },
+  "revision": {
+    "batch_id": "A",
+    "from": {"successes": 3, "failures": 1},
+    "to": {"successes": 1, "failures": 1},
+    "expected_after_revision": {"successes": 3, "failures": 5}
+  }
+}

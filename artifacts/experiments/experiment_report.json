@@ -1,0 +1,124 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "expected": {
+        "alpha": 6.0,
+        "beta": 6.0
+      },
+      "name": "split_equals_combined_posterior",
+      "observed": {
+        "alpha": 6.0,
+        "beta": 6.0
+      },
+      "passed": true,
+      "reason": "Beta sufficient statistics are additive."
+    },
+    {
+      "max_abs_error": 0.0,
+      "name": "prediction_matches_scipy_betabinom",
+      "observed_sum": 1.0,
+      "passed": true,
+      "reason": "Reference is scipy.stats.betabinom, not app.stats."
+    },
+    {
+      "expected": {
+        "failures": 5,
+        "successes": 3
+      },
+      "name": "revision_withdraws_old_sufficient_statistics",
+      "observed": {
+        "failures": 5,
+        "successes": 3
+      },
+      "passed": true,
+      "reason": "Old active batch row is superseded and only corrected counts remain."
+    },
+    {
+      "expected_sequence": [
+        "created",
+        "batch_submitted",
+        "batch_submitted",
+        "batch_revised"
+      ],
+      "name": "revision_creates_versioned_result",
+      "observed_sequence": [
+        "created",
+        "batch_submitted",
+        "batch_submitted",
+        "batch_revised"
+      ],
+      "passed": true,
+      "reason": "Old rows remain; run sequence records created, submit, submit, revise."
+    },
+    {
+      "name": "large_counts_remain_finite",
+      "observed": {
+        "alpha": 1000001.0,
+        "beta": 2000001.0,
+        "prediction_sum": 1.0000000000000002
+      },
+      "passed": true,
+      "reason": "Posterior and full prediction are finite after large counts."
+    }
+  ],
+  "environment": {
+    "platform": "Linux-6.8.0-90-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "versions": {
+      "fastapi": "0.141.1",
+      "numpy": "2.5.3",
+      "pydantic": "2.13.5",
+      "pytest": "9.1.1",
+      "scipy": "1.18.1"
+    }
+  },
+  "fixture": {
+    "all_success_case": {
+      "failures": 0,
+      "successes": 10
+    },
+    "combined_case": {
+      "batch_id": "ALL",
+      "failures": 5,
+      "successes": 5
+    },
+    "future_n": 3,
+    "large_case": {
+      "failures": 2000000,
+      "successes": 1000000
+    },
+    "prior_alpha": 1.0,
+    "prior_beta": 1.0,
+    "revision": {
+      "batch_id": "A",
+      "expected_after_revision": {
+        "failures": 5,
+        "successes": 3
+      },
+      "from": {
+        "failures": 1,
+        "successes": 3
+      },
+      "to": {
+        "failures": 1,
+        "successes": 1
+      }
+    },
+    "split_case": [
+      {
+        "batch_id": "A",
+        "failures": 1,
+        "successes": 3
+      },
+      {
+        "batch_id": "B",
+        "failures": 4,
+        "successes": 2
+      }
+    ]
+  },
+  "fixture_path": "/home/admin/Downloads/xinbiaozhu/opp318/a/experiments/fixtures/experiment_cases.json",
+  "generated_at_utc": "2026-09-30T09:28:03.890759+00:00",
+  "run_number": "20260930T092803890732Z"
+}

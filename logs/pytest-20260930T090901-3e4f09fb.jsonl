@@ -1,0 +1,2 @@
+{"event": "session_start", "generated_at_utc": "2026-09-30T09:09:01.129983+00:00", "run_number": "pytest-20260930T090901-3e4f09fb", "timestamp_utc": "2026-09-30T09:09:01.129992+00:00"}
+{"event": "session_end", "run_number": "pytest-20260930T090901-3e4f09fb", "timestamp_utc": "2026-09-30T09:09:02.923030+00:00"}
