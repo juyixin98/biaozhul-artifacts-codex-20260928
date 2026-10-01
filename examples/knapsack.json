@@ -1,0 +1,32 @@
+{
+  "problem": {
+    "name": "knapsack",
+    "sense": "maximize",
+    "objective": {
+      "x1": 5,
+      "x2": 3,
+      "x3": 2
+    },
+    "variables": [
+      {"name": "x1", "type": "binary"},
+      {"name": "x2", "type": "binary"},
+      {"name": "x3", "type": "binary"}
+    ],
+    "constraints": [
+      {
+        "name": "weight",
+        "terms": {"x1": 4, "x2": 3, "x3": 2},
+        "sense": "<=",
+        "rhs": 5
+      }
+    ]
+  },
+  "options": {
+    "run_id": "example-knapsack",
+    "integer_tolerance": 1e-8,
+    "constraint_tolerance": 1e-8,
+    "lp_tolerance": 1e-10,
+    "node_limit": 100,
+    "time_limit_seconds": 5
+  }
+}

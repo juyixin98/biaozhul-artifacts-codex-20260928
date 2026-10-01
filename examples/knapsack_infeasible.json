@@ -1,0 +1,16 @@
+{
+  "problem": {
+    "name": "relaxation-feasible-integer-infeasible",
+    "sense": "minimize",
+    "objective": {"x": 1},
+    "variables": [
+      {"name": "x", "type": "integer", "lower": 0, "upper": 2}
+    ],
+    "constraints": [
+      {"name": "fraction_only", "terms": {"x": 1}, "sense": "==", "rhs": 0.5}
+    ]
+  },
+  "options": {
+    "run_id": "example-integer-infeasible"
+  }
+}
