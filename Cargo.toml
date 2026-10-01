@@ -1,0 +1,33 @@
+[package]
+name = "dag-path-cover"
+version = "0.1.0"
+edition = "2021"
+description = "Minimum vertex-disjoint path cover for a DAG, restored from bipartite matching"
+license = "MIT"
+
+[lib]
+name = "dag_path_cover"
+path = "src/lib.rs"
+
+[[bin]]
+name = "dag-path-cover"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.7.9"
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+tokio = { version = "1.40", features = ["macros", "net", "rt-multi-thread", "signal", "sync"] }
+toml = "0.8.19"
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+uuid = { version = "1.10", features = ["v4"] }
+
+[dev-dependencies]
+tower = { version = "0.4", features = ["util"] }
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

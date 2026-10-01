@@ -1,0 +1,6 @@
+{
+  "vertices": 2,
+  "edges": [
+    { "from": 0, "to": 2 }
+  ]
+}
