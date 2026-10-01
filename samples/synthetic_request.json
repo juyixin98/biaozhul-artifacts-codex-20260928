@@ -1,0 +1,7 @@
+{
+  "seed": 311311,
+  "sample_size_per_group": 12,
+  "delayed_entry": true,
+  "censor_low": 4.0,
+  "censor_high": 18.0
+}

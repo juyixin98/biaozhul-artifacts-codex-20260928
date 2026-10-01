@@ -1,0 +1,553 @@
+{
+  "schema_version": "survival-analysis.v1",
+  "service_version": "1.0.0",
+  "kernel_version": "km-logrank.v1",
+  "analysis_id": "reproduction-hand-fixture",
+  "request_id": "reproduction-hand-request",
+  "analysis_name": "Synthetic equipment hand fixture with tied endpoints",
+  "created_at": "2026-09-30T09:14:10.730Z",
+  "processing_location": "local-process:bd5pelgwucbs4z9",
+  "config": {
+    "confidence_level": 0.95,
+    "confidence_interval_method": "greenwood_linear",
+    "significance_level": 0.05,
+    "schema_migration_version": 1,
+    "left_truncation": "supported_when_entry_is_provided",
+    "risk_ties": "events_and_censoring_share_risk_set_at_same_time"
+  },
+  "summary": {
+    "n_observations": 15,
+    "n_groups": 5,
+    "events": 6,
+    "censored": 9,
+    "empty_groups": [
+      "EMPTY"
+    ]
+  },
+  "groups": [
+    {
+      "group": "A",
+      "n": 5,
+      "events": 2,
+      "censored": 3,
+      "median_survival_time": null,
+      "median_status": "not_reached",
+      "points": [
+        {
+          "time": 0.0,
+          "kind": "baseline",
+          "risk_before": 0,
+          "entered": 5,
+          "events": 0,
+          "censored": 0,
+          "risk_after": 5,
+          "survival": 1.0,
+          "greenwood_variance": 0.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "ci_clipped": false
+        },
+        {
+          "time": 2.0,
+          "kind": "event",
+          "risk_before": 5,
+          "entered": 0,
+          "events": 1,
+          "censored": 0,
+          "risk_after": 4,
+          "survival": 0.8,
+          "greenwood_variance": 0.03200000000000001,
+          "ci_low": 0.44939098376936737,
+          "ci_high": 1.0,
+          "ci_clipped": true
+        },
+        {
+          "time": 4.0,
+          "kind": "censoring",
+          "risk_before": 4,
+          "entered": 0,
+          "events": 0,
+          "censored": 1,
+          "risk_after": 3,
+          "survival": 0.8,
+          "greenwood_variance": 0.03200000000000001,
+          "ci_low": 0.44939098376936737,
+          "ci_high": 1.0,
+          "ci_clipped": true
+        },
+        {
+          "time": 5.0,
+          "kind": "event",
+          "risk_before": 3,
+          "entered": 0,
+          "events": 1,
+          "censored": 0,
+          "risk_after": 2,
+          "survival": 0.5333333333333333,
+          "greenwood_variance": 0.06162962962962963,
+          "ci_low": 0.04676608787094838,
+          "ci_high": 1.0,
+          "ci_clipped": true
+        },
+        {
+          "time": 6.0,
+          "kind": "censoring",
+          "risk_before": 2,
+          "entered": 0,
+          "events": 0,
+          "censored": 1,
+          "risk_after": 1,
+          "survival": 0.5333333333333333,
+          "greenwood_variance": 0.06162962962962963,
+          "ci_low": 0.04676608787094838,
+          "ci_high": 1.0,
+          "ci_clipped": true
+        },
+        {
+          "time": 8.0,
+          "kind": "censoring",
+          "risk_before": 1,
+          "entered": 0,
+          "events": 0,
+          "censored": 1,
+          "risk_after": 0,
+          "survival": 0.5333333333333333,
+          "greenwood_variance": 0.06162962962962963,
+          "ci_low": 0.04676608787094838,
+          "ci_high": 1.0,
+          "ci_clipped": true
+        }
+      ]
+    },
+    {
+      "group": "B",
+      "n": 4,
+      "events": 2,
+      "censored": 2,
+      "median_survival_time": 2.0,
+      "median_status": "estimated",
+      "points": [
+        {
+          "time": 0.0,
+          "kind": "baseline",
+          "risk_before": 0,
+          "entered": 4,
+          "events": 0,
+          "censored": 0,
+          "risk_after": 4,
+          "survival": 1.0,
+          "greenwood_variance": 0.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "ci_clipped": false
+        },
+        {
+          "time": 2.0,
+          "kind": "event",
+          "risk_before": 4,
+          "entered": 0,
+          "events": 2,
+          "censored": 1,
+          "risk_after": 1,
+          "survival": 0.5,
+          "greenwood_variance": 0.0625,
+          "ci_low": 0.010009003864986488,
+          "ci_high": 0.9899909961350135,
+          "ci_clipped": false
+        },
+        {
+          "time": 5.0,
+          "kind": "censoring",
+          "risk_before": 1,
+          "entered": 0,
+          "events": 0,
+          "censored": 1,
+          "risk_after": 0,
+          "survival": 0.5,
+          "greenwood_variance": 0.0625,
+          "ci_low": 0.010009003864986488,
+          "ci_high": 0.9899909961350135,
+          "ci_clipped": false
+        }
+      ]
+    },
+    {
+      "group": "ALL_CENSORED",
+      "n": 3,
+      "events": 0,
+      "censored": 3,
+      "median_survival_time": null,
+      "median_status": "not_reached",
+      "points": [
+        {
+          "time": 0.0,
+          "kind": "baseline",
+          "risk_before": 0,
+          "entered": 3,
+          "events": 0,
+          "censored": 0,
+          "risk_after": 3,
+          "survival": 1.0,
+          "greenwood_variance": 0.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "ci_clipped": false
+        },
+        {
+          "time": 1.0,
+          "kind": "censoring",
+          "risk_before": 3,
+          "entered": 0,
+          "events": 0,
+          "censored": 1,
+          "risk_after": 2,
+          "survival": 1.0,
+          "greenwood_variance": 0.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "ci_clipped": false
+        },
+        {
+          "time": 2.0,
+          "kind": "censoring",
+          "risk_before": 2,
+          "entered": 0,
+          "events": 0,
+          "censored": 1,
+          "risk_after": 1,
+          "survival": 1.0,
+          "greenwood_variance": 0.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "ci_clipped": false
+        },
+        {
+          "time": 3.0,
+          "kind": "censoring",
+          "risk_before": 1,
+          "entered": 0,
+          "events": 0,
+          "censored": 1,
+          "risk_after": 0,
+          "survival": 1.0,
+          "greenwood_variance": 0.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "ci_clipped": false
+        }
+      ]
+    },
+    {
+      "group": "DELAYED",
+      "n": 3,
+      "events": 2,
+      "censored": 1,
+      "median_survival_time": 2.0,
+      "median_status": "estimated",
+      "points": [
+        {
+          "time": 0.0,
+          "kind": "baseline",
+          "risk_before": 0,
+          "entered": 1,
+          "events": 0,
+          "censored": 0,
+          "risk_after": 1,
+          "survival": 1.0,
+          "greenwood_variance": 0.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "ci_clipped": false
+        },
+        {
+          "time": 1.0,
+          "kind": "entry",
+          "risk_before": 1,
+          "entered": 1,
+          "events": 0,
+          "censored": 0,
+          "risk_after": 1,
+          "survival": 1.0,
+          "greenwood_variance": 0.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "ci_clipped": false
+        },
+        {
+          "time": 2.0,
+          "kind": "event",
+          "risk_before": 2,
+          "entered": 1,
+          "events": 1,
+          "censored": 0,
+          "risk_after": 1,
+          "survival": 0.5,
+          "greenwood_variance": 0.125,
+          "ci_low": 0.0,
+          "ci_high": 1.0,
+          "ci_clipped": true
+        },
+        {
+          "time": 4.0,
+          "kind": "event",
+          "risk_before": 2,
+          "entered": 0,
+          "events": 1,
+          "censored": 0,
+          "risk_after": 1,
+          "survival": 0.25,
+          "greenwood_variance": 0.0625,
+          "ci_low": 0.0,
+          "ci_high": 0.7399909961350135,
+          "ci_clipped": true
+        },
+        {
+          "time": 5.0,
+          "kind": "censoring",
+          "risk_before": 1,
+          "entered": 0,
+          "events": 0,
+          "censored": 1,
+          "risk_after": 0,
+          "survival": 0.25,
+          "greenwood_variance": 0.0625,
+          "ci_low": 0.0,
+          "ci_high": 0.7399909961350135,
+          "ci_clipped": true
+        }
+      ]
+    },
+    {
+      "group": "EMPTY",
+      "n": 0,
+      "events": 0,
+      "censored": 0,
+      "median_survival_time": null,
+      "median_status": "not_estimable",
+      "points": []
+    }
+  ],
+  "comparison": {
+    "status": "failed",
+    "reason": "empty_group_excluded_from_log_rank",
+    "method": "log_rank",
+    "group_order": [
+      "A",
+      "B",
+      "ALL_CENSORED",
+      "DELAYED",
+      "EMPTY"
+    ],
+    "observed": {
+      "A": 2,
+      "B": 2,
+      "ALL_CENSORED": 0,
+      "DELAYED": 2,
+      "EMPTY": 0
+    },
+    "expected": {
+      "A": null,
+      "B": null,
+      "ALL_CENSORED": null,
+      "DELAYED": null,
+      "EMPTY": null
+    },
+    "variance_covariance_matrix": null,
+    "chi_square": null,
+    "degrees_freedom": null,
+    "p_value": null
+  },
+  "trace": [
+    {
+      "timestamp": "2026-09-30T09:14:10.730Z",
+      "component": "api",
+      "step": "request_received",
+      "status": "ok",
+      "detail": {
+        "request_id": "reproduction-hand-request",
+        "analysis_id": "reproduction-hand-fixture",
+        "client_request_id": "sample-hand-risk-set"
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.730Z",
+      "component": "risk-kernel",
+      "step": "risk_set_order_declared",
+      "status": "ok",
+      "detail": {
+        "rule": "events_and_tied_censored_subjects_remain_at_risk_during_same_timepoint",
+        "left_truncation_rule": "subject_enters_when_entry_is_strictly_less_than_time"
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.730Z",
+      "component": "service",
+      "step": "groups_resolved",
+      "status": "ok",
+      "detail": {
+        "group_order": [
+          "A",
+          "B",
+          "ALL_CENSORED",
+          "DELAYED",
+          "EMPTY"
+        ],
+        "observed_groups": [
+          "A",
+          "ALL_CENSORED",
+          "B",
+          "DELAYED"
+        ],
+        "empty_groups": [
+          "EMPTY"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.731Z",
+      "component": "kaplan-meier",
+      "step": "group_estimated",
+      "status": "ok",
+      "detail": {
+        "group": "A",
+        "n": 5,
+        "events": 2,
+        "censored": 3,
+        "median_status": "not_reached",
+        "timepoints": 6
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.732Z",
+      "component": "kaplan-meier",
+      "step": "group_estimated",
+      "status": "ok",
+      "detail": {
+        "group": "B",
+        "n": 4,
+        "events": 2,
+        "censored": 2,
+        "median_status": "estimated",
+        "timepoints": 3
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.732Z",
+      "component": "kaplan-meier",
+      "step": "group_estimated",
+      "status": "ok",
+      "detail": {
+        "group": "ALL_CENSORED",
+        "n": 3,
+        "events": 0,
+        "censored": 3,
+        "median_status": "not_reached",
+        "timepoints": 4
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.732Z",
+      "component": "kaplan-meier",
+      "step": "group_estimated",
+      "status": "ok",
+      "detail": {
+        "group": "DELAYED",
+        "n": 3,
+        "events": 2,
+        "censored": 1,
+        "median_status": "estimated",
+        "timepoints": 5
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.732Z",
+      "component": "kaplan-meier",
+      "step": "group_estimated",
+      "status": "ok",
+      "detail": {
+        "group": "EMPTY",
+        "n": 0,
+        "events": 0,
+        "censored": 0,
+        "median_status": "not_estimable",
+        "timepoints": 0
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.732Z",
+      "component": "log-rank",
+      "step": "comparison_completed",
+      "status": "failed",
+      "detail": {
+        "reason": "empty_group_excluded_from_log_rank",
+        "degrees_freedom": null
+      }
+    },
+    {
+      "timestamp": "2026-09-30T09:14:10.732Z",
+      "component": "service",
+      "step": "response_serialized",
+      "status": "ok",
+      "detail": {
+        "schema_version": "survival-analysis.v1",
+        "failure_count": 1,
+        "notice_count": 9
+      }
+    }
+  ],
+  "notices": [
+    {
+      "code": "boundary_survival_one",
+      "message": "Survival is exactly one before the first event; the boundary interval is reported as [1, 1].",
+      "affects": "group:A"
+    },
+    {
+      "code": "clipped_to_probability_range",
+      "message": "A linear Greenwood endpoint was clipped to the valid probability range [0, 1].",
+      "affects": "group:A"
+    },
+    {
+      "code": "latest_survival_above_half_median_not_reached",
+      "message": "The latest estimated survival remains above 0.5, so median survival is not reached.",
+      "affects": "group:A"
+    },
+    {
+      "code": "boundary_survival_one",
+      "message": "Survival is exactly one before the first event; the boundary interval is reported as [1, 1].",
+      "affects": "group:B"
+    },
+    {
+      "code": "boundary_survival_one",
+      "message": "Survival is exactly one before the first event; the boundary interval is reported as [1, 1].",
+      "affects": "group:ALL_CENSORED"
+    },
+    {
+      "code": "no_events_median_not_reached",
+      "message": "The group has no events, so median survival is not reached and is not fabricated.",
+      "affects": "group:ALL_CENSORED"
+    },
+    {
+      "code": "boundary_survival_one",
+      "message": "Survival is exactly one before the first event; the boundary interval is reported as [1, 1].",
+      "affects": "group:DELAYED"
+    },
+    {
+      "code": "clipped_to_probability_range",
+      "message": "A linear Greenwood endpoint was clipped to the valid probability range [0, 1].",
+      "affects": "group:DELAYED"
+    },
+    {
+      "code": "empty_group_has_no_median",
+      "message": "The group has no observations, so no median survival time is estimated.",
+      "affects": "group:EMPTY"
+    }
+  ],
+  "failures": [
+    {
+      "code": "empty_group_excluded_from_log_rank",
+      "message": "Log-rank comparison was not produced because the requested comparison is not statistically identifiable.",
+      "affects": "comparison:log_rank"
+    }
+  ],
+  "disclaimer": "Synthetic and demonstration-only output. This service is not validated for medical use and results must not support a real medical conclusion."
+}

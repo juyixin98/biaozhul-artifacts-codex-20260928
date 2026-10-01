@@ -1,0 +1,11 @@
+{
+  "schema_version": "survival-analysis.v1",
+  "kernel_version": "km-logrank.v1",
+  "generator_version": "synthetic-equipment-weibull.v1",
+  "outputs": [
+    "artifacts/hand_fixture_result.json",
+    "artifacts/synthetic_dataset.json",
+    "artifacts/synthetic_analysis_result.json"
+  ],
+  "medical_use": "not permitted; synthetic demonstration only"
+}

@@ -1,0 +1,25 @@
+{
+  "client_request_id": "sample-hand-risk-set",
+  "analysis_name": "Synthetic equipment hand fixture with tied endpoints",
+  "confidence_level": 0.95,
+  "significance_level": 0.05,
+  "confidence_interval_method": "greenwood_linear",
+  "groups": ["A", "B", "ALL_CENSORED", "DELAYED", "EMPTY"],
+  "observations": [
+    {"observation_id": "A1", "group": "A", "time": 2.0, "event": true, "entry": 0.0},
+    {"observation_id": "A2", "group": "A", "time": 4.0, "event": false, "entry": 0.0},
+    {"observation_id": "A3", "group": "A", "time": 5.0, "event": true, "entry": 0.0},
+    {"observation_id": "A4", "group": "A", "time": 6.0, "event": false, "entry": 0.0},
+    {"observation_id": "A5", "group": "A", "time": 8.0, "event": false, "entry": 0.0},
+    {"observation_id": "B1", "group": "B", "time": 2.0, "event": true, "entry": 0.0},
+    {"observation_id": "B2", "group": "B", "time": 2.0, "event": true, "entry": 0.0},
+    {"observation_id": "B3", "group": "B", "time": 2.0, "event": false, "entry": 0.0},
+    {"observation_id": "B4", "group": "B", "time": 5.0, "event": false, "entry": 0.0},
+    {"observation_id": "C1", "group": "ALL_CENSORED", "time": 1.0, "event": false, "entry": 0.0},
+    {"observation_id": "C2", "group": "ALL_CENSORED", "time": 2.0, "event": false, "entry": 0.0},
+    {"observation_id": "C3", "group": "ALL_CENSORED", "time": 3.0, "event": false, "entry": 0.0},
+    {"observation_id": "L1", "group": "DELAYED", "time": 2.0, "event": true, "entry": 1.0},
+    {"observation_id": "L2", "group": "DELAYED", "time": 4.0, "event": true, "entry": 2.0},
+    {"observation_id": "L3", "group": "DELAYED", "time": 5.0, "event": false, "entry": 0.0}
+  ]
+}
