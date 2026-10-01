@@ -1,0 +1,23 @@
+{
+  "name": "unaligned-speed-diff",
+  "description": "Fast A continues past its barrier; slow B's not-yet-closed record is remembered as in-flight.",
+  "mode": "unaligned",
+  "gate_capacity": 3,
+  "inflight_limit": 10,
+  "steps": [
+    {"name": "a0", "stream": "A", "kind": "record", "offset": 0, "epoch": 1, "key": "x", "value": 1},
+    {"name": "a1", "stream": "A", "kind": "record", "offset": 1, "epoch": 1, "key": "y", "value": 2},
+    {"name": "barrier-a", "stream": "A", "kind": "barrier", "offset": 2, "epoch": 1},
+    {"name": "a2-post-barrier", "stream": "A", "kind": "record", "offset": 2, "epoch": 2, "key": "x", "value": 10},
+    {"name": "b0", "stream": "B", "kind": "record", "offset": 0, "epoch": 1, "key": "x", "value": 4},
+    {"name": "barrier-b", "stream": "B", "kind": "barrier", "offset": 1, "epoch": 1}
+  ],
+  "expected_report": {
+    "committed_epoch": 1,
+    "committed_count": {"x": 2, "y": 1},
+    "inflight_peak": 1,
+    "blocked_a": 0,
+    "blocked_b": 0,
+    "replay_records": 1
+  }
+}
