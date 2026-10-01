@@ -1,0 +1,21 @@
+[project]
+name = "exact-nsga-backend"
+version = "1.0.0"
+description = "Exact finite-set non-dominated sorting service with incremental updates"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "numpy",
+  "pydantic",
+  "scipy",
+  "uvicorn",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.uvicorn]
+host = "127.0.0.1"
+port = 8000

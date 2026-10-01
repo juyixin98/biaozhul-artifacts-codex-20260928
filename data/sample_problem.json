@@ -1,0 +1,17 @@
+{
+  "problem_id": "sample-mixed-direction",
+  "objectives": [
+    {"name": "cost", "direction": "min"},
+    {"name": "reliability", "direction": "max"}
+  ],
+  "numeric_settings": {
+    "mode": "exact"
+  },
+  "candidates": [
+    {"id": "low-cost", "objectives": ["1", "1"], "payload": {"source": "synthetic"}},
+    {"id": "balanced", "objectives": ["2", "2"], "payload": {"source": "synthetic"}},
+    {"id": "low-cost-copy", "objectives": ["1", "1"], "payload": {"source": "synthetic", "note": "duplicate object identity"}},
+    {"id": "expensive", "objectives": ["3", "1"], "payload": {"source": "synthetic"}},
+    {"id": "weak", "objectives": ["2", "0"], "payload": {"source": "synthetic"}}
+  ]
+}
