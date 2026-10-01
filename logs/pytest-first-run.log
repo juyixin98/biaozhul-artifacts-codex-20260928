@@ -1,0 +1,713 @@
+FF..FFFFFFFFFFFFFFFFFFFFFFFF                                             [100%]
+=================================== FAILURES ===================================
+______________________ test_create_persist_and_fetch_run _______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-admin/pytest-1160/test_create_persist_and_fetch_0')
+run_identity = {'test': 'tests/test_api_integration.py::test_create_persist_and_fetch_run', 'run_id': 'pytest-2795ca4f6679', 'log_pat...-1160/test_create_persist_and_fetch_0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50ea6ec00>}
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7de50ea1eb10>
+
+    def test_create_persist_and_fetch_run(tmp_path, run_identity, monkeypatch):
+        db_path = tmp_path / "api.sqlite3"
+        log_path = tmp_path / "api-test.log"
+        service = CalibrationService(
+            Settings(database_path=db_path, log_file=log_path), RunRepository(db_path)
+        )
+        monkeypatch.setattr("app.api.service", service)
+>       run_identity.emit("api_create_fetch", run_id="api-run")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_api_integration.py:44: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_____ test_api_rejects_probability_out_of_bounds_without_claiming_success ______
+
+run_identity = {'test': 'tests/test_api_integration.py::test_api_rejects_probability_out_of_bounds_without_claiming_success', 'run_id...-1160/test_api_rejects_probability_o0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50ea6e980>}
+
+    def test_api_rejects_probability_out_of_bounds_without_claiming_success(run_identity):
+        payload = make_payload("bad-probability")
+        payload["eval"][0]["p"] = 1.5
+>       run_identity.emit("api_invalid_probability", failure_status="FAILED")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_api_integration.py:68: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+____ test_sample_contract_rejects_invalid_values[payload0-p must be finite] ____
+
+payload = {'id': 'bad', 'y': 1, 'p': 1.01, 'w': 1.0}
+expected_fragment = 'p must be finite'
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload0-p must be finite]'...-1160/test_sample_contract_rejects_i0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacd300>}
+
+    @pytest.mark.parametrize(
+        ("payload", "expected_fragment"),
+        [
+            (sample_dict("bad", 1, 1.01), "p must be finite"),
+            (sample_dict("bad", 1, -0.01), "p must be finite"),
+            (sample_dict("bad", 1, float("nan")), "p must be finite"),
+            (sample_dict("bad", 1, 0.5, 0.0), "w must be finite"),
+            (sample_dict("bad", 2, 0.5), "Input should be less than or equal to 1"),
+        ],
+    )
+    def test_sample_contract_rejects_invalid_values(payload, expected_fragment, run_identity):
+>       run_identity.emit("contract_invalid_sample", payload=payload, failure_category="VALIDATION_ERROR")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:30: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+____ test_sample_contract_rejects_invalid_values[payload1-p must be finite] ____
+
+payload = {'id': 'bad', 'y': 1, 'p': -0.01, 'w': 1.0}
+expected_fragment = 'p must be finite'
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload1-p must be finite]'...-1160/test_sample_contract_rejects_i1/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacd620>}
+
+    @pytest.mark.parametrize(
+        ("payload", "expected_fragment"),
+        [
+            (sample_dict("bad", 1, 1.01), "p must be finite"),
+            (sample_dict("bad", 1, -0.01), "p must be finite"),
+            (sample_dict("bad", 1, float("nan")), "p must be finite"),
+            (sample_dict("bad", 1, 0.5, 0.0), "w must be finite"),
+            (sample_dict("bad", 2, 0.5), "Input should be less than or equal to 1"),
+        ],
+    )
+    def test_sample_contract_rejects_invalid_values(payload, expected_fragment, run_identity):
+>       run_identity.emit("contract_invalid_sample", payload=payload, failure_category="VALIDATION_ERROR")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:30: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+____ test_sample_contract_rejects_invalid_values[payload2-p must be finite] ____
+
+payload = {'id': 'bad', 'y': 1, 'p': nan, 'w': 1.0}
+expected_fragment = 'p must be finite'
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload2-p must be finite]'...-1160/test_sample_contract_rejects_i2/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacd580>}
+
+    @pytest.mark.parametrize(
+        ("payload", "expected_fragment"),
+        [
+            (sample_dict("bad", 1, 1.01), "p must be finite"),
+            (sample_dict("bad", 1, -0.01), "p must be finite"),
+            (sample_dict("bad", 1, float("nan")), "p must be finite"),
+            (sample_dict("bad", 1, 0.5, 0.0), "w must be finite"),
+            (sample_dict("bad", 2, 0.5), "Input should be less than or equal to 1"),
+        ],
+    )
+    def test_sample_contract_rejects_invalid_values(payload, expected_fragment, run_identity):
+>       run_identity.emit("contract_invalid_sample", payload=payload, failure_category="VALIDATION_ERROR")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:30: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+____ test_sample_contract_rejects_invalid_values[payload3-w must be finite] ____
+
+payload = {'id': 'bad', 'y': 1, 'p': 0.5, 'w': 0.0}
+expected_fragment = 'w must be finite'
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload3-w must be finite]'...-1160/test_sample_contract_rejects_i3/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacec00>}
+
+    @pytest.mark.parametrize(
+        ("payload", "expected_fragment"),
+        [
+            (sample_dict("bad", 1, 1.01), "p must be finite"),
+            (sample_dict("bad", 1, -0.01), "p must be finite"),
+            (sample_dict("bad", 1, float("nan")), "p must be finite"),
+            (sample_dict("bad", 1, 0.5, 0.0), "w must be finite"),
+            (sample_dict("bad", 2, 0.5), "Input should be less than or equal to 1"),
+        ],
+    )
+    def test_sample_contract_rejects_invalid_values(payload, expected_fragment, run_identity):
+>       run_identity.emit("contract_invalid_sample", payload=payload, failure_category="VALIDATION_ERROR")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:30: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_ test_sample_contract_rejects_invalid_values[payload4-Input should be less than or equal to 1] _
+
+payload = {'id': 'bad', 'y': 2, 'p': 0.5, 'w': 1.0}
+expected_fragment = 'Input should be less than or equal to 1'
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload4-Input should be le...-1160/test_sample_contract_rejects_i4/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eaccfe0>}
+
+    @pytest.mark.parametrize(
+        ("payload", "expected_fragment"),
+        [
+            (sample_dict("bad", 1, 1.01), "p must be finite"),
+            (sample_dict("bad", 1, -0.01), "p must be finite"),
+            (sample_dict("bad", 1, float("nan")), "p must be finite"),
+            (sample_dict("bad", 1, 0.5, 0.0), "w must be finite"),
+            (sample_dict("bad", 2, 0.5), "Input should be less than or equal to 1"),
+        ],
+    )
+    def test_sample_contract_rejects_invalid_values(payload, expected_fragment, run_identity):
+>       run_identity.emit("contract_invalid_sample", payload=payload, failure_category="VALIDATION_ERROR")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:30: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+____________ test_probability_out_of_range_is_rejected_not_clipped _____________
+
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_probability_out_of_range_is_rejected_not_clipped', 'run_id': 'pyte...-1160/test_probability_out_of_range_0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacf240>}
+
+    def test_probability_out_of_range_is_rejected_not_clipped(run_identity):
+>       run_identity.emit("kernel_probability_boundary", value=1.2, failure_category="ValueError")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:37: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_______________ test_fit_and_eval_overlap_is_contract_violation ________________
+
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_fit_and_eval_overlap_is_contract_violation', 'run_id': 'pytest-187...-1160/test_fit_and_eval_overlap_is_c0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacf420>}
+
+    def test_fit_and_eval_overlap_is_contract_violation(run_identity):
+>       run_identity.emit("fit_eval_overlap", overlap=["shared"])
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:45: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_____________ test_fixed_edges_must_start_and_end_on_unit_interval _____________
+
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_fixed_edges_must_start_and_end_on_unit_interval', 'run_id': 'pytes...-1160/test_fixed_edges_must_start_an0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacf600>}
+
+    def test_fixed_edges_must_start_and_end_on_unit_interval(run_identity):
+>       run_identity.emit("invalid_edges", edges=[0.1, 0.9])
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:55: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+______ test_weighted_pava_matches_independent_reference_and_uses_fit_only ______
+
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_weighted_pava_matches_independent_reference_and_uses_fit_only', 'r...-1160/test_weighted_pava_matches_ind0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacf7e0>}
+
+    def test_weighted_pava_matches_independent_reference_and_uses_fit_only(run_identity):
+        fit_p = np.array([0.1, 0.2, 0.8, 0.9])
+        fit_y = np.array([1, 0, 1, 0])
+        fit_w = np.array([1.0, 1.0, 1.0, 1.0])
+        eval_p = np.array([0.0, 0.15, 0.5, 0.85, 1.0])
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "calibrator_reference_compare",
+            fit_n=len(fit_p),
+            eval_n=len(eval_p),
+            decision="eval probabilities never enter fit_p",
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:70: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_________ test_calibrator_refuses_out_of_bounds_evaluation_probability _________
+
+run_identity = {'test': 'tests/test_contracts_calibration.py::test_calibrator_refuses_out_of_bounds_evaluation_probability', 'run_id'...-1160/test_calibrator_refuses_out_of0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacf9c0>}
+
+    def test_calibrator_refuses_out_of_bounds_evaluation_probability(run_identity):
+>       run_identity.emit("calibrator_boundary", failure_category="VALIDATION_ERROR")
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_contracts_calibration.py:89: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_______________ test_experiment_script_writes_versioned_results ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-admin/pytest-1160/test_experiment_script_writes_0')
+run_identity = {'test': 'tests/test_experiment_integration.py::test_experiment_script_writes_versioned_results', 'run_id': 'pytest-85...-1160/test_experiment_script_writes_0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacfc40>}
+
+    def test_experiment_script_writes_versioned_results(tmp_path, run_identity):
+        db_path = tmp_path / "experiments.sqlite3"
+        output_path = tmp_path / "results.json"
+        log_path = tmp_path / "experiment.log"
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "subprocess_experiment",
+            db=str(db_path),
+            output=str(output_path),
+            judgment="process must exit zero and write four SUCCEEDED runs",
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_experiment_integration.py:14: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+___________ test_perfect_calibration_fixed_bins_has_zero_reliability ___________
+
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_perfect_calibration_fixed_bins_has_zero_reliability', 'run_id': 'pytest-...-1160/test_perfect_calibration_fixed0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50e96c220>}
+
+    def test_perfect_calibration_fixed_bins_has_zero_reliability(run_identity):
+        p = [0.0, 0.1, 0.9, 1.0]
+        y = [0, 0, 1, 1]
+        w = [1.0, 1.0, 1.0, 1.0]
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "handcalc_perfect",
+            inputs={"p": p, "y": y, "w": w, "edges": [0.0, 0.5, 1.0]},
+            expected_brier=0.01,
+            decision_rule="Brier mean=0.01, REL=0, RES=0.25, UNC=0.25",
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:22: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+________________________ test_overconfident_fixed_bins _________________________
+
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_overconfident_fixed_bins', 'run_id': 'pytest-01414917772e', 'log_path': ...t-1160/test_overconfident_fixed_bins0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacefc0>}
+
+    def test_overconfident_fixed_bins(run_identity):
+        p = [0.9, 0.9, 0.1, 0.1]
+        y = [0, 1, 0, 1]
+        w = [1.0, 1.0, 1.0, 1.0]
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "handcalc_overconfident",
+            inputs={"p": p, "y": y, "edges": [0.0, 0.5, 1.0]},
+            expected_brier=0.41,
+            expected_rel=0.16,
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:49: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_________ test_constant_probability_reports_empty_equal_frequency_bins _________
+
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_constant_probability_reports_empty_equal_frequency_bins', 'run_id': 'pyt...-1160/test_constant_probability_repo0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacf600>}
+
+    def test_constant_probability_reports_empty_equal_frequency_bins(run_identity):
+        p = [0.5, 0.5, 0.5, 0.5]
+        y = [0, 0, 1, 1]
+        w = [1.0, 1.0, 1.0, 1.0]
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "handcalc_constant",
+            n_bins=3,
+            tie_policy="all tied probabilities remain in the first nonempty bin",
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:70: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_________ test_extreme_weights_use_kish_ess_and_preserve_total_weight __________
+
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_extreme_weights_use_kish_ess_and_preserve_total_weight', 'run_id': 'pyte...-1160/test_extreme_weights_use_kish_0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eaceca0>}
+
+    def test_extreme_weights_use_kish_ess_and_preserve_total_weight(run_identity):
+        p = [0.0, 0.0]
+        y = [0, 1]
+        w = [1.0, 999.0]
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "handcalc_extreme_weights",
+            inputs={"p": p, "y": y, "w": w},
+            expected_total_weight=1000.0,
+            expected_ess=(1000.0**2) / (1.0 + 999.0**2),
+            expected_y_mean=0.999,
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:94: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+________ test_equal_frequency_matches_independent_reference[p0-y0-w0-2] ________
+
+p = [0.0, 0.1, 0.9, 1.0], y = [0, 0, 1, 1], w = [1, 1, 1, 1], n_bins = 2
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_equal_frequency_matches_independent_reference[p0-y0-w0-2]', 'run_id': 'p...-1160/test_equal_frequency_matches_i0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eaccfe0>}
+
+    @pytest.mark.parametrize(
+        ("p", "y", "w", "n_bins"),
+        [
+            ([0.0, 0.1, 0.9, 1.0], [0, 0, 1, 1], [1, 1, 1, 1], 2),
+            ([0.9, 0.9, 0.1, 0.1], [0, 1, 0, 1], [1, 1, 1, 1], 3),
+            ([0.2, 0.2, 0.8], [0, 1, 1], [3.0, 2.0, 5.0], 2),
+            ([0.5] * 8, [0, 0, 0, 0, 1, 1, 1, 1], [1.0] * 8, 3),
+        ],
+    )
+    def test_equal_frequency_matches_independent_reference(p, y, w, n_bins, run_identity):
+>       run_identity.emit("reference_quantile_compare", n=len(p), n_bins=n_bins)
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:128: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+________ test_equal_frequency_matches_independent_reference[p1-y1-w1-3] ________
+
+p = [0.9, 0.9, 0.1, 0.1], y = [0, 1, 0, 1], w = [1, 1, 1, 1], n_bins = 3
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_equal_frequency_matches_independent_reference[p1-y1-w1-3]', 'run_id': 'p...-1160/test_equal_frequency_matches_i1/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacd800>}
+
+    @pytest.mark.parametrize(
+        ("p", "y", "w", "n_bins"),
+        [
+            ([0.0, 0.1, 0.9, 1.0], [0, 0, 1, 1], [1, 1, 1, 1], 2),
+            ([0.9, 0.9, 0.1, 0.1], [0, 1, 0, 1], [1, 1, 1, 1], 3),
+            ([0.2, 0.2, 0.8], [0, 1, 1], [3.0, 2.0, 5.0], 2),
+            ([0.5] * 8, [0, 0, 0, 0, 1, 1, 1, 1], [1.0] * 8, 3),
+        ],
+    )
+    def test_equal_frequency_matches_independent_reference(p, y, w, n_bins, run_identity):
+>       run_identity.emit("reference_quantile_compare", n=len(p), n_bins=n_bins)
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:128: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+________ test_equal_frequency_matches_independent_reference[p2-y2-w2-2] ________
+
+p = [0.2, 0.2, 0.8], y = [0, 1, 1], w = [3.0, 2.0, 5.0], n_bins = 2
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_equal_frequency_matches_independent_reference[p2-y2-w2-2]', 'run_id': 'p...-1160/test_equal_frequency_matches_i2/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacd620>}
+
+    @pytest.mark.parametrize(
+        ("p", "y", "w", "n_bins"),
+        [
+            ([0.0, 0.1, 0.9, 1.0], [0, 0, 1, 1], [1, 1, 1, 1], 2),
+            ([0.9, 0.9, 0.1, 0.1], [0, 1, 0, 1], [1, 1, 1, 1], 3),
+            ([0.2, 0.2, 0.8], [0, 1, 1], [3.0, 2.0, 5.0], 2),
+            ([0.5] * 8, [0, 0, 0, 0, 1, 1, 1, 1], [1.0] * 8, 3),
+        ],
+    )
+    def test_equal_frequency_matches_independent_reference(p, y, w, n_bins, run_identity):
+>       run_identity.emit("reference_quantile_compare", n=len(p), n_bins=n_bins)
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:128: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+________ test_equal_frequency_matches_independent_reference[p3-y3-w3-3] ________
+
+p = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, ...], y = [0, 0, 0, 0, 1, 1, ...]
+w = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, ...], n_bins = 3
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_equal_frequency_matches_independent_reference[p3-y3-w3-3]', 'run_id': 'p...-1160/test_equal_frequency_matches_i3/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eace840>}
+
+    @pytest.mark.parametrize(
+        ("p", "y", "w", "n_bins"),
+        [
+            ([0.0, 0.1, 0.9, 1.0], [0, 0, 1, 1], [1, 1, 1, 1], 2),
+            ([0.9, 0.9, 0.1, 0.1], [0, 1, 0, 1], [1, 1, 1, 1], 3),
+            ([0.2, 0.2, 0.8], [0, 1, 1], [3.0, 2.0, 5.0], 2),
+            ([0.5] * 8, [0, 0, 0, 0, 1, 1, 1, 1], [1.0] * 8, 3),
+        ],
+    )
+    def test_equal_frequency_matches_independent_reference(p, y, w, n_bins, run_identity):
+>       run_identity.emit("reference_quantile_compare", n=len(p), n_bins=n_bins)
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:128: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_________________ test_fixed_bins_match_independent_reference __________________
+
+run_identity = {'test': 'tests/test_kernel_handcalc.py::test_fixed_bins_match_independent_reference', 'run_id': 'pytest-8242660e0862'...-1160/test_fixed_bins_match_independ0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacd940>}
+
+    def test_fixed_bins_match_independent_reference(run_identity):
+        p = [0.0, 0.25, 0.5, 0.75, 1.0]
+        y = [0, 1, 0, 1, 1]
+        w = [1.0, 2.0, 0.5, 4.0, 3.0]
+>       run_identity.emit("reference_fixed_compare", n=len(p))
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_kernel_handcalc.py:145: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+____________ test_random_weighted_fixed_and_quantile_statistics[17] ____________
+
+seed = 17
+run_identity = {'test': 'tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[17]', 'run_id': 'pyte...-1160/test_random_weighted_fixed_and0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacdf80>}
+
+    @pytest.mark.parametrize("seed", [17, 101, 20261001])
+    def test_random_weighted_fixed_and_quantile_statistics(seed, run_identity):
+        generator = random.Random(seed)
+        n = generator.randrange(12, 40)
+        p = [generator.choice([0.0, 0.1, 0.25, 0.5, 0.75, 0.9, 1.0]) for _ in range(n)]
+        y = [generator.randrange(2) for _ in range(n)]
+        w = [generator.uniform(0.25, 5.0) for _ in range(n)]
+        n_bins = generator.choice([2, 3, 5])
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "random_crosscheck",
+            seed=seed,
+            n=n,
+            n_bins=n_bins,
+            judgment="compare every Brier component to stdlib reference",
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_reference_crosscheck.py:21: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+___________ test_random_weighted_fixed_and_quantile_statistics[101] ____________
+
+seed = 101
+run_identity = {'test': 'tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[101]', 'run_id': 'pyt...-1160/test_random_weighted_fixed_and1/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eace160>}
+
+    @pytest.mark.parametrize("seed", [17, 101, 20261001])
+    def test_random_weighted_fixed_and_quantile_statistics(seed, run_identity):
+        generator = random.Random(seed)
+        n = generator.randrange(12, 40)
+        p = [generator.choice([0.0, 0.1, 0.25, 0.5, 0.75, 0.9, 1.0]) for _ in range(n)]
+        y = [generator.randrange(2) for _ in range(n)]
+        w = [generator.uniform(0.25, 5.0) for _ in range(n)]
+        n_bins = generator.choice([2, 3, 5])
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "random_crosscheck",
+            seed=seed,
+            n=n,
+            n_bins=n_bins,
+            judgment="compare every Brier component to stdlib reference",
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_reference_crosscheck.py:21: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_________ test_random_weighted_fixed_and_quantile_statistics[20261001] _________
+
+seed = 20261001
+run_identity = {'test': 'tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[20261001]', 'run_id':...-1160/test_random_weighted_fixed_and2/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eacdc60>}
+
+    @pytest.mark.parametrize("seed", [17, 101, 20261001])
+    def test_random_weighted_fixed_and_quantile_statistics(seed, run_identity):
+        generator = random.Random(seed)
+        n = generator.randrange(12, 40)
+        p = [generator.choice([0.0, 0.1, 0.25, 0.5, 0.75, 0.9, 1.0]) for _ in range(n)]
+        y = [generator.randrange(2) for _ in range(n)]
+        w = [generator.uniform(0.25, 5.0) for _ in range(n)]
+        n_bins = generator.choice([2, 3, 5])
+>       run_identity.emit(
+        ^^^^^^^^^^^^^^^^^
+            "random_crosscheck",
+            seed=seed,
+            n=n,
+            n_bins=n_bins,
+            judgment="compare every Brier component to stdlib reference",
+        )
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_reference_crosscheck.py:21: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+_____ test_tied_probabilities_are_never_split_across_equal_frequency_bins ______
+
+run_identity = {'test': 'tests/test_reference_crosscheck.py::test_tied_probabilities_are_never_split_across_equal_frequency_bins', 'r...-1160/test_tied_probabilities_are_ne0/test-run.jsonl', 'emit': <function run_identity.<locals>.emit at 0x7de50eace660>}
+
+    def test_tied_probabilities_are_never_split_across_equal_frequency_bins(run_identity):
+        p = [0.4, 0.4, 0.4, 0.6, 0.6]
+        y = [0, 1, 0, 1, 0]
+        w = [1.0, 1.0, 1.0, 1.0, 1.0]
+>       run_identity.emit("tie_non_splitting_check", p=p, n_bins=3)
+        ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'dict' object has no attribute 'emit'
+
+tests/test_reference_crosscheck.py:56: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+07:59:51 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:27 test step start
+--------------------------- Captured stderr teardown ---------------------------
+07:59:51 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:27 test step finish
+=============================== warnings summary ===============================
+../../../../.local/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/admin/.local/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_api_integration.py::test_create_persist_and_fetch_run - Att...
+FAILED tests/test_api_integration.py::test_api_rejects_probability_out_of_bounds_without_claiming_success
+FAILED tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload0-p must be finite]
+FAILED tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload1-p must be finite]
+FAILED tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload2-p must be finite]
+FAILED tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload3-w must be finite]
+FAILED tests/test_contracts_calibration.py::test_sample_contract_rejects_invalid_values[payload4-Input should be less than or equal to 1]
+FAILED tests/test_contracts_calibration.py::test_probability_out_of_range_is_rejected_not_clipped
+FAILED tests/test_contracts_calibration.py::test_fit_and_eval_overlap_is_contract_violation
+FAILED tests/test_contracts_calibration.py::test_fixed_edges_must_start_and_end_on_unit_interval
+FAILED tests/test_contracts_calibration.py::test_weighted_pava_matches_independent_reference_and_uses_fit_only
+FAILED tests/test_contracts_calibration.py::test_calibrator_refuses_out_of_bounds_evaluation_probability
+FAILED tests/test_experiment_integration.py::test_experiment_script_writes_versioned_results
+FAILED tests/test_kernel_handcalc.py::test_perfect_calibration_fixed_bins_has_zero_reliability
+FAILED tests/test_kernel_handcalc.py::test_overconfident_fixed_bins - Attribu...
+FAILED tests/test_kernel_handcalc.py::test_constant_probability_reports_empty_equal_frequency_bins
+FAILED tests/test_kernel_handcalc.py::test_extreme_weights_use_kish_ess_and_preserve_total_weight
+FAILED tests/test_kernel_handcalc.py::test_equal_frequency_matches_independent_reference[p0-y0-w0-2]
+FAILED tests/test_kernel_handcalc.py::test_equal_frequency_matches_independent_reference[p1-y1-w1-3]
+FAILED tests/test_kernel_handcalc.py::test_equal_frequency_matches_independent_reference[p2-y2-w2-2]
+FAILED tests/test_kernel_handcalc.py::test_equal_frequency_matches_independent_reference[p3-y3-w3-3]
+FAILED tests/test_kernel_handcalc.py::test_fixed_bins_match_independent_reference
+FAILED tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[17]
+FAILED tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[101]
+FAILED tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[20261001]
+FAILED tests/test_reference_crosscheck.py::test_tied_probabilities_are_never_split_across_equal_frequency_bins
+26 failed, 2 passed, 1 warning in 1.21s

@@ -1,0 +1,19 @@
+{
+  "run_id": "sample-isotonic",
+  "fit": [
+    {"id": "fit-0", "y": 0, "p": 0.1, "w": 1.0},
+    {"id": "fit-1", "y": 0, "p": 0.2, "w": 1.0},
+    {"id": "fit-2", "y": 1, "p": 0.8, "w": 1.0},
+    {"id": "fit-3", "y": 1, "p": 0.9, "w": 1.0}
+  ],
+  "eval": [
+    {"id": "eval-0", "y": 0, "p": 0.0, "w": 1.0},
+    {"id": "eval-1", "y": 0, "p": 0.4, "w": 2.0},
+    {"id": "eval-2", "y": 1, "p": 0.6, "w": 2.0},
+    {"id": "eval-3", "y": 1, "p": 1.0, "w": 1.0}
+  ],
+  "calibrator": {"type": "isotonic"},
+  "fixed_bins": {"edges": [0.0, 0.5, 1.0]},
+  "quantile_bins": {"n_bins": 2},
+  "metadata": {"source": "local synthetic sample"}
+}

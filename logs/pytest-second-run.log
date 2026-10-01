@@ -1,0 +1,1206 @@
+FF............FF.F.....FFFFF                                             [100%]
+=================================== FAILURES ===================================
+______________________ test_create_persist_and_fetch_run _______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-admin/pytest-1161/test_create_persist_and_fetch_0')
+run_identity = <conftest.RunIdentity object at 0x759fe2ee0bf0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x759fe3363530>
+
+    def test_create_persist_and_fetch_run(tmp_path, run_identity, monkeypatch):
+        db_path = tmp_path / "api.sqlite3"
+        log_path = tmp_path / "api-test.log"
+        service = CalibrationService(
+            Settings(database_path=db_path, log_file=log_path), RunRepository(db_path)
+        )
+        monkeypatch.setattr("app.api.service", service)
+        run_identity.emit("api_create_fetch", run_id="api-run")
+    
+        with TestClient(app) as client:
+>           response = client.post("/runs", json=make_payload())
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_api_integration.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+/home/admin/.local/lib/python3.12/site-packages/starlette/testclient.py:463: in request
+    return super().request(
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/starlette/testclient.py:360: in handle_request
+    raise exc
+/home/admin/.local/lib/python3.12/site-packages/starlette/testclient.py:357: in handle_request
+    portal.call(self.app, scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/anyio/from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+/home/admin/.local/lib/python3.12/site-packages/anyio/from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/fastapi/applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/middleware/errors.py:186: in __call__
+    raise exc
+/home/admin/.local/lib/python3.12/site-packages/starlette/middleware/errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:2734: in app
+    await route.handle(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:1281: in handle
+    await super().handle(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/routing.py:282: in handle
+    await self.app(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:706: in app
+    raw_response = await run_endpoint_function(
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:354: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/starlette/concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/anyio/to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+/home/admin/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:2706: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:1100: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+app/api.py:68: in create_run
+    return service.create_run(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/service.py:99: in create_run
+    "fixed": fixed_bins(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = array([0. , 0.4, 0.6, 1. ]), y = array([0, 0, 1, 1])
+w = array([1., 2., 2., 1.]), n_bins = 2, edges = [0.0, 0.5, 1.0]
+tolerance = 1e-10
+
+    def fixed_bins(
+        p: Sequence[float] | np.ndarray,
+        y: Sequence[int] | np.ndarray,
+        w: Sequence[float] | np.ndarray,
+        *,
+        n_bins: int = 10,
+        edges: Sequence[float] | np.ndarray | None = None,
+        tolerance: float = 1e-10,
+    ) -> BinningStatistics:
+        """Compute diagnostics for explicit, fixed boundaries."""
+    
+        probabilities, outcomes, weights = _validate_arrays(p, y, w)
+        edge_array = (
+            np.asarray(edges, dtype=np.float64)
+            if edges is not None
+            else np.linspace(0.0, 1.0, n_bins + 1, dtype=np.float64)
+        )
+        if len(edge_array) < 2 or edge_array[0] != 0.0 or edge_array[-1] != 1.0:
+            raise ValueError("fixed edges must start at 0 and end at 1")
+        if np.any(np.diff(edge_array) <= 0.0):
+            raise ValueError("fixed edges must be strictly increasing")
+    
+        assigned = np.searchsorted(edge_array, probabilities, side="right") - 1
+        if np.any(assigned < 0) or np.any(assigned >= len(edge_array) - 1):
+>           raise ValueError("probabilities lie outside fixed bin edges")
+E           ValueError: probabilities lie outside fixed bin edges
+
+app/kernel.py:63: ValueError
+---------------------------- Captured stderr setup -----------------------------
+08:01:27 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:27 INFO tests test step api_create_fetch
+08:01:27 DEBUG asyncio Using selector: EpollSelector
+08:01:27 INFO calibration.service starting calibration run
+08:01:27 INFO calibration.service fitting calibrator on fit partition only
+08:01:27 INFO calibration.service evaluating fixed and equal-frequency bins
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step api_create_fetch
+DEBUG    asyncio:selector_events.py:64 Using selector: EpollSelector
+INFO     calibration.service:service.py:53 starting calibration run
+INFO     calibration.service:service.py:71 fitting calibrator on fit partition only
+INFO     calibration.service:service.py:86 evaluating fixed and equal-frequency bins
+--------------------------- Captured stderr teardown ---------------------------
+08:01:27 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+_____ test_api_rejects_probability_out_of_bounds_without_claiming_success ______
+
+scope = {'type': 'http', 'http_version': '1.1', 'method': 'POST', 'path': '/runs', ...}
+receive = <function _TestClientTransport.handle_request.<locals>.receive at 0x759fe1822480>
+send = <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x759fe1822a20>
+
+    async def wrapped_app(scope: Scope, receive: Receive, send: Send) -> None:
+        response_started = False
+    
+        async def sender(message: Message) -> None:
+            nonlocal response_started
+    
+            if message["type"] == "http.response.start":
+                response_started = True
+            await send(message)
+    
+        try:
+>           await app(scope, receive, sender)
+
+/home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+request = <starlette.requests.Request object at 0x759fe1d33260>
+
+    async def app(request: Request) -> Response:
+        response: Response | None = None
+        file_stack = request.scope.get("fastapi_middleware_astack")
+        assert isinstance(file_stack, AsyncExitStack), (
+            "fastapi_middleware_astack not found in request scope"
+        )
+    
+        # Extract endpoint context for error messages
+        endpoint_ctx = (
+            _extract_endpoint_context(dependant.call)
+            if dependant.call
+            else EndpointContext()
+        )
+    
+        if dependant.path:
+            # For mounted sub-apps, include the mount path prefix
+            mount_path = request.scope.get("root_path", "").rstrip("/")
+            endpoint_ctx["path"] = f"{request.method} {mount_path}{dependant.path}"
+    
+        # Read body and auto-close files
+        try:
+            body: Any = None
+            if body_field:
+                if is_body_form:
+                    body = await request.form()
+                    file_stack.push_async_callback(body.close)
+                else:
+                    body_bytes = await request.body()
+                    if body_bytes:
+                        json_body: Any = Undefined
+                        content_type_value = request.headers.get("content-type")
+                        if not content_type_value:
+                            if not actual_strict_content_type:
+                                json_body = await request.json()
+                        else:
+                            message = email.message.Message()
+                            message["content-type"] = content_type_value
+                            if message.get_content_maintype() == "application":
+                                subtype = message.get_content_subtype()
+                                if subtype == "json" or subtype.endswith("+json"):
+                                    json_body = await request.json()
+                        if json_body != Undefined:
+                            body = json_body
+                        else:
+                            body = body_bytes
+        except json.JSONDecodeError as e:
+            validation_error = RequestValidationError(
+                [
+                    {
+                        "type": "json_invalid",
+                        "loc": ("body", e.pos),
+                        "msg": "JSON decode error",
+                        "input": {},
+                        "ctx": {"error": e.msg},
+                    }
+                ],
+                body=e.doc,
+                endpoint_ctx=endpoint_ctx,
+            )
+            raise validation_error from e
+        except HTTPException:
+            # If a middleware raises an HTTPException, it should be raised again
+            raise
+        except Exception as e:
+            http_error = HTTPException(
+                status_code=400, detail="There was an error parsing the body"
+            )
+            raise http_error from e
+    
+        # Solve dependencies and run path operation function, auto-closing dependencies
+        errors: list[Any] = []
+        async_exit_stack = request.scope.get("fastapi_inner_astack")
+        assert isinstance(async_exit_stack, AsyncExitStack), (
+            "fastapi_inner_astack not found in request scope"
+        )
+        solved_result = await solve_dependencies(
+            request=request,
+            dependant=dependant,
+            body=cast(dict[str, Any] | FormData | bytes | None, body),
+            dependency_overrides_provider=dependency_overrides_provider,
+            async_exit_stack=async_exit_stack,
+            embed_body_fields=embed_body_fields,
+        )
+        errors = solved_result.errors
+        assert dependant.call  # For types
+        if not errors:
+            # Shared serializer for stream items (JSONL and SSE).
+            # Validates against stream_item_field when set, then
+            # serializes to JSON bytes.
+            def _serialize_data(data: Any) -> bytes:
+                if stream_item_field:
+                    value, errors_ = stream_item_field.validate(
+                        data, {}, loc=("response",)
+                    )
+                    if errors_:
+                        ctx = endpoint_ctx or EndpointContext()
+                        raise ResponseValidationError(
+                            errors=errors_,
+                            body=data,
+                            endpoint_ctx=ctx,
+                        )
+                    return stream_item_field.serialize_json(
+                        value,
+                        include=response_model_include,
+                        exclude=response_model_exclude,
+                        by_alias=response_model_by_alias,
+                        exclude_unset=response_model_exclude_unset,
+                        exclude_defaults=response_model_exclude_defaults,
+                        exclude_none=response_model_exclude_none,
+                    )
+                else:
+                    data = jsonable_encoder(data)
+                    return json.dumps(data).encode("utf-8")
+    
+            if is_sse_stream:
+                # Generator endpoint: stream as Server-Sent Events
+                gen = dependant.call(**solved_result.values)
+    
+                def _serialize_sse_item(item: Any) -> bytes:
+                    if isinstance(item, ServerSentEvent):
+                        # User controls the event structure.
+                        # Serialize the data payload if present.
+                        # For ServerSentEvent items we skip stream_item_field
+                        # validation (the user may mix types intentionally).
+                        if item.raw_data is not None:
+                            data_str: str | None = item.raw_data
+                        elif item.data is not None:
+                            if hasattr(item.data, "model_dump_json"):
+                                data_str = item.data.model_dump_json()
+                            else:
+                                data_str = json.dumps(jsonable_encoder(item.data))
+                        else:
+                            data_str = None
+                        return format_sse_event(
+                            data_str=data_str,
+                            event=item.event,
+                            id=item.id,
+                            retry=item.retry,
+                            comment=item.comment,
+                        )
+                    else:
+                        # Plain object: validate + serialize via
+                        # stream_item_field (if set) and wrap in data field
+                        return format_sse_event(
+                            data_str=_serialize_data(item).decode("utf-8")
+                        )
+    
+                if _is_async_gen_callable(dependant.call):
+                    sse_aiter: AsyncIterator[Any] = gen.__aiter__()
+                else:
+                    sse_aiter = iterate_in_threadpool(gen)
+    
+                @asynccontextmanager
+                async def _sse_producer_cm() -> AsyncIterator[
+                    ObjectReceiveStream[bytes]
+                ]:
+                    # Use a memory stream to decouple generator iteration
+                    # from the keepalive timer. A producer task pulls items
+                    # from the generator independently, so
+                    # `anyio.fail_after` never wraps the generator's
+                    # `__anext__` directly - avoiding CancelledError that
+                    # would finalize the generator and also working for sync
+                    # generators running in a thread pool.
+                    #
+                    # This context manager is entered on the request-scoped
+                    # AsyncExitStack so its __aexit__ (which cancels the
+                    # task group) is called by the exit stack after the
+                    # streaming response completes — not by async generator
+                    # finalization via GeneratorExit.
+                    # Ref: https://peps.python.org/pep-0789/
+                    send_stream, receive_stream = anyio.create_memory_object_stream[
+                        bytes
+                    ](max_buffer_size=1)
+    
+                    async def _producer() -> None:
+                        async with send_stream:
+                            async for raw_item in sse_aiter:
+                                await send_stream.send(_serialize_sse_item(raw_item))
+    
+                    send_keepalive, receive_keepalive = (
+                        anyio.create_memory_object_stream[bytes](max_buffer_size=1)
+                    )
+    
+                    async def _keepalive_inserter() -> None:
+                        """Read from the producer and forward to the output,
+                        inserting keepalive comments on timeout."""
+                        async with send_keepalive, receive_stream:
+                            try:
+                                while True:
+                                    try:
+                                        with anyio.fail_after(_PING_INTERVAL):
+                                            data = await receive_stream.receive()
+                                        await send_keepalive.send(data)
+                                    except TimeoutError:
+                                        await send_keepalive.send(KEEPALIVE_COMMENT)
+                            except anyio.EndOfStream:
+                                pass
+    
+                    async with anyio.create_task_group() as tg:
+                        tg.start_soon(_producer)
+                        tg.start_soon(_keepalive_inserter)
+                        yield receive_keepalive
+                        tg.cancel_scope.cancel()
+    
+                # Enter the SSE context manager on the request-scoped
+                # exit stack. The stack outlives the streaming response,
+                # so __aexit__ runs via proper structured teardown, not
+                # via GeneratorExit thrown into an async generator.
+                sse_receive_stream = await async_exit_stack.enter_async_context(
+                    _sse_producer_cm()
+                )
+                # Ensure the receive stream is closed when the exit stack
+                # unwinds, preventing ResourceWarning from __del__.
+                async_exit_stack.push_async_callback(sse_receive_stream.aclose)
+    
+                async def _sse_with_checkpoints(
+                    stream: ObjectReceiveStream[bytes],
+                ) -> AsyncIterator[bytes]:
+                    async for data in stream:
+                        yield data
+                        # Guarantee a checkpoint so cancellation can be
+                        # delivered even when the producer is faster than
+                        # the consumer and receive() never suspends.
+                        await anyio.sleep(0)
+    
+                sse_stream_content: AsyncIterator[bytes] | Iterator[bytes] = (
+                    _sse_with_checkpoints(sse_receive_stream)
+                )
+    
+                response_args = _build_response_args(
+                    status_code=status_code, solved_result=solved_result
+                )
+                response = StreamingResponse(
+                    sse_stream_content,
+                    media_type="text/event-stream",
+                    **response_args,
+                )
+                response.headers["Cache-Control"] = "no-cache"
+                # For Nginx proxies to not buffer server sent events
+                response.headers["X-Accel-Buffering"] = "no"
+                response.headers.raw.extend(solved_result.response.headers.raw)
+            elif is_json_stream:
+                # Generator endpoint: stream as JSONL
+                gen = dependant.call(**solved_result.values)
+    
+                def _serialize_item(item: Any) -> bytes:
+                    return _serialize_data(item) + b"\n"
+    
+                if _is_async_gen_callable(dependant.call):
+    
+                    async def _async_stream_jsonl() -> AsyncIterator[bytes]:
+                        async for item in gen:
+                            yield _serialize_item(item)
+                            # To allow for cancellation to trigger
+                            # Ref: https://github.com/fastapi/fastapi/issues/14680
+                            await anyio.sleep(0)
+    
+                    jsonl_stream_content: AsyncIterator[bytes] | Iterator[bytes] = (
+                        _async_stream_jsonl()
+                    )
+                else:
+    
+                    def _sync_stream_jsonl() -> Iterator[bytes]:
+                        for item in gen:  # ty: ignore[not-iterable]
+                            yield _serialize_item(item)
+    
+                    jsonl_stream_content = _sync_stream_jsonl()
+    
+                response_args = _build_response_args(
+                    status_code=status_code, solved_result=solved_result
+                )
+                response = StreamingResponse(
+                    jsonl_stream_content,
+                    media_type="application/jsonl",
+                    **response_args,
+                )
+                response.headers.raw.extend(solved_result.response.headers.raw)
+            elif _is_async_gen_callable(dependant.call) or _is_gen_callable(
+                dependant.call
+            ):
+                # Raw streaming with explicit response_class (e.g. StreamingResponse)
+                gen = dependant.call(**solved_result.values)
+                if _is_async_gen_callable(dependant.call):
+    
+                    async def _async_stream_raw(
+                        async_gen: AsyncIterator[Any],
+                    ) -> AsyncIterator[Any]:
+                        async for chunk in async_gen:
+                            yield chunk
+                            # To allow for cancellation to trigger
+                            # Ref: https://github.com/fastapi/fastapi/issues/14680
+                            await anyio.sleep(0)
+    
+                    gen = _async_stream_raw(gen)
+                response_args = _build_response_args(
+                    status_code=status_code, solved_result=solved_result
+                )
+                response = actual_response_class(content=gen, **response_args)
+                response.headers.raw.extend(solved_result.response.headers.raw)
+            else:
+                raw_response = await run_endpoint_function(
+                    dependant=dependant,
+                    values=solved_result.values,
+                    is_coroutine=is_coroutine,
+                )
+                if isinstance(raw_response, Response):
+                    if raw_response.background is None:
+                        raw_response.background = solved_result.background_tasks
+                    response = raw_response
+                else:
+                    response_args = _build_response_args(
+                        status_code=status_code, solved_result=solved_result
+                    )
+                    # Use the fast path (dump_json) when no custom response
+                    # class was set and a response field with a TypeAdapter
+                    # exists. Serializes directly to JSON bytes via Pydantic's
+                    # Rust core, skipping the intermediate Python dict +
+                    # json.dumps() step.
+                    use_dump_json = response_field is not None and isinstance(
+                        response_class, DefaultPlaceholder
+                    )
+                    content = await serialize_response(
+                        field=response_field,
+                        response_content=raw_response,
+                        include=response_model_include,
+                        exclude=response_model_exclude,
+                        by_alias=response_model_by_alias,
+                        exclude_unset=response_model_exclude_unset,
+                        exclude_defaults=response_model_exclude_defaults,
+                        exclude_none=response_model_exclude_none,
+                        is_coroutine=is_coroutine,
+                        endpoint_ctx=endpoint_ctx,
+                        dump_json=use_dump_json,
+                    )
+                    if use_dump_json:
+                        response = Response(
+                            content=content,
+                            media_type="application/json",
+                            **response_args,
+                        )
+                    else:
+                        response = actual_response_class(content, **response_args)
+                    if not is_body_allowed_for_status_code(response.status_code):
+                        response.body = b""
+                    response.headers.raw.extend(solved_result.response.headers.raw)
+        if errors:
+            validation_error = RequestValidationError(
+                errors, body=body, endpoint_ctx=endpoint_ctx
+            )
+>           raise validation_error
+E           fastapi.exceptions.RequestValidationError: 1 validation error:
+E             {'type': 'value_error', 'loc': ('body', 'eval', 0, 'p'), 'msg': 'Value error, p must be finite and within [0, 1]; clipping is not allowed', 'input': 1.5, 'ctx': {'error': ValueError('p must be finite and within [0, 1]; clipping is not allowed')}}
+E           
+E             File "/home/admin/Downloads/xinbiaozhu/opp320/a/app/api.py", line 66, in create_run
+E               POST /runs
+
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:755: RequestValidationError
+
+During handling of the above exception, another exception occurred:
+
+run_identity = <conftest.RunIdentity object at 0x759fe2ee2a50>
+
+    def test_api_rejects_probability_out_of_bounds_without_claiming_success(run_identity):
+        payload = make_payload("bad-probability")
+        payload["eval"][0]["p"] = 1.5
+        run_identity.emit("api_invalid_probability", failure_status="FAILED")
+    
+        with TestClient(app) as client:
+>           response = client.post("/runs", json=payload)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_api_integration.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+/home/admin/.local/lib/python3.12/site-packages/starlette/testclient.py:463: in request
+    return super().request(
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/starlette/testclient.py:360: in handle_request
+    raise exc
+/home/admin/.local/lib/python3.12/site-packages/starlette/testclient.py:357: in handle_request
+    portal.call(self.app, scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/anyio/from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+/home/admin/.local/lib/python3.12/site-packages/anyio/from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/admin/.local/lib/python3.12/site-packages/fastapi/applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/middleware/errors.py:186: in __call__
+    raise exc
+/home/admin/.local/lib/python3.12/site-packages/starlette/middleware/errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:2734: in app
+    await route.handle(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:1281: in handle
+    await super().handle(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/routing.py:282: in handle
+    await self.app(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/fastapi/routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+/home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:59: in wrapped_app
+    response = await handler(conn, exc)  # type: ignore[arg-type]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+app/api.py:57: in validation_exception_handler
+    content=body.model_dump(mode="json"),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ErrorBody(status='FAILED', category='VALIDATION_ERROR', code='request_schema_violation', message='request body did not...allowed', 'input': 1.5, 'ctx': {'error': ValueError('p must be finite and within [0, 1]; clipping is not allowed')}}]})
+mode = 'json', include = None, exclude = None, context = None, by_alias = None
+exclude_unset = False, exclude_defaults = False, exclude_none = False
+exclude_computed_fields = False, round_trip = False, warnings = True
+fallback = None, serialize_as_any = False, polymorphic_serialization = None
+
+    def model_dump(
+        self,
+        *,
+        mode: Literal['json', 'python'] | str = 'python',
+        include: IncEx | None = None,
+        exclude: IncEx | None = None,
+        context: Any | None = None,
+        by_alias: bool | None = None,
+        exclude_unset: bool = False,
+        exclude_defaults: bool = False,
+        exclude_none: bool = False,
+        exclude_computed_fields: bool = False,
+        round_trip: bool = False,
+        warnings: bool | Literal['none', 'warn', 'error'] = True,
+        fallback: Callable[[Any], Any] | None = None,
+        serialize_as_any: bool = False,
+        polymorphic_serialization: bool | None = None,
+    ) -> dict[str, Any]:
+        """!!! abstract "Usage Documentation"
+            [`model_dump`](../concepts/serialization.md#python-mode)
+    
+        Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.
+    
+        Args:
+            mode: The mode in which `to_python` should run.
+                If mode is 'json', the output will only contain JSON serializable types.
+                If mode is 'python', the output may contain non-JSON-serializable Python objects.
+            include: A set of fields to include in the output.
+            exclude: A set of fields to exclude from the output.
+            context: Additional context to pass to the serializer.
+            by_alias: Whether to use the field's alias in the dictionary key if defined.
+            exclude_unset: Whether to exclude fields that have not been explicitly set.
+            exclude_defaults: Whether to exclude fields that are set to their default value.
+            exclude_none: Whether to exclude fields that have a value of `None`.
+            exclude_computed_fields: Whether to exclude computed fields.
+                While this can be useful for round-tripping, it is usually recommended to use the dedicated
+                `round_trip` parameter instead.
+            round_trip: If True, dumped values should be valid as input for non-idempotent types such as Json[T].
+            warnings: How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
+                "error" raises a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError].
+            fallback: A function to call when an unknown value is encountered. If not provided,
+                a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError] error is raised.
+            serialize_as_any: Whether to serialize fields with duck-typing serialization behavior.
+            polymorphic_serialization: Whether to use model and dataclass polymorphic serialization for this call.
+    
+        Returns:
+            A dictionary representation of the model.
+        """
+>       return self.__pydantic_serializer__.to_python(
+            self,
+            mode=mode,
+            by_alias=by_alias,
+            include=include,
+            exclude=exclude,
+            context=context,
+            exclude_unset=exclude_unset,
+            exclude_defaults=exclude_defaults,
+            exclude_none=exclude_none,
+            exclude_computed_fields=exclude_computed_fields,
+            round_trip=round_trip,
+            warnings=warnings,
+            fallback=fallback,
+            serialize_as_any=serialize_as_any,
+            polymorphic_serialization=polymorphic_serialization,
+        )
+E       pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'ValueError'>
+
+/home/admin/.local/lib/python3.12/site-packages/pydantic/main.py:475: PydanticSerializationError
+---------------------------- Captured stderr setup -----------------------------
+08:01:27 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:27 INFO tests test step api_invalid_probability
+08:01:27 DEBUG asyncio Using selector: EpollSelector
+08:01:27 WARNING calibration.api request failed schema validation
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step api_invalid_probability
+DEBUG    asyncio:selector_events.py:64 Using selector: EpollSelector
+WARNING  calibration.api:api.py:48 request failed schema validation
+--------------------------- Captured stderr teardown ---------------------------
+08:01:27 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+_______________ test_experiment_script_writes_versioned_results ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-admin/pytest-1161/test_experiment_script_writes_0')
+run_identity = <conftest.RunIdentity object at 0x759fe15053d0>
+
+    def test_experiment_script_writes_versioned_results(tmp_path, run_identity):
+        db_path = tmp_path / "experiments.sqlite3"
+        output_path = tmp_path / "results.json"
+        log_path = tmp_path / "experiment.log"
+        run_identity.emit(
+            "subprocess_experiment",
+            db=str(db_path),
+            output=str(output_path),
+            judgment="process must exit zero and write four SUCCEEDED runs",
+        )
+    
+        completed = subprocess.run(
+            [
+                sys.executable,
+                "scripts/run_experiment.py",
+                "--db",
+                str(db_path),
+                "--output",
+                str(output_path),
+                "--log-file",
+                str(log_path),
+            ],
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+>       assert completed.returncode == 0, completed.stderr
+E       AssertionError: 08:01:28 INFO calibration.service starting calibration run
+E         08:01:28 INFO calibration.service fitting calibrator on fit partition only
+E         08:01:28 INFO calibration.service evaluating fixed and equal-frequency bins
+E         Traceback (most recent call last):
+E           File "/home/admin/Downloads/xinbiaozhu/opp320/a/scripts/run_experiment.py", line 129, in <module>
+E             raise SystemExit(main())
+E                              ^^^^^^
+E           File "/home/admin/Downloads/xinbiaozhu/opp320/a/scripts/run_experiment.py", line 120, in main
+E             result = service.create_run(request)
+E                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/home/admin/Downloads/xinbiaozhu/opp320/a/app/service.py", line 99, in create_run
+E             "fixed": fixed_bins(
+E                      ^^^^^^^^^^^
+E           File "/home/admin/Downloads/xinbiaozhu/opp320/a/app/kernel.py", line 63, in fixed_bins
+E             raise ValueError("probabilities lie outside fixed bin edges")
+E         ValueError: probabilities lie outside fixed bin edges
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/usr/bin/python3', 'scripts/run_experiment.py', '--db', '/tmp/pytest-of-admin/pytest-1161/test...aise ValueError("probabilities lie outside fixed bin edges")\nValueError: probabilities lie outside fixed bin edges\n').returncode
+
+tests/test_experiment_integration.py:36: AssertionError
+---------------------------- Captured stderr setup -----------------------------
+08:01:28 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:28 INFO tests test step subprocess_experiment
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step subprocess_experiment
+--------------------------- Captured stderr teardown ---------------------------
+08:01:28 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+___________ test_perfect_calibration_fixed_bins_has_zero_reliability ___________
+
+run_identity = <conftest.RunIdentity object at 0x759fe1507230>
+
+    def test_perfect_calibration_fixed_bins_has_zero_reliability(run_identity):
+        p = [0.0, 0.1, 0.9, 1.0]
+        y = [0, 0, 1, 1]
+        w = [1.0, 1.0, 1.0, 1.0]
+        run_identity.emit(
+            "handcalc_perfect",
+            inputs={"p": p, "y": y, "w": w, "edges": [0.0, 0.5, 1.0]},
+            expected_brier=0.01,
+            decision_rule="Brier mean=0.01, REL=0, RES=0.25, UNC=0.25",
+        )
+    
+>       result = fixed_bins(p, y, w, edges=[0.0, 0.5, 1.0])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_kernel_handcalc.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = [0.0, 0.1, 0.9, 1.0], y = [0, 0, 1, 1], w = [1.0, 1.0, 1.0, 1.0]
+n_bins = 10, edges = [0.0, 0.5, 1.0], tolerance = 1e-10
+
+    def fixed_bins(
+        p: Sequence[float] | np.ndarray,
+        y: Sequence[int] | np.ndarray,
+        w: Sequence[float] | np.ndarray,
+        *,
+        n_bins: int = 10,
+        edges: Sequence[float] | np.ndarray | None = None,
+        tolerance: float = 1e-10,
+    ) -> BinningStatistics:
+        """Compute diagnostics for explicit, fixed boundaries."""
+    
+        probabilities, outcomes, weights = _validate_arrays(p, y, w)
+        edge_array = (
+            np.asarray(edges, dtype=np.float64)
+            if edges is not None
+            else np.linspace(0.0, 1.0, n_bins + 1, dtype=np.float64)
+        )
+        if len(edge_array) < 2 or edge_array[0] != 0.0 or edge_array[-1] != 1.0:
+            raise ValueError("fixed edges must start at 0 and end at 1")
+        if np.any(np.diff(edge_array) <= 0.0):
+            raise ValueError("fixed edges must be strictly increasing")
+    
+        assigned = np.searchsorted(edge_array, probabilities, side="right") - 1
+        if np.any(assigned < 0) or np.any(assigned >= len(edge_array) - 1):
+>           raise ValueError("probabilities lie outside fixed bin edges")
+E           ValueError: probabilities lie outside fixed bin edges
+
+app/kernel.py:63: ValueError
+---------------------------- Captured stderr setup -----------------------------
+08:01:28 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:28 INFO tests test step handcalc_perfect
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step handcalc_perfect
+--------------------------- Captured stderr teardown ---------------------------
+08:01:28 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+_________ test_constant_probability_reports_empty_equal_frequency_bins _________
+
+run_identity = <conftest.RunIdentity object at 0x759fe14ff890>
+
+    def test_constant_probability_reports_empty_equal_frequency_bins(run_identity):
+        p = [0.5, 0.5, 0.5, 0.5]
+        y = [0, 0, 1, 1]
+        w = [1.0, 1.0, 1.0, 1.0]
+        run_identity.emit(
+            "handcalc_constant",
+            n_bins=3,
+            tie_policy="all tied probabilities remain in the first nonempty bin",
+        )
+    
+        result = equal_frequency_bins(p, y, w, n_bins=3)
+    
+        assert result.n_nonempty_bins == 1
+        assert result.n_empty_bins == 2
+>       assert result.bins[0].is_empty is False
+E       AssertionError: assert True is False
+E        +  where True = BinRecord(index=0, scheme='equal_frequency', interval='empty[0, 0]', range_lower=0.0, range_upper=0.0, is_empty=True, ...=0, total_weight=0.0, weight_fraction=0.0, effective_sample_size=0.0, p_min=None, p_max=None, p_mean=None, y_mean=None).is_empty
+
+tests/test_kernel_handcalc.py:80: AssertionError
+---------------------------- Captured stderr setup -----------------------------
+08:01:28 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:28 INFO tests test step handcalc_constant
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step handcalc_constant
+--------------------------- Captured stderr teardown ---------------------------
+08:01:28 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+_________________ test_fixed_bins_match_independent_reference __________________
+
+run_identity = <conftest.RunIdentity object at 0x759fe14fef90>
+
+    def test_fixed_bins_match_independent_reference(run_identity):
+        p = [0.0, 0.25, 0.5, 0.75, 1.0]
+        y = [0, 1, 0, 1, 1]
+        w = [1.0, 2.0, 0.5, 4.0, 3.0]
+        run_identity.emit("reference_fixed_compare", n=len(p))
+>       actual = fixed_bins(p, y, w, edges=[0.0, 0.5, 1.0])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_kernel_handcalc.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = [0.0, 0.25, 0.5, 0.75, 1.0], y = [0, 1, 0, 1, 1]
+w = [1.0, 2.0, 0.5, 4.0, 3.0], n_bins = 10, edges = [0.0, 0.5, 1.0]
+tolerance = 1e-10
+
+    def fixed_bins(
+        p: Sequence[float] | np.ndarray,
+        y: Sequence[int] | np.ndarray,
+        w: Sequence[float] | np.ndarray,
+        *,
+        n_bins: int = 10,
+        edges: Sequence[float] | np.ndarray | None = None,
+        tolerance: float = 1e-10,
+    ) -> BinningStatistics:
+        """Compute diagnostics for explicit, fixed boundaries."""
+    
+        probabilities, outcomes, weights = _validate_arrays(p, y, w)
+        edge_array = (
+            np.asarray(edges, dtype=np.float64)
+            if edges is not None
+            else np.linspace(0.0, 1.0, n_bins + 1, dtype=np.float64)
+        )
+        if len(edge_array) < 2 or edge_array[0] != 0.0 or edge_array[-1] != 1.0:
+            raise ValueError("fixed edges must start at 0 and end at 1")
+        if np.any(np.diff(edge_array) <= 0.0):
+            raise ValueError("fixed edges must be strictly increasing")
+    
+        assigned = np.searchsorted(edge_array, probabilities, side="right") - 1
+        if np.any(assigned < 0) or np.any(assigned >= len(edge_array) - 1):
+>           raise ValueError("probabilities lie outside fixed bin edges")
+E           ValueError: probabilities lie outside fixed bin edges
+
+app/kernel.py:63: ValueError
+---------------------------- Captured stderr setup -----------------------------
+08:01:28 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:28 INFO tests test step reference_fixed_compare
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step reference_fixed_compare
+--------------------------- Captured stderr teardown ---------------------------
+08:01:28 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+____________ test_random_weighted_fixed_and_quantile_statistics[17] ____________
+
+seed = 17, run_identity = <conftest.RunIdentity object at 0x759fe14fc3e0>
+
+    @pytest.mark.parametrize("seed", [17, 101, 20261001])
+    def test_random_weighted_fixed_and_quantile_statistics(seed, run_identity):
+        generator = random.Random(seed)
+        n = generator.randrange(12, 40)
+        p = [generator.choice([0.0, 0.1, 0.25, 0.5, 0.75, 0.9, 1.0]) for _ in range(n)]
+        y = [generator.randrange(2) for _ in range(n)]
+        w = [generator.uniform(0.25, 5.0) for _ in range(n)]
+        n_bins = generator.choice([2, 3, 5])
+        run_identity.emit(
+            "random_crosscheck",
+            seed=seed,
+            n=n,
+            n_bins=n_bins,
+            judgment="compare every Brier component to stdlib reference",
+        )
+    
+>       actual_fixed = fixed_bins(p, y, w, edges=[0.0, 0.25, 0.5, 0.75, 1.0])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_reference_crosscheck.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = [0.5, 1.0, 0.25, 0.25, 0.25, 0.1, ...], y = [1, 0, 0, 0, 0, 0, ...]
+w = [0.8061755105471533, 1.2657554656089307, 1.4307063985829007, 4.797490516369135, 0.5260321294456844, 0.5551305132786258, ...]
+n_bins = 10, edges = [0.0, 0.25, 0.5, 0.75, 1.0], tolerance = 1e-10
+
+    def fixed_bins(
+        p: Sequence[float] | np.ndarray,
+        y: Sequence[int] | np.ndarray,
+        w: Sequence[float] | np.ndarray,
+        *,
+        n_bins: int = 10,
+        edges: Sequence[float] | np.ndarray | None = None,
+        tolerance: float = 1e-10,
+    ) -> BinningStatistics:
+        """Compute diagnostics for explicit, fixed boundaries."""
+    
+        probabilities, outcomes, weights = _validate_arrays(p, y, w)
+        edge_array = (
+            np.asarray(edges, dtype=np.float64)
+            if edges is not None
+            else np.linspace(0.0, 1.0, n_bins + 1, dtype=np.float64)
+        )
+        if len(edge_array) < 2 or edge_array[0] != 0.0 or edge_array[-1] != 1.0:
+            raise ValueError("fixed edges must start at 0 and end at 1")
+        if np.any(np.diff(edge_array) <= 0.0):
+            raise ValueError("fixed edges must be strictly increasing")
+    
+        assigned = np.searchsorted(edge_array, probabilities, side="right") - 1
+        if np.any(assigned < 0) or np.any(assigned >= len(edge_array) - 1):
+>           raise ValueError("probabilities lie outside fixed bin edges")
+E           ValueError: probabilities lie outside fixed bin edges
+
+app/kernel.py:63: ValueError
+---------------------------- Captured stderr setup -----------------------------
+08:01:28 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:28 INFO tests test step random_crosscheck
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step random_crosscheck
+--------------------------- Captured stderr teardown ---------------------------
+08:01:28 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+___________ test_random_weighted_fixed_and_quantile_statistics[101] ____________
+
+seed = 101, run_identity = <conftest.RunIdentity object at 0x759fe14fd220>
+
+    @pytest.mark.parametrize("seed", [17, 101, 20261001])
+    def test_random_weighted_fixed_and_quantile_statistics(seed, run_identity):
+        generator = random.Random(seed)
+        n = generator.randrange(12, 40)
+        p = [generator.choice([0.0, 0.1, 0.25, 0.5, 0.75, 0.9, 1.0]) for _ in range(n)]
+        y = [generator.randrange(2) for _ in range(n)]
+        w = [generator.uniform(0.25, 5.0) for _ in range(n)]
+        n_bins = generator.choice([2, 3, 5])
+        run_identity.emit(
+            "random_crosscheck",
+            seed=seed,
+            n=n,
+            n_bins=n_bins,
+            judgment="compare every Brier component to stdlib reference",
+        )
+    
+>       actual_fixed = fixed_bins(p, y, w, edges=[0.0, 0.25, 0.5, 0.75, 1.0])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_reference_crosscheck.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = [1.0, 0.1, 0.75, 0.25, 0.5, 0.0, ...], y = [1, 0, 1, 1, 0, 0, ...]
+w = [2.930949692741461, 0.9784918590017105, 0.4142658434882269, 1.1089992491102463, 0.562260446154579, 0.9661040095404138, ...]
+n_bins = 10, edges = [0.0, 0.25, 0.5, 0.75, 1.0], tolerance = 1e-10
+
+    def fixed_bins(
+        p: Sequence[float] | np.ndarray,
+        y: Sequence[int] | np.ndarray,
+        w: Sequence[float] | np.ndarray,
+        *,
+        n_bins: int = 10,
+        edges: Sequence[float] | np.ndarray | None = None,
+        tolerance: float = 1e-10,
+    ) -> BinningStatistics:
+        """Compute diagnostics for explicit, fixed boundaries."""
+    
+        probabilities, outcomes, weights = _validate_arrays(p, y, w)
+        edge_array = (
+            np.asarray(edges, dtype=np.float64)
+            if edges is not None
+            else np.linspace(0.0, 1.0, n_bins + 1, dtype=np.float64)
+        )
+        if len(edge_array) < 2 or edge_array[0] != 0.0 or edge_array[-1] != 1.0:
+            raise ValueError("fixed edges must start at 0 and end at 1")
+        if np.any(np.diff(edge_array) <= 0.0):
+            raise ValueError("fixed edges must be strictly increasing")
+    
+        assigned = np.searchsorted(edge_array, probabilities, side="right") - 1
+        if np.any(assigned < 0) or np.any(assigned >= len(edge_array) - 1):
+>           raise ValueError("probabilities lie outside fixed bin edges")
+E           ValueError: probabilities lie outside fixed bin edges
+
+app/kernel.py:63: ValueError
+---------------------------- Captured stderr setup -----------------------------
+08:01:28 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:28 INFO tests test step random_crosscheck
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step random_crosscheck
+--------------------------- Captured stderr teardown ---------------------------
+08:01:28 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+_________ test_random_weighted_fixed_and_quantile_statistics[20261001] _________
+
+seed = 20261001, run_identity = <conftest.RunIdentity object at 0x759fe14fdfd0>
+
+    @pytest.mark.parametrize("seed", [17, 101, 20261001])
+    def test_random_weighted_fixed_and_quantile_statistics(seed, run_identity):
+        generator = random.Random(seed)
+        n = generator.randrange(12, 40)
+        p = [generator.choice([0.0, 0.1, 0.25, 0.5, 0.75, 0.9, 1.0]) for _ in range(n)]
+        y = [generator.randrange(2) for _ in range(n)]
+        w = [generator.uniform(0.25, 5.0) for _ in range(n)]
+        n_bins = generator.choice([2, 3, 5])
+        run_identity.emit(
+            "random_crosscheck",
+            seed=seed,
+            n=n,
+            n_bins=n_bins,
+            judgment="compare every Brier component to stdlib reference",
+        )
+    
+>       actual_fixed = fixed_bins(p, y, w, edges=[0.0, 0.25, 0.5, 0.75, 1.0])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_reference_crosscheck.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+p = [0.25, 0.25, 1.0, 0.75, 0.75, 0.9, ...], y = [0, 0, 1, 1, 0, 1, ...]
+w = [1.9606428395514022, 2.6430560633847713, 4.143258083361312, 0.5195847033356206, 2.09984072902088, 3.297047919160275, ...]
+n_bins = 10, edges = [0.0, 0.25, 0.5, 0.75, 1.0], tolerance = 1e-10
+
+    def fixed_bins(
+        p: Sequence[float] | np.ndarray,
+        y: Sequence[int] | np.ndarray,
+        w: Sequence[float] | np.ndarray,
+        *,
+        n_bins: int = 10,
+        edges: Sequence[float] | np.ndarray | None = None,
+        tolerance: float = 1e-10,
+    ) -> BinningStatistics:
+        """Compute diagnostics for explicit, fixed boundaries."""
+    
+        probabilities, outcomes, weights = _validate_arrays(p, y, w)
+        edge_array = (
+            np.asarray(edges, dtype=np.float64)
+            if edges is not None
+            else np.linspace(0.0, 1.0, n_bins + 1, dtype=np.float64)
+        )
+        if len(edge_array) < 2 or edge_array[0] != 0.0 or edge_array[-1] != 1.0:
+            raise ValueError("fixed edges must start at 0 and end at 1")
+        if np.any(np.diff(edge_array) <= 0.0):
+            raise ValueError("fixed edges must be strictly increasing")
+    
+        assigned = np.searchsorted(edge_array, probabilities, side="right") - 1
+        if np.any(assigned < 0) or np.any(assigned >= len(edge_array) - 1):
+>           raise ValueError("probabilities lie outside fixed bin edges")
+E           ValueError: probabilities lie outside fixed bin edges
+
+app/kernel.py:63: ValueError
+---------------------------- Captured stderr setup -----------------------------
+08:01:28 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:28 INFO tests test step random_crosscheck
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step random_crosscheck
+--------------------------- Captured stderr teardown ---------------------------
+08:01:28 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+_____ test_tied_probabilities_are_never_split_across_equal_frequency_bins ______
+
+run_identity = <conftest.RunIdentity object at 0x759fe14fec30>
+
+    def test_tied_probabilities_are_never_split_across_equal_frequency_bins(run_identity):
+        p = [0.4, 0.4, 0.4, 0.6, 0.6]
+        y = [0, 1, 0, 1, 0]
+        w = [1.0, 1.0, 1.0, 1.0, 1.0]
+        run_identity.emit("tie_non_splitting_check", p=p, n_bins=3)
+    
+        result = equal_frequency_bins(p, y, w, n_bins=3)
+        nonempty = [bin_ for bin_ in result.bins if not bin_.is_empty]
+    
+        assert len(nonempty) == 2
+>       assert {bin_.count for bin in nonempty} == {3, 2}
+                ^^^^
+E       UnboundLocalError: cannot access local variable 'bin_' where it is not associated with a value
+
+tests/test_reference_crosscheck.py:62: UnboundLocalError
+---------------------------- Captured stderr setup -----------------------------
+08:01:28 INFO tests test step start
+------------------------------ Captured log setup ------------------------------
+INFO     tests:conftest.py:25 test step start
+----------------------------- Captured stderr call -----------------------------
+08:01:28 INFO tests test step tie_non_splitting_check
+------------------------------ Captured log call -------------------------------
+INFO     tests:conftest.py:25 test step tie_non_splitting_check
+--------------------------- Captured stderr teardown ---------------------------
+08:01:28 INFO tests test step finish
+---------------------------- Captured log teardown -----------------------------
+INFO     tests:conftest.py:25 test step finish
+=============================== warnings summary ===============================
+../../../../.local/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/admin/.local/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/test_api_integration.py::test_api_rejects_probability_out_of_bounds_without_claiming_success
+  /home/admin/.local/lib/python3.12/site-packages/starlette/_exception_handler.py:59: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    response = await handler(conn, exc)  # type: ignore[arg-type]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_api_integration.py::test_create_persist_and_fetch_run - Val...
+FAILED tests/test_api_integration.py::test_api_rejects_probability_out_of_bounds_without_claiming_success
+FAILED tests/test_experiment_integration.py::test_experiment_script_writes_versioned_results
+FAILED tests/test_kernel_handcalc.py::test_perfect_calibration_fixed_bins_has_zero_reliability
+FAILED tests/test_kernel_handcalc.py::test_constant_probability_reports_empty_equal_frequency_bins
+FAILED tests/test_kernel_handcalc.py::test_fixed_bins_match_independent_reference
+FAILED tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[17]
+FAILED tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[101]
+FAILED tests/test_reference_crosscheck.py::test_random_weighted_fixed_and_quantile_statistics[20261001]
+FAILED tests/test_reference_crosscheck.py::test_tied_probabilities_are_never_split_across_equal_frequency_bins
+10 failed, 18 passed, 2 warnings in 2.76s

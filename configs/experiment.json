@@ -1,0 +1,8 @@
+{
+  "database_path": "data/experiment_runs.sqlite3",
+  "output_path": "outputs/experiment_results.json",
+  "scenarios": ["perfect", "overconfident", "constant", "extreme_weights"],
+  "fixed_edges": [0.0, 0.5, 1.0],
+  "equal_frequency_bins": 3,
+  "random_seed_for_larger_generators": 20261001
+}
