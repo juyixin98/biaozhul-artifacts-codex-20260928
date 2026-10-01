@@ -1,0 +1,37 @@
+{
+  "name": "asymmetric-quadratic",
+  "dimension": 3,
+  "workers": [
+    {
+      "id": "worker-a",
+      "P": [
+        [2.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0],
+        [0.0, 0.0, 3.0]
+      ],
+      "q": [1.0, -2.0, 0.5],
+      "r": 0.0,
+      "sample_count": 13
+    },
+    {
+      "id": "worker-b",
+      "P": [
+        [4.0, 0.2, 0.0],
+        [0.2, 5.0, -0.1],
+        [0.0, -0.1, 2.0]
+      ],
+      "q": [-3.0, 1.0, 4.0],
+      "r": 0.25,
+      "sample_count": 97
+    }
+  ],
+  "initial_rho": 1.0,
+  "rho_schedule": [
+    {"iteration": 5, "rho": 2.5}
+  ],
+  "initial_z": [0.0, 0.0, 0.0],
+  "eps_abs": 1e-8,
+  "eps_rel": 1e-8,
+  "max_iterations": 120,
+  "deadline_ms": 2000
+}

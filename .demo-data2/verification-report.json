@@ -1,0 +1,123 @@
+{
+  "admm_objective": -2.167686544645262,
+  "central_objective": -2.1676866585067316,
+  "central_x": [
+    0.32864137086903306,
+    0.14075887392900857,
+    -0.8971848225214198
+  ],
+  "completed_rounds": 53,
+  "eps_dual": 7.141243129841134e-08,
+  "eps_primal": 3.815329278161103e-08,
+  "event_counts": {
+    "round_completed": 53,
+    "round_opened": 53,
+    "round_resumed": 3,
+    "round_timed_out": 3,
+    "run_created": 1,
+    "submission_received": 106
+  },
+  "final_dual_residual": 4.667147335438171e-09,
+  "final_primal_residual": 3.343597153385984e-08,
+  "max_abs_point_error": 8.117844896293747e-09,
+  "objective_gap": 1.1386146958614063e-07,
+  "resume_events": [
+    {
+      "data": {
+        "deadline": 1790759498.9485695,
+        "deadline_ms": 10000,
+        "iteration": 0,
+        "reason": "worker_retry_after_timeout",
+        "retained_submissions": []
+      },
+      "seq": 4,
+      "timestamp": 1790759488.9485688,
+      "type": "round_resumed"
+    },
+    {
+      "data": {
+        "deadline": 1790759592.600382,
+        "deadline_ms": 10000,
+        "iteration": 36,
+        "reason": "manual-retry",
+        "retained_submissions": [
+          "worker-b"
+        ]
+      },
+      "seq": 151,
+      "timestamp": 1790759582.6003816,
+      "type": "round_resumed"
+    },
+    {
+      "data": {
+        "deadline": 1790759609.0287392,
+        "deadline_ms": 10000,
+        "iteration": 36,
+        "reason": "worker_retry_after_timeout",
+        "retained_submissions": [
+          "worker-b"
+        ]
+      },
+      "seq": 153,
+      "timestamp": 1790759599.028739,
+      "type": "round_resumed"
+    }
+  ],
+  "run_id": "aa017f5453b34fe5af8d967aca1ee2b3",
+  "status": "converged",
+  "terminal_iteration": 53,
+  "timeout_events": [
+    {
+      "data": {
+        "deadline": 1790759487.1790714,
+        "iteration": 0,
+        "missing_workers": [
+          "worker-a",
+          "worker-b"
+        ],
+        "reason": "worker_observed_deadline",
+        "submitted_workers": []
+      },
+      "seq": 3,
+      "timestamp": 1790759488.94309,
+      "type": "round_timed_out"
+    },
+    {
+      "data": {
+        "deadline": 1790759500.5586207,
+        "iteration": 36,
+        "missing_workers": [
+          "worker-a"
+        ],
+        "reason": "manual-deadline-during-demo",
+        "submitted_workers": [
+          "worker-b"
+        ]
+      },
+      "seq": 150,
+      "timestamp": 1790759582.5550892,
+      "type": "round_timed_out"
+    },
+    {
+      "data": {
+        "deadline": 1790759592.600382,
+        "iteration": 36,
+        "missing_workers": [
+          "worker-a"
+        ],
+        "reason": "worker_observed_deadline",
+        "submitted_workers": [
+          "worker-b"
+        ]
+      },
+      "seq": 152,
+      "timestamp": 1790759599.0095239,
+      "type": "round_timed_out"
+    }
+  ],
+  "z": [
+    0.32864137898687795,
+    0.14075887500636797,
+    -0.8971848200483766
+  ]
+}
