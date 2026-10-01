@@ -1,0 +1,18 @@
+{
+  "name": "reverse residual reroute",
+  "node_count": 4,
+  "source": 0,
+  "sink": 3,
+  "edges": [
+    { "id": "sv", "from": 0, "to": 2, "capacity": 10 },
+    { "id": "su", "from": 0, "to": 1, "capacity": 10 },
+    { "id": "vu", "from": 2, "to": 1, "capacity": 10 },
+    { "id": "ut", "from": 1, "to": 3, "capacity": 10 },
+    { "id": "vt", "from": 2, "to": 3, "capacity": 10 }
+  ],
+  "expected_value": 20,
+  "expected_source_side": [0],
+  "expected_sink_side": [1, 2, 3],
+  "expected_cut_edges": ["sv", "su"],
+  "cancel_after_phase_1_value": 20
+}

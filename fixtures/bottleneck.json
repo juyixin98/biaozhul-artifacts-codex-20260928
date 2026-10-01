@@ -1,0 +1,17 @@
+{
+  "name": "single bottleneck",
+  "node_count": 4,
+  "source": 0,
+  "sink": 3,
+  "edges": [
+    { "id": "sa", "from": 0, "to": 1, "capacity": 40 },
+    { "id": "sb", "from": 0, "to": 2, "capacity": 30 },
+    { "id": "ba", "from": 2, "to": 1, "capacity": 20 },
+    { "id": "at", "from": 1, "to": 3, "capacity": 10 }
+  ],
+  "expected_value": 10,
+  "expected_source_side": [0, 1, 2],
+  "expected_sink_side": [3],
+  "expected_cut_edges": ["at"],
+  "cancel_after_phase_1_value": 10
+}

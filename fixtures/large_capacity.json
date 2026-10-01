@@ -1,0 +1,15 @@
+{
+  "name": "large u64 capacity",
+  "node_count": 3,
+  "source": 0,
+  "sink": 2,
+  "edges": [
+    { "id": "wide", "from": 0, "to": 1, "capacity": 18446744073709551615 },
+    { "id": "also-wide", "from": 0, "to": 2, "capacity": 18446744073709551615 }
+  ],
+  "expected_value": 18446744073709551615,
+  "expected_source_side": [0, 1],
+  "expected_sink_side": [2],
+  "expected_cut_edges": ["also-wide"],
+  "cancel_after_phase_1_value": 18446744073709551615
+}

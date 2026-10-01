@@ -1,0 +1,16 @@
+{
+  "name": "parallel and zero-capacity edges",
+  "node_count": 2,
+  "source": 0,
+  "sink": 1,
+  "edges": [
+    { "id": "zero", "from": 0, "to": 1, "capacity": 0 },
+    { "id": "first-positive", "from": 0, "to": 1, "capacity": 5 },
+    { "id": "second-positive", "from": 0, "to": 1, "capacity": 3 }
+  ],
+  "expected_value": 8,
+  "expected_source_side": [0],
+  "expected_sink_side": [1],
+  "expected_cut_edges": ["first-positive", "second-positive"],
+  "cancel_after_phase_1_value": 8
+}

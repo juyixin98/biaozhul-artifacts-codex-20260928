@@ -1,0 +1,16 @@
+{
+  "name": "source has no outgoing route",
+  "node_count": 4,
+  "source": 0,
+  "sink": 3,
+  "edges": [
+    { "id": "a-b", "from": 1, "to": 2, "capacity": 99 },
+    { "id": "b-t", "from": 2, "to": 3, "capacity": 99 },
+    { "id": "reverse-only", "from": 1, "to": 0, "capacity": 5 }
+  ],
+  "expected_value": 0,
+  "expected_source_side": [0],
+  "expected_sink_side": [1, 2, 3],
+  "expected_cut_edges": [],
+  "cancel_after_phase_1_value": 0
+}
