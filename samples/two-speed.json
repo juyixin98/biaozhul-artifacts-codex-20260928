@@ -1,0 +1,33 @@
+{
+  "task_id": "demo-two-speed",
+  "streams": [
+    {
+      "id": "A",
+      "delay_millis": 0,
+      "events": [
+        {"kind": "record", "record": {"stream": "A", "key": "k1", "value": 1, "seq": 1}},
+        {"kind": "record", "record": {"stream": "A", "key": "k2", "value": 10, "seq": 2}},
+        {"kind": "record", "record": {"stream": "A", "key": "k1", "value": 1, "seq": 3}},
+        {"kind": "barrier", "delay_millis": 25, "barrier": {"id": 1, "stream": "A", "after": 3}},
+        {"kind": "record", "record": {"stream": "A", "key": "k1", "value": 1, "seq": 4}},
+        {"kind": "record", "record": {"stream": "A", "key": "k2", "value": 10, "seq": 5}},
+        {"kind": "barrier", "barrier": {"id": 2, "stream": "A", "after": 5}}
+      ]
+    },
+    {
+      "id": "B",
+      "start_delay_millis": 0,
+      "delay_millis": 0,
+      "events": [
+        {"kind": "record", "record": {"stream": "B", "key": "k1", "value": 5, "seq": 1}},
+        {"kind": "record", "record": {"stream": "B", "key": "k2", "value": 50, "seq": 2}},
+        {"kind": "record", "record": {"stream": "B", "key": "k1", "value": 5, "seq": 3}},
+        {"kind": "barrier", "after_millis": 5, "barrier": {"id": 1, "stream": "B", "after": 3}},
+        {"kind": "pause", "duration_millis": 5},
+        {"kind": "record", "delay_millis": 25, "record": {"stream": "B", "key": "k1", "value": 5, "seq": 4}},
+        {"kind": "record", "delay_millis": 25, "record": {"stream": "B", "key": "k2", "value": 50, "seq": 5}},
+        {"kind": "barrier", "barrier": {"id": 2, "stream": "B", "after": 5}}
+      ]
+    }
+  ]
+}

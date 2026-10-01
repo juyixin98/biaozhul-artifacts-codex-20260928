@@ -1,0 +1,7 @@
+{
+  "http_addr": ":8099",
+  "storage": "memory",
+  "database_url": "host=/var/run/postgresql dbname=opp299 user=admin sslmode=disable",
+  "migration_path": "migrations/001_checkpoints.sql",
+  "default_backpressure_limit": 4
+}
