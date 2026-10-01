@@ -1,0 +1,25 @@
+{
+  "name": "K4 connected to K3 by a thin bridge",
+  "multiple_edge_policy": "deduplicate",
+  "nodes": [
+    { "id": "a" },
+    { "id": "b" },
+    { "id": "c" },
+    { "id": "d" },
+    { "id": "x" },
+    { "id": "y" },
+    { "id": "z" }
+  ],
+  "edges": [
+    { "id": "k4_ab", "u": "a", "v": "b" },
+    { "id": "k4_ac", "u": "a", "v": "c" },
+    { "id": "k4_ad", "u": "a", "v": "d" },
+    { "id": "k4_bc", "u": "b", "v": "c" },
+    { "id": "k4_bd", "u": "b", "v": "d" },
+    { "id": "k4_cd", "u": "c", "v": "d" },
+    { "id": "bridge_dx", "u": "d", "v": "x" },
+    { "id": "k3_xy", "u": "x", "v": "y" },
+    { "id": "k3_xz", "u": "x", "v": "z" },
+    { "id": "k3_yz", "u": "y", "v": "z" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "three triangles sharing edge ab",
+  "multiple_edge_policy": "deduplicate",
+  "nodes": [
+    { "id": "a" },
+    { "id": "b" },
+    { "id": "1" },
+    { "id": "2" },
+    { "id": "3" }
+  ],
+  "edges": [
+    { "id": "ab", "u": "a", "v": "b" },
+    { "id": "a1", "u": "a", "v": "1" },
+    { "id": "b1", "u": "b", "v": "1" },
+    { "id": "a2", "u": "a", "v": "2" },
+    { "id": "b2", "u": "b", "v": "2" },
+    { "id": "a3", "u": "a", "v": "3" },
+    { "id": "b3", "u": "b", "v": "3" }
+  ]
+}

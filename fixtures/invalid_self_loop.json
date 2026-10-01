@@ -1,0 +1,9 @@
+{
+  "name": "self loop rejection",
+  "nodes": [
+    { "id": "a" }
+  ],
+  "edges": [
+    { "id": "loop", "u": "a", "v": "a" }
+  ]
+}

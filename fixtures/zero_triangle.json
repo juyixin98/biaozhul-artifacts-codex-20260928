@@ -1,0 +1,17 @@
+{
+  "name": "triangle-free path",
+  "multiple_edge_policy": "deduplicate",
+  "nodes": [
+    { "id": "p0" },
+    { "id": "p1" },
+    { "id": "p2" },
+    { "id": "p3" },
+    { "id": "p4" }
+  ],
+  "edges": [
+    { "id": "p01", "u": "p0", "v": "p1" },
+    { "id": "p12", "u": "p1", "v": "p2" },
+    { "id": "p23", "u": "p2", "v": "p3" },
+    { "id": "p34", "u": "p3", "v": "p4" }
+  ]
+}

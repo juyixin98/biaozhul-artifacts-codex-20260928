@@ -1,0 +1,12 @@
+{
+  "name": "one unordered pair declared twice",
+  "multiple_edge_policy": "deduplicate",
+  "nodes": [
+    { "id": "a" },
+    { "id": "b" }
+  ],
+  "edges": [
+    { "id": "first", "u": "a", "v": "b" },
+    { "id": "second", "u": "b", "v": "a" }
+  ]
+}
