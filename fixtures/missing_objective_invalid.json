@@ -1,0 +1,10 @@
+{
+  "objectives": [
+    {"name": "cost", "direction": "min"},
+    {"name": "reliability", "direction": "max"}
+  ],
+  "candidates": [
+    {"id": "A", "values": {"cost": 1}}
+  ]
+}
+

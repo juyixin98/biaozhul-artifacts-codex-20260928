@@ -1,0 +1,21 @@
+[project]
+name = "incremental-nondominated-sort"
+version = "0.1.0"
+description = "Exact multi-objective non-dominated sorting with incremental insert and delete APIs"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi",
+  "numpy",
+  "pydantic",
+  "scipy",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "httpx"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+

@@ -1,0 +1,17 @@
+{
+  "dataset_id": "fixture-two-dimensional",
+  "objectives": [
+    {"name": "cost", "direction": "min"},
+    {"name": "reliability", "direction": "max"}
+  ],
+  "tolerance": 0.0,
+  "candidates": [
+    {"id": "A", "values": {"cost": 1, "reliability": 3}},
+    {"id": "D", "values": {"cost": 1, "reliability": 3}},
+    {"id": "E", "values": {"cost": 2, "reliability": 3}},
+    {"id": "C", "values": {"cost": 2, "reliability": 2}},
+    {"id": "B", "values": {"cost": 3, "reliability": 1}},
+    {"id": "F", "values": {"cost": 4, "reliability": 0}}
+  ]
+}
+

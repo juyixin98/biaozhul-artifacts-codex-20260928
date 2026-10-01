@@ -1,0 +1,18 @@
+{
+  "dataset_id": "fixture-high-dimensional",
+  "objectives": [
+    {"name": "x1", "direction": "min"},
+    {"name": "x2", "direction": "min"},
+    {"name": "x3", "direction": "min"},
+    {"name": "region", "direction": "min"}
+  ],
+  "tolerance": 0.0,
+  "candidates": [
+    {"id": "p1", "values": {"x1": 0, "x2": 1, "x3": 1, "region": 5}},
+    {"id": "p2", "values": {"x1": 1, "x2": 0, "x3": 1, "region": 5}},
+    {"id": "p3", "values": {"x1": 1, "x2": 1, "x3": 0, "region": 5}},
+    {"id": "p1-duplicate", "values": {"x1": 0, "x2": 1, "x3": 1, "region": 5}},
+    {"id": "dominated", "values": {"x1": 1, "x2": 1, "x3": 1, "region": 5}}
+  ]
+}
+
