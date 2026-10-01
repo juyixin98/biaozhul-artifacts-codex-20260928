@@ -1,0 +1,14 @@
+{
+  "name": "cycle",
+  "description": "A directed 3-cycle must stop analysis and return cycle evidence.",
+  "expected_category": "cycle",
+  "graph": {
+    "vertices": ["a", "b", "c", "d"],
+    "edges": [
+      {"from": "a", "to": "b"},
+      {"from": "b", "to": "c"},
+      {"from": "c", "to": "a"},
+      {"from": "c", "to": "d"}
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "multi_source_sink",
+  "description": "A small DAG with two sources and two competing sinks.",
+  "expected_category": "dag",
+  "graph": {
+    "vertices": ["a", "b", "c", "d", "e"],
+    "edges": [
+      {"from": "a", "to": "c"},
+      {"from": "b", "to": "c"},
+      {"from": "c", "to": "d"},
+      {"from": "c", "to": "e"}
+    ]
+  }
+}

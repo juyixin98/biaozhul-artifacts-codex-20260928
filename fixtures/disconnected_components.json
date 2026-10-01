@@ -1,0 +1,15 @@
+{
+  "name": "disconnected_components",
+  "description": "A two-vertex chain, a diamond component, and an isolated vertex are independently covered.",
+  "expected_category": "dag",
+  "graph": {
+    "vertices": ["x", "y", "s", "p", "q", "t", "z"],
+    "edges": [
+      {"from": "x", "to": "y"},
+      {"from": "s", "to": "p"},
+      {"from": "s", "to": "q"},
+      {"from": "p", "to": "t"},
+      {"from": "q", "to": "t"}
+    ]
+  }
+}

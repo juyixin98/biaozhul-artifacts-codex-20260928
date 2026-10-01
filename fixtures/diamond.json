@@ -1,0 +1,14 @@
+{
+  "name": "diamond",
+  "description": "A source, two parallel middle vertices, and a sink are covered by one path? A path cannot include both middle branches, so two paths are required.",
+  "expected_category": "dag",
+  "graph": {
+    "vertices": ["s", "a", "b", "t"],
+    "edges": [
+      {"from": "s", "to": "a"},
+      {"from": "s", "to": "b"},
+      {"from": "a", "to": "t"},
+      {"from": "b", "to": "t"}
+    ]
+  }
+}

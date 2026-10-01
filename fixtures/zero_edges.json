@@ -1,0 +1,9 @@
+{
+  "name": "zero_edges",
+  "description": "Three isolated vertices must become three singleton paths.",
+  "expected_category": "dag",
+  "graph": {
+    "vertices": ["a", "b", "c"],
+    "edges": []
+  }
+}
