@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "exact-permutation-service"
+version = "1.0.0"
+description = "Exact and Monte Carlo two-independent-sample permutation test service"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.110",
+  "numpy>=1.24",
+  "pydantic>=2.0",
+  "scipy>=1.10",
+  "uvicorn>=0.27",
+]
+
+[project.optional-dependencies]
+test = ["httpx>=0.26", "pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["permutation_service*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+
