@@ -1,0 +1,16 @@
+# Runtime stack
+fastapi==0.141.1
+uvicorn==0.54.0
+pydantic==2.13.5
+numpy==2.5.3
+scipy==1.18.1
+
+# Test and local API clients
+pytest==9.1.1
+pandas==2.3.3
+httpx==0.28.1
+
+# Mature external references used by independent tests/reproduction only.
+# The application kernel never imports these packages.
+statsmodels==0.15.0
+arviz==0.23.0

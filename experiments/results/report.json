@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-09-30T09:29:43+00:00",
+  "seed": 20260930,
+  "external_references": [
+    "statsmodels==0.15.0",
+    "arviz==0.23.0"
+  ],
+  "all_passed": true,
+  "scenarios": [
+    {
+      "scenario": "independent_noise",
+      "acf_comparison": {
+        "max_abs_difference_lags_0_30": 2.5153490401663703e-17,
+        "passed": true,
+        "external": "statsmodels.tsa.stattools.acf(fft=True)"
+      },
+      "service_ess": {
+        "mean": 20043.802724195313,
+        "split_mean": 20054.06415266262,
+        "bulk": 20054.81405120637
+      },
+      "arviz_ess_mean": 20054.06415266261,
+      "arviz_ess_identity": 20043.802724195313,
+      "arviz_rhat_rank": 1.000063868250152,
+      "expectation": {
+        "ess_near_total": true,
+        "relative_ess_lower_bound": 0.9,
+        "rank_rhat_upper_bound": 1.01
+      },
+      "passed": true,
+      "failure_category_if_failed": "independent samples incorrectly treated as dependent or inflated between-chain variance"
+    },
+    {
+      "scenario": "ar1_phi_0p8",
+      "acf_comparison": {
+        "max_abs_difference_lags_0_30": 1.1102230246251565e-16,
+        "passed": true,
+        "external": "statsmodels.tsa.stattools.acf(fft=True)"
+      },
+      "service_ess_split_mean": 2120.7593718057897,
+      "arviz_ess_mean": 2120.5184375590766,
+      "asymptotic_theoretical_ess": 2222.2222222222217,
+      "asymptotic_theoretical_iat": 9.000000000000002,
+      "service_vs_arviz_relative_difference": 0.00011362044415441834,
+      "service_vs_theory_relative_difference": 0.045658282687394434,
+      "passed": true,
+      "failure_category_if_failed": "autocorrelation ignored or Geyer cutoff implemented incorrectly"
+    },
+    {
+      "scenario": "constant_chains",
+      "service_ess_states": {
+        "mean": "not_estimated",
+        "split_mean": "not_estimated",
+        "bulk": "not_estimated"
+      },
+      "service_rhat_states": {
+        "classic": "undefined",
+        "split": "undefined",
+        "rank_normalized": "undefined"
+      },
+      "diagnostic_codes": [
+        "CONSTANT_CHAIN",
+        "RHAT_ZERO_WITHIN_VARIANCE"
+      ],
+      "passed": true,
+      "failure_category_if_failed": "constant draws silently returned as N effective independent draws"
+    },
+    {
+      "scenario": "shifted_chain_means",
+      "service_ess_split_mean": 4.73554190526773,
+      "arviz_ess_mean": 4.73554190526773,
+      "arviz_ess_identity": 2.3109907943955137,
+      "service_classic_rhat": 2.7704065282866037,
+      "arviz_identity_rhat": 2.7704065282866037,
+      "variance_components": {
+        "n_chains": 4,
+        "draws_per_chain": 2000,
+        "equal_length": true,
+        "within_chain_variance": 0.9961324497450118,
+        "between_chain_variance": 13299.667822188596,
+        "marginal_variance": 7.645468294614437,
+        "degrees_of_freedom_between": 3,
+        "degrees_of_freedom_within": 7996,
+        "formula": "W=mean(s_i^2); B=n*var(chain means,ddof=1); Vhat=(n-1)/n*W+B/n"
+      },
+      "diagnostic_codes": [
+        "ESS_SEVERE_DEGRADATION",
+        "RHAT_ABOVE_THRESHOLD"
+      ],
+      "passed": true,
+      "failure_category_if_failed": "within-chain and between-chain variance were not separated"
+    },
+    {
+      "scenario": "short_chains",
+      "ess_states": {
+        "mean": "not_estimated",
+        "split_mean": "not_estimated",
+        "bulk": "not_estimated"
+      },
+      "rhat_states": {
+        "classic": "estimated",
+        "split": "estimated",
+        "rank_normalized": "estimated"
+      },
+      "diagnostic_codes": [
+        "RHAT_ABOVE_THRESHOLD",
+        "SHORT_CHAIN"
+      ],
+      "passed": true,
+      "failure_category_if_failed": "unstable finite estimate was returned without short-chain category"
+    }
+  ]
+}
