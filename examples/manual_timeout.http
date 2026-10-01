@@ -1,0 +1,15 @@
+# Create the run first, then submit worker 1 for round 1.
+# worker 2 deliberately does not submit. The timeout endpoint rejects the
+# provisional worker-1 update and leaves round_number at 1.
+
+POST http://127.0.0.1:8000/runs
+content-type: application/json
+
+< ./asymmetric_problem.json
+
+###
+
+POST http://127.0.0.1:8000/runs/{{run_id}}/timeout
+content-type: application/json
+
+{"missing_worker_ids": [2], "reason": "teaching-example-deadline"}

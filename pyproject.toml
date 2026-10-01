@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "consensus-admm-backend"
+version = "0.1.0"
+description = "Local two-process consensus ADMM teaching backend for separable convex quadratic objectives"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.141.1",
+  "uvicorn==0.54.0",
+  "pydantic==2.13.5",
+  "numpy==2.5.3",
+  "scipy==1.18.1",
+  "httpx==0.28.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest==9.1.1"]
+
+[project.scripts]
+admm-worker = "admm_consensus.worker:main"
+admm-run-local = "admm_consensus.local_runner:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"

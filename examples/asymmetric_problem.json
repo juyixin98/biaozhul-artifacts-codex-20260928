@@ -1,0 +1,39 @@
+{
+  "dimension": 3,
+  "workers": [
+    {
+      "worker_id": 1,
+      "Q": [
+        [2.0, 0.2, 0.0],
+        [0.2, 1.4, -0.1],
+        [0.0, -0.1, 1.8]
+      ],
+      "q": [1.0, -0.5, 0.8]
+    },
+    {
+      "worker_id": 2,
+      "Q": [
+        [5.5, -0.4, 0.2],
+        [-0.4, 4.0, 0.1],
+        [0.2, 0.1, 6.5]
+      ],
+      "q": [-2.0, 1.5, -3.0]
+    }
+  ],
+  "config": {
+    "rho": 2.0,
+    "max_iterations": 60,
+    "tolerances": {
+      "primal_abs": 1e-8,
+      "dual_abs": 1e-8,
+      "primal_rel": 1e-8,
+      "dual_rel": 1e-8
+    },
+    "adaptive_rho": {
+      "mu": 2.0,
+      "tau_incr": 2.0,
+      "tau_decr": 2.0,
+      "change_rounds": [1]
+    }
+  }
+}
