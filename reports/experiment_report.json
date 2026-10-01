@@ -1,0 +1,193 @@
+{
+  "numpy_version": "2.5.3",
+  "fixtures": {
+    "high_dim_small_sample": {
+      "description": "14 observations and 22 dimensions to test rank and regularization.",
+      "shape": [
+        14,
+        22
+      ],
+      "robust_tyler": {
+        "status": "ok",
+        "rank": 22,
+        "invertible": true,
+        "iterations_from_steps": 73,
+        "shrinkage": 0.25,
+        "min_eigenvalue": 0.011199524345184063,
+        "max_eigenvalue": 0.71599004454458,
+        "condition_number": 63.93039762018687,
+        "first_weight": 1.1326235220187935,
+        "trace": 3.0506686464710184
+      },
+      "statsmodels_standardized_reference": {
+        "shrinkage": 0.25,
+        "iterations": 115,
+        "min_eigenvalue": 0.16302051020764147,
+        "max_eigenvalue": 4.829023565218026,
+        "condition_number": 29.62218409859736,
+        "first_weight": 1.1326235104292437,
+        "trace": 22.0,
+        "frobenius_norm": 7.342840453288071
+      }
+    },
+    "collinear_columns": {
+      "description": "Exact linear column dependence makes the empirical covariance singular.",
+      "shape": [
+        24,
+        6
+      ],
+      "robust_tyler": {
+        "status": "ok",
+        "rank": 6,
+        "invertible": true,
+        "iterations_from_steps": 32,
+        "shrinkage": 0.25,
+        "min_eigenvalue": 0.08977916936506226,
+        "max_eigenvalue": 9.008165490452765,
+        "condition_number": 100.33692173986975,
+        "first_weight": 2.162771766008825,
+        "trace": 13.700572709914336
+      },
+      "statsmodels_standardized_reference": {
+        "shrinkage": 0.25,
+        "iterations": 48,
+        "min_eigenvalue": 0.18673399384594425,
+        "max_eigenvalue": 2.4027718935222557,
+        "condition_number": 12.86735127351555,
+        "first_weight": 2.1627717710084293,
+        "trace": 6.000000000000003,
+        "frobenius_norm": 3.1580590618805053
+      }
+    },
+    "strong_outliers": {
+      "description": "Three strongly radial or coordinatewise contaminated rows.",
+      "shape": [
+        30,
+        5
+      ],
+      "robust_tyler": {
+        "status": "ok",
+        "rank": 5,
+        "invertible": true,
+        "iterations_from_steps": 22,
+        "shrinkage": 0.25,
+        "min_eigenvalue": 0.5345109930154971,
+        "max_eigenvalue": 2.653141484748764,
+        "condition_number": 4.963679923177635,
+        "first_weight": 0.0034153988261242728,
+        "trace": 6.914122022727005
+      },
+      "statsmodels_standardized_reference": {
+        "shrinkage": 0.25,
+        "iterations": 32,
+        "min_eigenvalue": 0.5422654755265047,
+        "max_eigenvalue": 1.3841994579872032,
+        "condition_number": 2.5526232453637863,
+        "first_weight": 0.003415398825257987,
+        "trace": 4.999999999999998,
+        "frobenius_norm": 2.350629122999059
+      }
+    },
+    "rescaled_outliers": {
+      "description": "The outlier fixture with highly unequal fixed column scales.",
+      "shape": [
+        30,
+        5
+      ],
+      "robust_tyler": {
+        "status": "ok",
+        "rank": 5,
+        "invertible": true,
+        "iterations_from_steps": 22,
+        "shrinkage": 0.25,
+        "min_eigenvalue": 6.351366235751275e-05,
+        "max_eigenvalue": 1829733.1672201152,
+        "condition_number": 28808497247.73719,
+        "first_weight": 0.003415398826124272,
+        "trace": 1941276.2390143815
+      },
+      "statsmodels_standardized_reference": {
+        "shrinkage": 0.25,
+        "iterations": 32,
+        "min_eigenvalue": 0.542265475526504,
+        "max_eigenvalue": 1.3841994579872028,
+        "condition_number": 2.552623245363789,
+        "first_weight": 0.0034153988252579883,
+        "trace": 5.0,
+        "frobenius_norm": 2.3506291229990595
+      }
+    },
+    "ledoit_wolf_collinear": {
+      "description": "Non-robust shrinkage oracle on the collinear fixture.",
+      "shape": [
+        24,
+        6
+      ],
+      "production": {
+        "rank": 6,
+        "invertible": true,
+        "shrinkage": 1.0,
+        "min_eigenvalue": 0.2534824217802578,
+        "max_eigenvalue": 5.817282260588505,
+        "condition_number": 22.949450378975264
+      },
+      "independent_formula_reference": {
+        "shrinkage": 1.0,
+        "min_eigenvalue": 0.8063454877640569,
+        "max_eigenvalue": 0.8063454877640569,
+        "condition_number": 1.0,
+        "trace": 4.838072926584341,
+        "frobenius_norm": 1.9751350014175562
+      }
+    },
+    "missing_values": {
+      "description": "Three null cells for deterministic median-imputation checks.",
+      "status": "uncertain",
+      "missing_mask_count": 3,
+      "imputed_values": [
+        [
+          0.1336915684318878,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          0.6232276963189776,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          -0.06145856671955539
+        ]
+      ],
+      "uncertainties": [
+        {
+          "code": "SHRINKAGE_CLIPPED",
+          "message": "raw Ledoit-Wolf value 5.56144144929 was clipped to [0,1]",
+          "location": null
+        },
+        {
+          "code": "MISSING_IMPUTED",
+          "message": "3 entries were median-imputed; uncertainty from missingness is not included in covariance",
+          "location": null
+        }
+      ]
+    }
+  }
+}
