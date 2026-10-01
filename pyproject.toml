@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "constrained-qp-active-set"
+version = "1.0.0"
+description = "FastAPI active-set solver for positive-definite quadratic programs with linear constraints"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.141.1",
+  "numpy==2.5.3",
+  "scipy==1.18.1",
+  "pydantic==2.13.5",
+  "uvicorn==0.54.0",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest==9.1.1",
+  "httpx==0.28.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+
+[tool.setuptools.packages.find]
+include = ["app*"]

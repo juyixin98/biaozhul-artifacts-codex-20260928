@@ -1,0 +1,18 @@
+{
+  "request_id": "example-boundary-qp",
+  "objective": {
+    "quadratic": [[2.0, 0.0], [0.0, 2.0]],
+    "linear": [-2.0, -4.0]
+  },
+  "constraints": [
+    {"name": "sum_leq_1", "coefficients": [1.0, 1.0], "op": "<=", "rhs": 1.0},
+    {"name": "x_nonnegative", "coefficients": [1.0, 0.0], "op": ">=", "rhs": 0.0},
+    {"name": "y_nonnegative", "coefficients": [0.0, 1.0], "op": ">=", "rhs": 0.0}
+  ],
+  "tolerances": {
+    "primal_tol": 1e-9,
+    "dual_tol": 1e-9,
+    "complementarity_tol": 1e-9,
+    "rank_tol": 1e-11
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "request_id": "example-infeasible",
+  "objective": {
+    "quadratic": [[2.0, 0.0], [0.0, 2.0]],
+    "linear": [0.0, 0.0]
+  },
+  "constraints": [
+    {"name": "x_le_zero", "coefficients": [1.0, 0.0], "op": "<=", "rhs": 0.0},
+    {"name": "x_ge_one", "coefficients": [1.0, 0.0], "op": ">=", "rhs": 1.0}
+  ]
+}

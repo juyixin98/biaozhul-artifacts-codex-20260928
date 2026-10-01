@@ -1,0 +1,9 @@
+{
+  "request_id": "example-phase-one",
+  "n": 2,
+  "constraints": [
+    {"name": "sum_leq_1", "coefficients": [1.0, 1.0], "op": "<=", "rhs": 1.0},
+    {"name": "x_nonnegative", "coefficients": [1.0, 0.0], "op": ">=", "rhs": 0.0},
+    {"name": "y_nonnegative", "coefficients": [0.0, 1.0], "op": ">=", "rhs": 0.0}
+  ]
+}
