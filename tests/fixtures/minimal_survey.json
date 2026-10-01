@@ -1,0 +1,436 @@
+{
+  "dataset_id": "fixture-mar-60",
+  "request_id": "fixture-request-4242",
+  "seed": 4242,
+  "imputations": 4,
+  "burn_in": 5,
+  "confidence": 0.95,
+  "true_parameters": {
+    "intercept": 2.8,
+    "beta_q1": -0.35,
+    "beta_q2": 0.55,
+    "sigma": 0.75
+  },
+  "records": [
+    {
+      "record_id": "P0001",
+      "q1_screen_hours": 30.0,
+      "q2_sleep_hours": 8.394627737756721,
+      "satisfaction": 100.0,
+      "eligible": false
+    },
+    {
+      "record_id": "P0002",
+      "q1_screen_hours": 30.0,
+      "q2_sleep_hours": 7.410628441356303,
+      "satisfaction": 100.0,
+      "eligible": false
+    },
+    {
+      "record_id": "P0003",
+      "q1_screen_hours": 0.0,
+      "q2_sleep_hours": 0.0,
+      "satisfaction": 2.1632927828553288,
+      "eligible": true
+    },
+    {
+      "record_id": "P0004",
+      "q1_screen_hours": 2.0631032159101577,
+      "q2_sleep_hours": 7.496825357066558,
+      "satisfaction": 5.980344227137194,
+      "eligible": true
+    },
+    {
+      "record_id": "P0005",
+      "q1_screen_hours": 1.798776590356214,
+      "q2_sleep_hours": 7.487113239363995,
+      "satisfaction": 5.785971875911424,
+      "eligible": true
+    },
+    {
+      "record_id": "P0006",
+      "q1_screen_hours": 3.562805024423559,
+      "q2_sleep_hours": 8.937062641384525,
+      "satisfaction": 6.182850923789509,
+      "eligible": true
+    },
+    {
+      "record_id": "P0007",
+      "q1_screen_hours": 4.0480120293825,
+      "q2_sleep_hours": 7.707501306051156,
+      "satisfaction": 6.05150847861931,
+      "eligible": true
+    },
+    {
+      "record_id": "P0008",
+      "q1_screen_hours": 5.315271274254159,
+      "q2_sleep_hours": 6.545078086527515,
+      "satisfaction": 3.4649888909219024,
+      "eligible": true
+    },
+    {
+      "record_id": "P0009",
+      "q1_screen_hours": 4.191564146295406,
+      "q2_sleep_hours": 0.0,
+      "satisfaction": 2.621674323691056,
+      "eligible": true
+    },
+    {
+      "record_id": "P0010",
+      "q1_screen_hours": 3.7379563774821727,
+      "q2_sleep_hours": 5.015550383312347,
+      "satisfaction": 5.592455594068919,
+      "eligible": true
+    },
+    {
+      "record_id": "P0011",
+      "q1_screen_hours": 2.307556036837069,
+      "q2_sleep_hours": 6.729559818873808,
+      "satisfaction": 4.459064323431973,
+      "eligible": true
+    },
+    {
+      "record_id": "P0012",
+      "q1_screen_hours": 3.077281641134967,
+      "q2_sleep_hours": 7.901960981716927,
+      "satisfaction": 6.249067276513305,
+      "eligible": true
+    },
+    {
+      "record_id": "P0013",
+      "q1_screen_hours": 30.0,
+      "q2_sleep_hours": 6.775521232681157,
+      "satisfaction": 100.0,
+      "eligible": false
+    },
+    {
+      "record_id": "P0014",
+      "q1_screen_hours": 3.4382923909668253,
+      "q2_sleep_hours": 9.22878269211478,
+      "satisfaction": 7.1684092464454965,
+      "eligible": true
+    },
+    {
+      "record_id": "P0015",
+      "q1_screen_hours": 3.336592592636232,
+      "q2_sleep_hours": 6.951027566548897,
+      "satisfaction": 5.762411949026815,
+      "eligible": true
+    },
+    {
+      "record_id": "P0016",
+      "q1_screen_hours": 4.454073464079741,
+      "q2_sleep_hours": 7.382961448217617,
+      "satisfaction": 5.054255733357525,
+      "eligible": true
+    },
+    {
+      "record_id": "P0017",
+      "q1_screen_hours": 4.041351821293586,
+      "q2_sleep_hours": 9.982965298800218,
+      "satisfaction": 6.87637642633144,
+      "eligible": true
+    },
+    {
+      "record_id": "P0018",
+      "q1_screen_hours": 4.5213448356039825,
+      "q2_sleep_hours": 6.511446012686041,
+      "satisfaction": 4.742020537685251,
+      "eligible": true
+    },
+    {
+      "record_id": "P0019",
+      "q1_screen_hours": 30.0,
+      "q2_sleep_hours": 8.16095952921546,
+      "satisfaction": 100.0,
+      "eligible": false
+    },
+    {
+      "record_id": "P0020",
+      "q1_screen_hours": 3.7411007261115174,
+      "q2_sleep_hours": 6.990111727910287,
+      "satisfaction": 4.298383351877151,
+      "eligible": true
+    },
+    {
+      "record_id": "P0021",
+      "q1_screen_hours": 0.0,
+      "q2_sleep_hours": 6.874730621724276,
+      "satisfaction": 7.098229897344317,
+      "eligible": true
+    },
+    {
+      "record_id": "P0022",
+      "q1_screen_hours": 0.5397473931022088,
+      "q2_sleep_hours": 8.365004568711703,
+      "satisfaction": 7.172198875753083,
+      "eligible": true
+    },
+    {
+      "record_id": "P0023",
+      "q1_screen_hours": 2.7615122843701005,
+      "q2_sleep_hours": 8.147064716494706,
+      "satisfaction": 6.572742249311328,
+      "eligible": true
+    },
+    {
+      "record_id": "P0024",
+      "q1_screen_hours": 30.0,
+      "q2_sleep_hours": 6.735932011252556,
+      "satisfaction": 100.0,
+      "eligible": false
+    },
+    {
+      "record_id": "P0025",
+      "q1_screen_hours": 2.3869712974531883,
+      "q2_sleep_hours": 0.0,
+      "satisfaction": 2.842827452387361,
+      "eligible": true
+    },
+    {
+      "record_id": "P0026",
+      "q1_screen_hours": 1.5595385509783097,
+      "q2_sleep_hours": 6.450460599696899,
+      "satisfaction": 5.070608398180619,
+      "eligible": true
+    },
+    {
+      "record_id": "P0027",
+      "q1_screen_hours": 4.039237176543487,
+      "q2_sleep_hours": 8.266047882056675,
+      "satisfaction": 6.464917868798636,
+      "eligible": true
+    },
+    {
+      "record_id": "P0028",
+      "q1_screen_hours": 4.2723550942555715,
+      "q2_sleep_hours": 6.3713109669061785,
+      "satisfaction": 4.437370066851895,
+      "eligible": true
+    },
+    {
+      "record_id": "P0029",
+      "q1_screen_hours": 3.4078797887709547,
+      "q2_sleep_hours": 5.3344274989939695,
+      "satisfaction": 5.849090218919184,
+      "eligible": true
+    },
+    {
+      "record_id": "P0030",
+      "q1_screen_hours": 2.9663388665367574,
+      "q2_sleep_hours": 5.311535492077442,
+      "satisfaction": 4.458786983339093,
+      "eligible": true
+    },
+    {
+      "record_id": "P0031",
+      "q1_screen_hours": 2.7629971283549426,
+      "q2_sleep_hours": 5.856637818586089,
+      "satisfaction": 5.978009988577778,
+      "eligible": true
+    },
+    {
+      "record_id": "P0032",
+      "q1_screen_hours": 1.362616998520643,
+      "q2_sleep_hours": 7.441039108890036,
+      "satisfaction": 6.804640712599579,
+      "eligible": true
+    },
+    {
+      "record_id": "P0033",
+      "q1_screen_hours": 4.023675342165264,
+      "q2_sleep_hours": 7.0634728753436296,
+      "satisfaction": 5.48359362516837,
+      "eligible": true
+    },
+    {
+      "record_id": "P0034",
+      "q1_screen_hours": 3.883714046352836,
+      "q2_sleep_hours": 7.267278664470774,
+      "satisfaction": 5.622669306028982,
+      "eligible": true
+    },
+    {
+      "record_id": "P0035",
+      "q1_screen_hours": 3.0997573637272344,
+      "q2_sleep_hours": 7.260392033618504,
+      "satisfaction": 5.942897289665708,
+      "eligible": true
+    },
+    {
+      "record_id": "P0036",
+      "q1_screen_hours": 3.751701004573792,
+      "q2_sleep_hours": 6.091857356458969,
+      "satisfaction": 4.569439216601165,
+      "eligible": true
+    },
+    {
+      "record_id": "P0037",
+      "q1_screen_hours": 2.614126258857237,
+      "q2_sleep_hours": 6.393535575860769,
+      "satisfaction": 5.627328594000424,
+      "eligible": true
+    },
+    {
+      "record_id": "P0038",
+      "q1_screen_hours": 1.5418465656524964,
+      "q2_sleep_hours": 4.5567354542683685,
+      "satisfaction": 5.441478943745033,
+      "eligible": true
+    },
+    {
+      "record_id": "P0039",
+      "q1_screen_hours": 4.146630304341013,
+      "q2_sleep_hours": 5.842841295565844,
+      "satisfaction": 3.6594562608610364,
+      "eligible": true
+    },
+    {
+      "record_id": "P0040",
+      "q1_screen_hours": 2.247502485396975,
+      "q2_sleep_hours": 8.38456497046555,
+      "satisfaction": 7.1976228612150335,
+      "eligible": true
+    },
+    {
+      "record_id": "P0041",
+      "q1_screen_hours": 2.219641608010738,
+      "q2_sleep_hours": 6.633879059087717,
+      "satisfaction": 6.854661304696496,
+      "eligible": true
+    },
+    {
+      "record_id": "P0042",
+      "q1_screen_hours": 3.1893084132310356,
+      "q2_sleep_hours": 7.170079642017533,
+      "satisfaction": 6.665488510692162,
+      "eligible": true
+    },
+    {
+      "record_id": "P0043",
+      "q1_screen_hours": 4.220362773077051,
+      "q2_sleep_hours": 6.966776789305648,
+      "satisfaction": 5.8349961705197115,
+      "eligible": true
+    },
+    {
+      "record_id": "P0044",
+      "q1_screen_hours": 4.701698947703459,
+      "q2_sleep_hours": 5.9514479796157875,
+      "satisfaction": 3.6447963683341227,
+      "eligible": true
+    },
+    {
+      "record_id": "P0045",
+      "q1_screen_hours": 5.832110296901436,
+      "q2_sleep_hours": 7.601997887021449,
+      "satisfaction": 4.7746573903900345,
+      "eligible": true
+    },
+    {
+      "record_id": "P0046",
+      "q1_screen_hours": 1.3671182563948463,
+      "q2_sleep_hours": 7.372356269874252,
+      "satisfaction": 6.902958670183759,
+      "eligible": true
+    },
+    {
+      "record_id": "P0047",
+      "q1_screen_hours": 1.3952558065733296,
+      "q2_sleep_hours": 6.453888915163154,
+      "satisfaction": 6.99706502261125,
+      "eligible": true
+    },
+    {
+      "record_id": "P0048",
+      "q1_screen_hours": 4.246103312394293,
+      "q2_sleep_hours": 7.490313456042606,
+      "satisfaction": 5.8798254420581175,
+      "eligible": true
+    },
+    {
+      "record_id": "P0049",
+      "q1_screen_hours": 1.3042112954430414,
+      "q2_sleep_hours": 7.043848005776782,
+      "satisfaction": 6.050525250344149,
+      "eligible": true
+    },
+    {
+      "record_id": "P0050",
+      "q1_screen_hours": 5.2719219671404325,
+      "q2_sleep_hours": 7.519372754439612,
+      "satisfaction": 5.446871799691147,
+      "eligible": true
+    },
+    {
+      "record_id": "P0051",
+      "q1_screen_hours": 5.104959744831271,
+      "q2_sleep_hours": 6.127168459869833,
+      "satisfaction": 4.077569391882791,
+      "eligible": true
+    },
+    {
+      "record_id": "P0052",
+      "q1_screen_hours": 3.4285152409339923,
+      "q2_sleep_hours": 5.708483198271191,
+      "satisfaction": 4.798992475387749,
+      "eligible": true
+    },
+    {
+      "record_id": "P0053",
+      "q1_screen_hours": 30.0,
+      "q2_sleep_hours": 7.677088842721288,
+      "satisfaction": 100.0,
+      "eligible": false
+    },
+    {
+      "record_id": "P0054",
+      "q1_screen_hours": 3.4360471546366393,
+      "q2_sleep_hours": 7.651046552130259,
+      "satisfaction": 6.696842986326158,
+      "eligible": true
+    },
+    {
+      "record_id": "P0055",
+      "q1_screen_hours": 0.0,
+      "q2_sleep_hours": 8.591541493520271,
+      "satisfaction": 6.360661381281841,
+      "eligible": true
+    },
+    {
+      "record_id": "P0056",
+      "q1_screen_hours": 3.8837682118470838,
+      "q2_sleep_hours": 6.818596517829132,
+      "satisfaction": 5.768238008628362,
+      "eligible": true
+    },
+    {
+      "record_id": "P0057",
+      "q1_screen_hours": 3.853058653785115,
+      "q2_sleep_hours": 8.135342351374241,
+      "satisfaction": 5.507693478554296,
+      "eligible": true
+    },
+    {
+      "record_id": "P0058",
+      "q1_screen_hours": 2.5358479782145027,
+      "q2_sleep_hours": 5.774617711498868,
+      "satisfaction": 6.008811254382261,
+      "eligible": true
+    },
+    {
+      "record_id": "P0059",
+      "q1_screen_hours": 30.0,
+      "q2_sleep_hours": 7.667139399315048,
+      "satisfaction": 100.0,
+      "eligible": false
+    },
+    {
+      "record_id": "P0060",
+      "q1_screen_hours": 3.4944037038353946,
+      "q2_sleep_hours": 6.882479056327422,
+      "satisfaction": 6.137166560871722,
+      "eligible": true
+    }
+  ]
+}

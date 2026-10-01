@@ -1,0 +1,73 @@
+{
+  "dataset_id": "handwritten-minimal-sample",
+  "request_id": "example-request-001",
+  "seed": 31337,
+  "imputations": 4,
+  "burn_in": 5,
+  "confidence": 0.95,
+  "records": [
+    {
+      "record_id": "R001",
+      "q1_screen_hours": 2.5,
+      "q2_sleep_hours": 7.2,
+      "satisfaction": 5.8,
+      "eligible": true
+    },
+    {
+      "record_id": "R002",
+      "q1_screen_hours": 0.0,
+      "q2_sleep_hours": 8.1,
+      "satisfaction": 6.6,
+      "eligible": true
+    },
+    {
+      "record_id": "R003",
+      "q1_screen_hours": null,
+      "q2_sleep_hours": 6.5,
+      "satisfaction": 5.1,
+      "eligible": true
+    },
+    {
+      "record_id": "R004",
+      "q1_screen_hours": 4.0,
+      "q2_sleep_hours": null,
+      "satisfaction": 4.7,
+      "eligible": true
+    },
+    {
+      "record_id": "R005",
+      "q1_screen_hours": 3.3,
+      "q2_sleep_hours": 7.0,
+      "satisfaction": 5.5,
+      "eligible": true
+    },
+    {
+      "record_id": "R006",
+      "q1_screen_hours": 1.5,
+      "q2_sleep_hours": 7.8,
+      "satisfaction": 6.1,
+      "eligible": true
+    },
+    {
+      "record_id": "R007",
+      "q1_screen_hours": 3.8,
+      "q2_sleep_hours": 6.2,
+      "satisfaction": 4.9,
+      "eligible": true
+    },
+    {
+      "record_id": "R008",
+      "q1_screen_hours": 2.0,
+      "q2_sleep_hours": 7.5,
+      "satisfaction": 6.0,
+      "eligible": true
+    },
+    {
+      "record_id": "X900",
+      "q1_screen_hours": 30.0,
+      "q2_sleep_hours": 0.0,
+      "satisfaction": 100.0,
+      "eligible": false
+    }
+  ]
+}
