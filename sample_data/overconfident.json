@@ -1,0 +1,26 @@
+{
+  "name": "overconfident",
+  "description": "Forecasts hug 0 and 1 while only one of four outcomes is positive.",
+  "method": "fixed",
+  "edges": [0.0, 0.5, 1.0],
+  "samples": {
+    "y": [0, 0, 1, 0],
+    "p": [0.1, 0.1, 0.9, 0.9],
+    "w": [1, 1, 1, 1]
+  },
+  "expected": {
+    "total_weight": 4.0,
+    "effective_sample_size": 4.0,
+    "occupied_bins": 2,
+    "empty_bins": 0,
+    "base_rate": 0.25,
+    "mean_prediction": 0.5,
+    "raw_brier": 0.26,
+    "binned_brier": 0.25,
+    "reliability": 0.125,
+    "resolution": 0.125,
+    "uncertainty": 0.1875,
+    "decomposition_residual": 0.01,
+    "identity_residual": 0.0
+  }
+}

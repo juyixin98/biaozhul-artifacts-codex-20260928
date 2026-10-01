@@ -1,0 +1,26 @@
+{
+  "name": "perfect_calibration",
+  "description": "Each occupied fixed bin has mean forecast equal to observed rate.",
+  "method": "fixed",
+  "edges": [0.0, 0.5, 1.0],
+  "samples": {
+    "y": [0, 0, 1, 0, 0, 1, 1, 1],
+    "p": [0.25, 0.25, 0.25, 0.25, 0.5, 0.5, 0.5, 0.5],
+    "w": [1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  "expected": {
+    "total_weight": 8.0,
+    "effective_sample_size": 8.0,
+    "occupied_bins": 2,
+    "empty_bins": 0,
+    "base_rate": 0.375,
+    "mean_prediction": 0.375,
+    "raw_brier": 0.21875,
+    "binned_brier": 0.21875,
+    "reliability": 0.0,
+    "resolution": 0.015625,
+    "uncertainty": 0.234375,
+    "decomposition_residual": 0.0,
+    "identity_residual": 0.0
+  }
+}

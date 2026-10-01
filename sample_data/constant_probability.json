@@ -1,0 +1,26 @@
+{
+  "name": "constant_probability",
+  "description": "Every forecast is 0.3 with a 0.7 observed rate; single occupied fixed bin.",
+  "method": "fixed",
+  "edges": [0.0, 0.5, 1.0],
+  "samples": {
+    "y": [0, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+    "p": [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3],
+    "w": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  "expected": {
+    "total_weight": 10.0,
+    "effective_sample_size": 10.0,
+    "occupied_bins": 1,
+    "empty_bins": 1,
+    "base_rate": 0.7,
+    "mean_prediction": 0.3,
+    "raw_brier": 0.29,
+    "binned_brier": 0.29,
+    "reliability": 0.16,
+    "resolution": 0.0,
+    "uncertainty": 0.21,
+    "decomposition_residual": 0.0,
+    "identity_residual": 0.0
+  }
+}

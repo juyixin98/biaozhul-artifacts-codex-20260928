@@ -1,0 +1,19 @@
+{
+  "name": "quantile_ties",
+  "description": "Equal-frequency cuts cannot split the two observations tied at 0.2.",
+  "method": "quantile",
+  "n_bins": 2,
+  "samples": {
+    "y": [0, 1, 0, 1],
+    "p": [0.2, 0.2, 0.8, 0.8],
+    "w": [1, 1, 1, 1]
+  },
+  "expected": {
+    "edges": [0.0, 0.5, 1.0],
+    "total_weight": 4.0,
+    "occupied_bins": 2,
+    "empty_bins": 0,
+    "raw_brier": 0.13,
+    "base_rate": 0.5
+  }
+}

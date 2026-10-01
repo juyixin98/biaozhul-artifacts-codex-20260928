@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "probability-calibration-lab"
+version = "0.1.0"
+description = "Weighted probability calibration analysis with fixed and equal-frequency bins"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "pydantic",
+  "numpy",
+  "scipy",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "httpx"]
+
+[tool.setuptools.packages.find]
+include = ["app*", "core*", "experiment*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"

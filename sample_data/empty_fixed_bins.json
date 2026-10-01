@@ -1,0 +1,19 @@
+{
+  "name": "empty_fixed_bins",
+  "description": "Only one occupied interval; all other requested fixed bins remain listed as empty.",
+  "method": "fixed",
+  "n_bins": 10,
+  "samples": {
+    "y": [0, 1, 1],
+    "p": [0.15, 0.15, 0.15],
+    "w": [1, 1, 1]
+  },
+  "expected": {
+    "occupied_bins": 1,
+    "empty_bins": 9,
+    "total_weight": 3.0,
+    "sum_weight_fractions": 1.0,
+    "base_rate": 0.666666666666667,
+    "raw_brier": 0.435
+  }
+}

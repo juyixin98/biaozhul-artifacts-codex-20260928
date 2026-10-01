@@ -1,0 +1,27 @@
+{
+  "name": "extreme_weights",
+  "description": "Two almost-dominant large weights and one tiny weight, with zero-weight rows included in counts.",
+  "method": "fixed",
+  "edges": [0.0, 0.5, 1.0],
+  "samples": {
+    "y": [0, 0, 1, 1],
+    "p": [0.01, 0.02, 0.99, 0.99],
+    "w": [100.0, 100.0, 1.0, 0.0]
+  },
+  "expected": {
+    "total_weight": 201.0,
+    "effective_sample_size": 2.0199490076495,
+    "occupied_bins": 2,
+    "empty_bins": 0,
+    "zero_weight_count": 1,
+    "base_rate": 0.00497512437810945,
+    "mean_prediction": 0.0198507462686567,
+    "raw_brier": 0.00278606965174129,
+    "binned_brier": 0.00548990648716863,
+    "reliability": 0.00022173198658865,
+    "resolution": 0.00246279794803941,
+    "uncertainty": 0.00495037202012227,
+    "decomposition_residual": -0.00270383683542734,
+    "identity_residual": 0.0
+  }
+}
