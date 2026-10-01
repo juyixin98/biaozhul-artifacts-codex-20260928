@@ -1,0 +1,40 @@
+{
+  "manifest": {
+    "schema_version": "specbatch/manifest/v1",
+    "job_id": "case-normal-001",
+    "kernel": "synthetic-double",
+    "kernel_version": "v1.0.0",
+    "protocol_version": "specbatch/v1",
+    "max_attempts_per_shard": 2,
+    "max_speculative_copies": 2,
+    "spec_after_ms": 200,
+    "shards": [
+      {
+        "id": "shard-alpha",
+        "records": [
+          {"id": "alpha-1", "value": 10},
+          {"id": "alpha-2", "value": 21}
+        ],
+        "behavior": {
+          "1_delay_ms": 600,
+          "2_delay_ms": 40,
+          "3_delay_ms": 30
+        },
+        "fail_kinds": []
+      },
+      {
+        "id": "shard-beta",
+        "records": [
+          {"id": "beta-1", "value": 7}
+        ],
+        "behavior": {
+          "1_delay_ms": 420,
+          "2_delay_ms": 35,
+          "2_fail": 1,
+          "3_delay_ms": 35
+        },
+        "fail_kinds": []
+      }
+    ]
+  }
+}

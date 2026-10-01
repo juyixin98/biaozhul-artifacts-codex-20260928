@@ -1,0 +1,25 @@
+{
+  "manifest": {
+    "schema_version": "specbatch/manifest/v1",
+    "job_id": "case-restart-001",
+    "kernel": "synthetic-double",
+    "kernel_version": "v1.0.0",
+    "protocol_version": "specbatch/v1",
+    "max_attempts_per_shard": 3,
+    "max_speculative_copies": 2,
+    "spec_after_ms": 250,
+    "shards": [
+      {
+        "id": "shard-restart",
+        "records": [
+          {"id": "restart-1", "value": 13}
+        ],
+        "behavior": {
+          "1_delay_ms": 900,
+          "3_delay_ms": 40
+        },
+        "fail_kinds": []
+      }
+    ]
+  }
+}

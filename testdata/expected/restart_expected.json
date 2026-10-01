@@ -1,0 +1,8 @@
+{
+  "schema_version": "specbatch/merge/v1",
+  "job_id": "case-restart-001",
+  "record_count": 1,
+  "records": [
+    {"shard_id": "shard-restart", "id": "restart-1", "value": 26}
+  ]
+}

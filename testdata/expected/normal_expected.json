@@ -1,0 +1,10 @@
+{
+  "schema_version": "specbatch/merge/v1",
+  "job_id": "case-normal-001",
+  "record_count": 3,
+  "records": [
+    {"shard_id": "shard-alpha", "id": "alpha-1", "value": 20},
+    {"shard_id": "shard-alpha", "id": "alpha-2", "value": 42},
+    {"shard_id": "shard-beta", "id": "beta-1", "value": 14}
+  ]
+}
