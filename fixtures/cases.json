@@ -1,0 +1,94 @@
+[
+  {
+    "id": "bottleneck_parallel_zero",
+    "description": "Shared bottleneck, a parallel edge, and a zero edge.",
+    "network": {
+      "node_count": 4,
+      "source": 0,
+      "sink": 3,
+      "edges": [
+        {"from": 0, "to": 1, "capacity": 10},
+        {"from": 0, "to": 2, "capacity": 9},
+        {"from": 1, "to": 3, "capacity": 7},
+        {"from": 2, "to": 3, "capacity": 8},
+        {"from": 1, "to": 2, "capacity": 0},
+        {"from": 1, "to": 2, "capacity": 3}
+      ]
+    },
+    "expected": {
+      "flow_value": 15,
+      "source_side": [0, 1, 2],
+      "sink_side": [3],
+      "edge_flows": [7, 8, 7, 8, 0, 3]
+    }
+  },
+  {
+    "id": "reverse_reroute",
+    "description": "Dinic reaches the sink through node 2 first, then must undo that flow and send it from node 1.",
+    "network": {
+      "node_count": 4,
+      "source": 0,
+      "sink": 3,
+      "edges": [
+        {"from": 0, "to": 2, "capacity": 5},
+        {"from": 0, "to": 1, "capacity": 10},
+        {"from": 2, "to": 1, "capacity": 5},
+        {"from": 2, "to": 3, "capacity": 5},
+        {"from": 1, "to": 3, "capacity": 10}
+      ]
+    },
+    "expected": {
+      "flow_value": 15,
+      "source_side": [0, 1, 2],
+      "sink_side": [3],
+      "edge_flows": [5, 10, 0, 5, 10]
+    },
+    "expected_reverse_event": {
+      "original_edge": 2,
+      "from": 1,
+      "to": 2
+    }
+  },
+  {
+    "id": "disconnected_zero_self_loop",
+    "description": "No source-to-sink path; zero-capacity edges and a self-loop are legal.",
+    "network": {
+      "node_count": 4,
+      "source": 0,
+      "sink": 3,
+      "edges": [
+        {"from": 0, "to": 1, "capacity": 0},
+        {"from": 1, "to": 1, "capacity": 5},
+        {"from": 2, "to": 3, "capacity": 10}
+      ]
+    },
+    "expected": {
+      "flow_value": 0,
+      "source_side": [0],
+      "sink_side": [1, 2, 3],
+      "edge_flows": [0, 0, 0]
+    }
+  },
+  {
+    "id": "large_capacity_parallel",
+    "description": "Parallel incoming edges and one outgoing bottleneck; one input edge uses u64::MAX.",
+    "network": {
+      "node_count": 4,
+      "source": 0,
+      "sink": 3,
+      "edges": [
+        {"from": 0, "to": 1, "capacity": 18446744073709551615},
+        {"from": 0, "to": 1, "capacity": 0},
+        {"from": 0, "to": 1, "capacity": 2},
+        {"from": 1, "to": 2, "capacity": 5},
+        {"from": 2, "to": 3, "capacity": 5}
+      ]
+    },
+    "expected": {
+      "flow_value": 5,
+      "source_side": [0, 1, 2],
+      "sink_side": [3],
+      "edge_flows": [5, 0, 0, 5, 5]
+    }
+  }
+]

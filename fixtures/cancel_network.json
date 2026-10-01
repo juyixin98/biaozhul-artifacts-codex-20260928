@@ -1,0 +1,23 @@
+{
+  "id": "cancel_after_two_augmentations",
+  "description": "Two independent capacity-2 paths before a third capacity-1 path.",
+  "network": {
+    "node_count": 6,
+    "source": 0,
+    "sink": 5,
+    "edges": [
+      {"from": 0, "to": 1, "capacity": 2},
+      {"from": 0, "to": 2, "capacity": 2},
+      {"from": 0, "to": 3, "capacity": 1},
+      {"from": 1, "to": 4, "capacity": 2},
+      {"from": 2, "to": 4, "capacity": 2},
+      {"from": 3, "to": 4, "capacity": 1},
+      {"from": 4, "to": 5, "capacity": 5}
+    ]
+  },
+  "limits": {"max_augmentations": 2},
+  "expected_partial": {
+    "flow_value": 4,
+    "edge_flows": [2, 2, 0, 2, 2, 0, 4]
+  }
+}
