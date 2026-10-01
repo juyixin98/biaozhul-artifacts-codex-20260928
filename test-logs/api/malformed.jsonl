@@ -1,0 +1,2 @@
+{"endpoint":"/api/chordality/analyze","error_code":"invalid_json","error_kind":"InputError","message":"request body is not valid JSON: key must be a string at line 1 column 2","run_id":"run-1790825152995417929-6","status":"error","timestamp":"unix:1790825152"}
+{"endpoint":"/api/chordality/analyze","error_code":"invalid_json","error_kind":"InputError","message":"request body is not valid JSON: key must be a string at line 1 column 2","run_id":"run-1790825179583488146-6","status":"error","timestamp":"unix:1790825179"}
