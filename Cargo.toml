@@ -1,0 +1,20 @@
+[package]
+name = "msf-service"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "=0.7.9", features = ["macros"] }
+serde = { version = "=1.0.215", features = ["derive"] }
+serde_json = "=1.0.133"
+tokio = { version = "=1.41.1", features = ["full"] }
+tower = { version = "=0.5.2", features = ["util"] }
+tower-http = { version = "=0.5.2", features = ["trace"] }
+tracing = "=0.1.41"
+tracing-subscriber = { version = "=0.3.19", features = ["env-filter", "json"] }
+
+[dev-dependencies]
+tower = { version = "=0.5.2", features = ["util"] }
+
+[lints.rust]
+missing_docs = "warn"
