@@ -1,0 +1,10 @@
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = [
+  "--log-file=logs/pytest.log",
+  "--log-file-level=DEBUG",
+  "--log-format=%(asctime)s %(levelname)s %(name)s %(message)s",
+]
+log_cli = false
+log_level = "DEBUG"

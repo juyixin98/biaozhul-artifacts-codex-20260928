@@ -1,0 +1,28 @@
+05:51:34 DEBUG asyncio Using selector: EpollSelector
+05:51:34 INFO httpx HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+05:51:34 DEBUG asyncio Using selector: EpollSelector
+05:51:34 INFO change_detection prefix_stats_ready
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection pruning_verification_start
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection dp_progress
+05:51:34 INFO change_detection pruning_verification_passed
+05:51:34 INFO httpx HTTP Request: POST http://testserver/api/v1/change-points/analyze "HTTP/1.1 500 Internal Server Error"
+05:51:34 DEBUG asyncio Using selector: EpollSelector
+05:51:34 DEBUG asyncio Using selector: EpollSelector
+05:51:34 WARNING change_detection run_failed
+05:51:34 INFO httpx HTTP Request: POST http://testserver/api/v1/change-points/analyze "HTTP/1.1 422 Unprocessable Entity"
+05:51:34 DEBUG asyncio Using selector: EpollSelector
+05:51:34 WARNING change_detection run_failed
+05:51:34 INFO httpx HTTP Request: POST http://testserver/api/v1/change-points/analyze "HTTP/1.1 500 Internal Server Error"
+05:51:34 DEBUG asyncio Using selector: EpollSelector
+05:51:34 INFO httpx HTTP Request: GET http://testserver/api/v1/runs/no-such-run "HTTP/1.1 404 Not Found"
