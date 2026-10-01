@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-09-30T09:48:05.240018+00:00",
+  "dependencies": {
+    "httpx": "0.28.1",
+    "numpy": "2.5.3",
+    "pytest": "9.1.1",
+    "scipy": "1.18.1"
+  },
+  "exitstatus": 0,
+  "judgement": "Exit status zero means every independent assertion passed; inspect events.jsonl for the intermediate state of each test.",
+  "platform": "Linux-6.8.0-90-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "replay_command": "pytest -q --run-id local-delivery",
+  "run_id": "local-delivery",
+  "source_sha256": {
+    "app/__init__.py": "077fcc2d5ebc6204402d264412c242d1dbae3f4269fc60e65127abd8995abb5a",
+    "app/api/__init__.py": "bef9ac0fbdb88dd69007b4adbc94e2071b6bee5909e29833ff76e091b022ddf6",
+    "app/api/dependencies.py": "22ab242a6c77671186688e5d815413ac0c84c07cedf6ac16aa6321af6578acc0",
+    "app/api/routes.py": "f89a65b6979f94f4c525f890938e7206bc775fcafe156c1bfd8aaf32b67b664d",
+    "app/config.py": "8b3d6d446976c2ea302eb76d8ff313beb9cd6c0eb44a291245cd120bc0250bd0",
+    "app/errors.py": "18ec7e906db34be8c01ef029ec9710a635ed0c7b77839224f63553d9f21406f7",
+    "app/main.py": "bf1f8362c2c2f5b27167863fd5ed2c6a54925ef307791dc10380e2bc0b930113",
+    "app/models/__init__.py": "3adf291cb5cce9ea9d9b17b349f236e29546fa2823eb1fc38cddf93f6ec1908f",
+    "app/models/contracts.py": "82b65ae8b2bcad31c8945a4b67c09ff393c9823e1a7e37098489ca4d4ff5219c",
+    "app/persistence/__init__.py": "07fd9854cb6ab0b4c04627aa9ba9ac34e017bba8a834d5e629789bf1169f42bf",
+    "app/persistence/repository.py": "e3ca0acfa893214f936dd20e3e5e749bd79ffd280a9ebe1cff827d7df15eaa29",
+    "app/services/__init__.py": "d1f12c030ab5d3e38d1e85d3d837b49a08575270714ff8b17f4f57925ccbff83",
+    "app/services/beta_service.py": "3a30cbd934ad1ace99aae512f5508e6e01d2f5937b4f467507285a5ea1ef8423",
+    "app/stats/__init__.py": "1a4ea00c25ed9247dcef7894cfac0182b501eb9a588d90d3cd7cf676d50edb54",
+    "app/stats/kernel.py": "6b47c87582122614305a7dfc87cf714b489f05216c8fefb441b7ce668de67e7e",
+    "experiments/__init__.py": "4635f6629141db08cf5f8763500f5ca64e6ecb010fc1a7bd1474af8b54000e85",
+    "experiments/oracle.py": "a99838ca1f9e712cb6b110fe1c156a39784ab863a92509aca565760493f8a144",
+    "experiments/run_experiment.py": "485d07ce251b73a7dc770a33d8b52e6bb0ede8cad8aa7edd38b8731ddbf3bbee",
+    "tests/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "tests/conftest.py": "ac7a2af56d32849ad2e28bff748f5f5cda0eaf0f23e0584f435bb00719fa7f07",
+    "tests/test_api.py": "4fbe3d39f102ea907d397057bebea053cba594b55560e0fded78307366f10e3c",
+    "tests/test_experiments.py": "2ac1c131510e4435e7b9d7ba5823021520a15fafa8e4d98d5d7822492098c4b5",
+    "tests/test_kernel.py": "3485fb1fc268bdccb45d06921b70647684e8c043f6481369f7ef4bb3b983756d",
+    "tests/test_persistence.py": "20d0d5e04ead30ce1d3ad3cd38cea33844fb1b30ccd59bf3fc2980380de29294",
+    "tests/test_service.py": "efc6a43ea93711d810ae122bdbabefcaed1002828d782a7752f11a4fcc1c76ae"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-09-30T09:48:19.459022+00:00",
+  "scenarios": [
+    {
+      "input": {
+        "failures": 1,
+        "predictive_trials": 2,
+        "prior_alpha": 1.0,
+        "prior_beta": 1.0,
+        "successes": 2
+      },
+      "judgement": "Probability mass must be finite, non-negative, and sum to one.",
+      "name": "hand_small_counts",
+      "posterior": {
+        "alpha": 3.0,
+        "beta": 2.0,
+        "mean": 0.6,
+        "variance": 0.04
+      },
+      "predictive": {
+        "all_finite": true,
+        "first_five": [
+          0.2,
+          0.39999999999999997,
+          0.39999999999999997
+        ],
+        "nonnegative": true,
+        "probability_sum": 1.0
+      }
+    },
+    {
+      "input": {
+        "failures": 0,
+        "predictive_trials": 20,
+        "prior_alpha": 1.0,
+        "prior_beta": 1.0,
+        "successes": 10000
+      },
+      "judgement": "Probability mass must be finite, non-negative, and sum to one.",
+      "name": "all_success",
+      "posterior": {
+        "alpha": 10001.0,
+        "beta": 1.0,
+        "mean": 0.9999000199960008,
+        "variance": 9.994002599020341e-09
+      },
+      "predictive": {
+        "all_finite": true,
+        "first_five": [
+          2.377623166390601e-62,
+          2.3778609287072336e-58,
+          1.189168250446503e-54,
+          3.9650833364054276e-51,
+          9.916673424349941e-48
+        ],
+        "nonnegative": true,
+        "probability_sum": 0.999999999999992
+      }
+    },
+    {
+      "input": {
+        "failures": 1000000000000,
+        "predictive_trials": 200,
+        "prior_alpha": 0.5,
+        "prior_beta": 0.5,
+        "successes": 1000000000000
+      },
+      "judgement": "Probability mass must be finite, non-negative, and sum to one.",
+      "name": "large_counts",
+      "posterior": {
+        "alpha": 1000000000000.5,
+        "beta": 1000000000000.5,
+        "mean": 0.5,
+        "variance": 1.24999999999875e-13
+      },
+      "predictive": {
+        "all_finite": true,
+        "first_five": [
+          6.22301533977968e-61,
+          1.244603067708263e-58,
+          1.2383800521257631e-56,
+          8.173308342436184e-55,
+          4.0253543578729183e-53
+        ],
+        "nonnegative": true,
+        "probability_sum": 0.9999999999999905
+      }
+    },
+    {
+      "input": {
+        "failures": 0,
+        "predictive_trials": 10,
+        "prior_alpha": 1e+100,
+        "prior_beta": 1.0,
+        "successes": 1000000
+      },
+      "judgement": "Probability mass must be finite, non-negative, and sum to one.",
+      "name": "extreme_prior",
+      "posterior": {
+        "alpha": 1e+100,
+        "beta": 1.0,
+        "mean": 1.0,
+        "variance": 1e-200
+      },
+      "predictive": {
+        "all_finite": true,
+        "first_five": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "nonnegative": true,
+        "probability_sum": 1.0
+      }
+    }
+  ]
+}
