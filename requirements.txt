@@ -1,0 +1,8 @@
+# Informational: all packages are expected to be preinstalled on the host.
+fastapi>=0.141
+uvicorn>=0.30
+pydantic>=2.13
+numpy>=2.0
+scipy>=1.14
+pytest>=8.0
+httpx>=0.27
