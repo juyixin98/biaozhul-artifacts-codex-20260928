@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+artifacts/replays/replay_run-2026*
+artifacts/replays/replay_run-replaydemo*
+artifacts/replays/replay_smoke*
+/tmp/
+*.egg-info/

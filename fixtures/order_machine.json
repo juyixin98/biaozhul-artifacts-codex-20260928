@@ -1,0 +1,29 @@
+{
+  "name": "order_lifecycle",
+  "initial_state": "draft",
+  "states": [
+    "draft",
+    "submitted",
+    "paid",
+    "delivered",
+    "closed",
+    "cancelled"
+  ],
+  "actions": [
+    "create",
+    "submit",
+    "approve",
+    "deliver",
+    "cancel",
+    "close"
+  ],
+  "terminal_states": ["closed", "cancelled"],
+  "transitions": [
+    {"action": "submit",  "from": "draft",     "to": "submitted"},
+    {"action": "cancel",  "from": "submitted", "to": "cancelled"},
+    {"action": "approve", "from": "submitted", "to": "paid"},
+    {"action": "cancel",  "from": "paid",      "to": "cancelled"},
+    {"action": "deliver", "from": "paid",      "to": "delivered"},
+    {"action": "close",   "from": "delivered", "to": "closed"}
+  ]
+}
