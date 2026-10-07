@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pav-calibration-backend"
+version = "1.0.0"
+description = "Order-preserving score-to-probability calibration backend"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi",
+  "numpy",
+  "pydantic",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "httpx", "scipy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
