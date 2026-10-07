@@ -1,0 +1,9 @@
+BEGIN config-v1
+name=demo
+mode=strict
+level=5
+debug=on
+retries=2
+password=hunter2
+note=hello
+END config-v1
