@@ -1,0 +1,12 @@
+{
+  "records": [
+    {"id": "m1", "kind": "mode", "value": 1},
+    {"id": "a1", "kind": "add", "value": 70},
+    {"id": "n1", "kind": "note", "text": "hello", "secret": "s3cr3t-token"},
+    {"id": "a2", "kind": "add", "value": 30},
+    {"id": "n2", "kind": "note", "text": "world"},
+    {"id": "a3", "kind": "add", "value": 10},
+    {"id": "n3", "kind": "note", "text": "padding"},
+    {"id": "a4", "kind": "add", "value": 5}
+  ]
+}

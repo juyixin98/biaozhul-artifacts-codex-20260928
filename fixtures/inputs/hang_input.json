@@ -1,0 +1,6 @@
+{
+  "records": [
+    {"id": "h1", "kind": "hang"},
+    {"id": "n1", "kind": "note", "text": "x"}
+  ]
+}

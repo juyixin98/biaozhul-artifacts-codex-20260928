@@ -1,0 +1,7 @@
+# All of these are preinstalled in the target environment; listed for
+# reference only (do not create a venv, do not reinstall).
+fastapi
+uvicorn
+pydantic
+httpx
+pytest
