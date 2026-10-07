@@ -1,0 +1,152 @@
+{
+  "name": "local_order_lifecycle",
+  "initial_state": "none",
+  "resource_id_placeholder": "resource_id",
+  "resource_id_field": "id",
+  "states": ["none", "draft", "submitted", "closed", "cancelled"],
+  "transitions": [
+    {
+      "name": "create_order",
+      "operation": "create_order",
+      "method": "POST",
+      "path": "/orders",
+      "body": {},
+      "allowed_states": ["none"],
+      "observation": "success",
+      "expected_status": 201,
+      "next_state": "draft"
+    },
+    {
+      "name": "submit_draft",
+      "operation": "submit_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/submit",
+      "body": {},
+      "allowed_states": ["draft"],
+      "observation": "success",
+      "expected_status": 200,
+      "next_state": "submitted"
+    },
+    {
+      "name": "close_submitted",
+      "operation": "close_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/close",
+      "body": {},
+      "allowed_states": ["submitted"],
+      "observation": "success",
+      "expected_status": 200,
+      "next_state": "closed"
+    },
+    {
+      "name": "cancel_draft",
+      "operation": "cancel_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/cancel",
+      "body": {},
+      "allowed_states": ["draft"],
+      "observation": "success",
+      "expected_status": 200,
+      "next_state": "cancelled"
+    },
+    {
+      "name": "cancel_submitted",
+      "operation": "cancel_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/cancel",
+      "body": {},
+      "allowed_states": ["submitted"],
+      "observation": "success",
+      "expected_status": 200,
+      "next_state": "cancelled"
+    },
+    {
+      "name": "reject_submit_submitted",
+      "operation": "submit_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/submit",
+      "body": {},
+      "allowed_states": ["submitted"],
+      "observation": "rejection",
+      "expected_status": 409,
+      "expected_error": "state_conflict"
+    },
+    {
+      "name": "reject_submit_closed",
+      "operation": "submit_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/submit",
+      "body": {},
+      "allowed_states": ["closed"],
+      "observation": "rejection",
+      "expected_status": 409,
+      "expected_error": "state_conflict"
+    },
+    {
+      "name": "reject_submit_cancelled",
+      "operation": "submit_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/submit",
+      "body": {},
+      "allowed_states": ["cancelled"],
+      "observation": "rejection",
+      "expected_status": 409,
+      "expected_error": "state_conflict"
+    },
+    {
+      "name": "reject_close_draft",
+      "operation": "close_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/close",
+      "body": {},
+      "allowed_states": ["draft"],
+      "observation": "rejection",
+      "expected_status": 409,
+      "expected_error": "state_conflict"
+    },
+    {
+      "name": "reject_close_closed",
+      "operation": "close_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/close",
+      "body": {},
+      "allowed_states": ["closed"],
+      "observation": "rejection",
+      "expected_status": 409,
+      "expected_error": "state_conflict"
+    },
+    {
+      "name": "reject_close_cancelled",
+      "operation": "close_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/close",
+      "body": {},
+      "allowed_states": ["cancelled"],
+      "observation": "rejection",
+      "expected_status": 409,
+      "expected_error": "state_conflict"
+    },
+    {
+      "name": "reject_cancel_closed",
+      "operation": "cancel_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/cancel",
+      "body": {},
+      "allowed_states": ["closed"],
+      "observation": "rejection",
+      "expected_status": 409,
+      "expected_error": "state_conflict"
+    },
+    {
+      "name": "reject_cancel_cancelled",
+      "operation": "cancel_order",
+      "method": "POST",
+      "path": "/orders/{resource_id}/cancel",
+      "body": {},
+      "allowed_states": ["cancelled"],
+      "observation": "rejection",
+      "expected_status": 409,
+      "expected_error": "state_conflict"
+    }
+  ]
+}

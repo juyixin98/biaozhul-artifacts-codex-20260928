@@ -1,0 +1,12 @@
+{
+  "model": {},
+  "base_url": "http://127.0.0.1:8101",
+  "scheduler": "targeted",
+  "seed": 342,
+  "target_transitions": [
+    "reject_close_closed",
+    "reject_close_draft",
+    "reject_submit_closed",
+    "reject_cancel_closed"
+  ]
+}
