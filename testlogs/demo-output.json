@@ -1,0 +1,58 @@
+{
+  "run_id": "demo-replay-001",
+  "seed": 20260401,
+  "vocab": [
+    "bank",
+    "forest",
+    "brook",
+    "bush",
+    "creek",
+    "fern",
+    "plant",
+    "river",
+    "stream",
+    "tree"
+  ],
+  "final_mean_loss": 1.8680683948416146,
+  "river_creek_similarity": 0.9595876039522941,
+  "river_neighbors": [
+    {
+      "token": "creek",
+      "similarity": 0.9595876039522941
+    },
+    {
+      "token": "stream",
+      "similarity": 0.9475924217318921
+    },
+    {
+      "token": "brook",
+      "similarity": 0.9463344432027877
+    }
+  ],
+  "synthetic_evaluation": {
+    "kind": "synthetic_cooccurrence_rank",
+    "pair_count": 2,
+    "mean_rank": 1.0,
+    "median_rank": 1.0,
+    "top1_rate": 1.0,
+    "top3_rate": 1.0,
+    "mean_reciprocal_rank": 1.0,
+    "results": [
+      {
+        "query": "river",
+        "expected": "creek",
+        "rank": 1,
+        "score": 0.9595876039522941
+      },
+      {
+        "query": "tree",
+        "expected": "bush",
+        "rank": 1,
+        "score": 0.9688068277433235
+      }
+    ],
+    "rank_convention": "1_based_among_other_tokens",
+    "interpretation": "Ranks measure local synthetic co-occurrence recovery. This is not a semantic understanding benchmark or downstream language test."
+  },
+  "note": "Synthetic co-occurrence ranking only; no semantic understanding claim."
+}
